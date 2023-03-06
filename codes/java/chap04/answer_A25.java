@@ -4,13 +4,13 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力（配列 c は 0 番目から始まることに注意！）
+		// 입력(배열 c는 0번째부터 시작하는 점에 주의!)
 		int H = sc.nextInt();
 		int W = sc.nextInt();
 		String[] c = new String[H];
 		for (int i = 0; i < H; i++) c[i] = sc.next();
 
-		// 動的計画法
+		// 동적 계획법
 		long[][] dp = new long[H][W];
 		for (int i = 0; i < H; i++) {
 			for (int j = 0; j < W; j++) {
@@ -25,7 +25,7 @@ class Main {
 			}
 		}
 
-		// 出力
+		// 출력
 		System.out.println(dp[H-1][W-1]);
 	}
 };

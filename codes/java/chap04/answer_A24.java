@@ -4,31 +4,31 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		int N = sc.nextInt();
 		int[] A = new int[N + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextInt();
 
-		// 配列などの定義
-		int LEN = 0; // LEN は L の長さ（例：L[4] まで書き込まれている場合 LEN=4）
+		// 배열 등의 정의
+		int LEN = 0; // LEN은 L의 길이(예: L[4]까지 쓰여 있는 경우 LEN=4)
 		ArrayList<Integer> L = new ArrayList<Integer>();
 
-		// 動的計画法（配列 dp を使わない実装）
+		// 동적 계획법(배열 dp를 사용하지 않는 구현)
 		for (int i = 1; i <= N; i++) {
 			int pos = ~Collections.binarySearch(L, A[i], (x, y) -> x.compareTo(y) >= 0 ? 1 : -1);
 
-			// L の最大値より A[i] の方が大きかった場合
+			// L의 최댓값 보다 A[i] 쪽이 큰 경우
 			if (pos >= LEN) {
 				LEN += 1;
 				L.add(A[i]);
 			}
-			// そうでない場合
+			// 그렇지 않은 경우
 			else {
 				L.set(pos, A[i]);
 			}
 		}
 
-		// 答えを出力
+		// 답을 출력
 		System.out.println(LEN);
 	}
 };

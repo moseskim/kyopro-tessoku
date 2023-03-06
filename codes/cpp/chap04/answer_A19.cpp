@@ -6,14 +6,14 @@ long long N, W, w[109], v[109];
 long long dp[109][100009];
 
 int main() {
-	// 入力・配列の初期化
+	// 입력, 배열 초기화
 	cin >> N >> W;
 	for (int i = 1; i <= N; i++) cin >> w[i] >> v[i];
 	for (int i = 0; i <= N; i++) {
 		for (int j = 0; j <= W; j++) dp[i][j] = -1'000'000'000'000'000LL;
 	}
 
-	// 動的計画法
+	// 동적 계획법
 	dp[0][0] = 0;
 	for (int i = 1; i <= N; i++) {
 		for (int j = 0; j <= W; j++) {
@@ -22,7 +22,7 @@ int main() {
 		}
 	}
 
-	// 答えの出力
+	// 답 출력
 	long long Answer = 0;
 	for (int i = 0; i <= W; i++) Answer = max(Answer, dp[N][i]);
 	cout << Answer << endl;

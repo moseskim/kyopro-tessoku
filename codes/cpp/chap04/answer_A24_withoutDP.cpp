@@ -1,5 +1,5 @@
 // ###########################
-// # 配列 dp を使わない実装
+// # 배열 dp를 사용하지 않는 구현
 // ###########################
 
 #include <iostream>
@@ -10,18 +10,18 @@ int N, A[100009];
 int LEN = 0, L[100009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
-	// 動的計画法
+	// 동적 계획법
 	for (int i = 1; i <= N; i++) {
 		int pos = lower_bound(L + 1, L + LEN + 1, A[i]) - L;
 		L[pos] = A[i];
 		if (pos > LEN) LEN += 1;
 	}
 
-	// 答えを出力
+	// 답을 출력
 	cout << LEN << endl;
 	return 0;
 }

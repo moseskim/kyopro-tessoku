@@ -1,10 +1,10 @@
-# 入力
+# 입력
 S = input()
 T = input()
 N = len(S)
 M = len(T)
 
-# 動的計画法
+# 동적 계획법
 dp = [ [ None ] * (M + 1) for i in range(N + 1) ]
 dp[0][0] = 0
 for i in range(0, N+1):
@@ -18,5 +18,5 @@ for i in range(0, N+1):
 		elif j>=1:
 			dp[i][j] = dp[i][j-1]
 
-# 出力
+# 출력
 print(dp[N][M])

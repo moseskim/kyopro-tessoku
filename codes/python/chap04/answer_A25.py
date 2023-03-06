@@ -1,10 +1,10 @@
-# 入力（配列 c が 0 番目から始まることに注意）
+# 입력(배열 c가 0번째부터 시작하는 점에 주의)
 H, W = map(int, input().split())
 c = [ None ] * H
 for i in range(H):
 	c[i] = input()
 
-# 動的計画法
+# 동적 계획법
 dp = [ [ 0 ] * (W + 1) for i in range(H + 1) ]
 for i in range(H):
 	for j in range(W):
@@ -17,5 +17,5 @@ for i in range(H):
 			if j>=1 and c[i][j-1]=='.':
 				dp[i][j] += dp[i][j-1]
 
-# 出力
+# 출력
 print(dp[H-1][W-1])

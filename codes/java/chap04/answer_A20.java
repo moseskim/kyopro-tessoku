@@ -4,14 +4,14 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力（文字列は 0 文字目から始まることに注意！）
+		// 입력(문자열은 0번째부터 시작하는 점에 주의!)
 		String S = sc.next(); int N = S.length();
 		String T = sc.next(); int M = T.length();
 
-		// 配列 dp の定義
+		// 배열 dp 정의
 		int[][] dp = new int[N + 1][M + 1];
 
-		// 動的計画法
+		// 동적 계획법
 		dp[0][0] = 0;
 		for (int i = 0; i <= N; i++) {
 			for (int j = 0; j <= M; j++) {
@@ -30,7 +30,7 @@ class Main {
 			}
 		}
 
-		// 出力
+		// 출력
 		System.out.println(dp[N][M]);
 	}
 };
