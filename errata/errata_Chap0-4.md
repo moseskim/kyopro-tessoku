@@ -46,11 +46,11 @@
 | p.126 | 4.5 節／上図 | (0, 0) | (0, 1) | - | 2 刷で修正 |
 | p.126 | 4.5 節／下図 | (0, 0) | (0, 1) | - | 2 刷で修正 |
 | p.127 | 4.5 節／上図 | (0, 0) | (0, 1) | - | 2 刷で修正 |
-| p.138 | 4.7 節／解答例 14 行目 | - | 配列の初期化ミス | [コード](https://github.com/E869120/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A22.cpp)は修正済 | 2 刷で修正 |
+| p.138 | 4.7 節／解答例 14 行目 | - | 配列の初期化ミス | [コード](https://github.com/moseskim/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A22.cpp)は修正済 | 2 刷で修正 |
 | p.138 | 4.7 節／応用問題 | 問題 B22 | 問題 A16 | -| 2 刷で修正 |
 | p.141 | 4.8 節／箇条書きの上から 2 番目 | max | min | - | 2 刷で修正 |
-| p.143 | 4.8 節／解答例 26 行目 | <code>for (int k = 1; k <= M; k++)</code> | <code>for (int k = 1; k <= N; k++)</code> | [コード](https://github.com/E869120/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A23.cpp)は修正済 | 2 刷で修正 |
-| p.143 | 4.8 節／解答例 27 行目 | <code>((j&(1<<(k-1)))</code> | <code>(j/(1<<(k-1)))%2</code> | [コード](https://github.com/E869120/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A23.cpp)は修正済 | 2 刷で修正 |
-| p.143 | 4.8 節／解答例 33 行目 | <code>for (int k = 1; k <= M; k++)</code> | <code>for (int k = 1; k <= N; k++)</code> | [コード](https://github.com/E869120/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A23.cpp)は修正済 | 2 刷で修正 |
-| p.143 | 4.8 節／解答例 46 行目 | - | 答えが -1 のときの場合分け忘れ | [コード](https://github.com/E869120/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A23.cpp)は修正済 | 2 刷で修正 |
+| p.143 | 4.8 節／解答例 26 行目 | <code>for (int k = 1; k <= M; k++)</code> | <code>for (int k = 1; k <= N; k++)</code> | [コード](https://github.com/moseskim/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A23.cpp)は修正済 | 2 刷で修正 |
+| p.143 | 4.8 節／解答例 27 行目 | <code>((j&(1<<(k-1)))</code> | <code>(j/(1<<(k-1)))%2</code> | [コード](https://github.com/moseskim/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A23.cpp)は修正済 | 2 刷で修正 |
+| p.143 | 4.8 節／解答例 33 行目 | <code>for (int k = 1; k <= M; k++)</code> | <code>for (int k = 1; k <= N; k++)</code> | [コード](https://github.com/moseskim/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A23.cpp)は修正済 | 2 刷で修正 |
+| p.143 | 4.8 節／解答例 46 行目 | - | 答えが -1 のときの場合分け忘れ | [コード](https://github.com/moseskim/kyopro-tessoku/blob/main/codes/cpp/chap04/answer_A23.cpp)は修正済 | 2 刷で修正 |
 | p.146 | 4.9 節／脚注 6 の位置 | 「O(N) かかりました」の後 | 「計算量を改善することができます」の後 | - | 2 刷で修正 |
