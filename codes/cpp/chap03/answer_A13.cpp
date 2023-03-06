@@ -5,23 +5,23 @@ int N, K;
 int A[100009], R[100009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
-	// しゃくとり法
+	// 자벌레 법
 	for (int i = 1; i <= N - 1; i++) {
-		// スタート地点を決める
+		// 시작 지점을 결정한다
 		if (i == 1) R[i] = 1;
 		else R[i] = R[i - 1];
 
-		// ギリギリまで増やしていく
+		// 한계까지 더해간다
 		while (R[i] < N && A[R[i] + 1] - A[i] <= K) {
 			R[i] += 1;
 		}
 	}
 
-	// 出力（答えは最大 50 億程度になるので long long 型を使う必要があります）
+	// 출력(답은 최대 50억 정도가 되므로 long long 타입을 사용해야 한다)
 	long long Answer = 0;
 	for (int i = 1; i <= N - 1; i++) Answer += (R[i] - i);
 	cout << Answer << endl;

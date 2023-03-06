@@ -4,7 +4,7 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		int N = sc.nextInt();
 		int K = sc.nextInt();
 		int[] A = new int[N + 1];
@@ -16,22 +16,22 @@ class Main {
 		for (int z = 1; z <= N; z++) C[z] = sc.nextInt();
 		for (int w = 1; w <= N; w++) D[w] = sc.nextInt();
 
-		// 配列 P を作成
+		// 배열 P 작성
 		ArrayList<Integer> P = new ArrayList<Integer>();
 		for (int x = 1; x <= N; x++) {
 			for (int y = 1; y <= N; y++) P.add(A[x] + B[y]);
 		}
 
-		// 配列 Q を作成
+		// 배열 Q 작성
 		ArrayList<Integer> Q = new ArrayList<Integer>();
 		for (int z = 1; z <= N; z++) {
 			for (int w = 1; w <= N; w++) Q.add(C[z] + D[w]);
 		}
 
-		// 配列 Q を小さい順にソート
+		// 배열 Q를 오름차순으로 정료ㅕㄹ
 		Collections.sort(Q);
 
-		// 二分探索（配列 P, Q が 0 番目から始まることに注意！）
+		// 바이너리 서치(ㅂ열 P, Q가 0번째부터 시작하는 것에 주의!)
 		for (int i = 0; i < N * N; i++) {
 			int pos1 = ~Collections.binarySearch(Q, K - P.get(i), (x, y) -> x.compareTo(y) >= 0 ? 1 : -1);
 			if (pos1 < N * N && Q.get(pos1) == K - P.get(i)) {
@@ -40,7 +40,7 @@ class Main {
 			}
 		}
 
-		// 見つからなかった場合
+		// 발견하지 못한 경우
 		System.out.println("No");
 	}
 };
