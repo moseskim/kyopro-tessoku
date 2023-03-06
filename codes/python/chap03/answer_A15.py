@@ -1,19 +1,19 @@
 import bisect
 
-# 入力
+# 입력
 N = int(input())
 A = list(map(int, input().split()))
 
-# 配列 T の作成（重複も消す）
+# 배열 T 작성(중복을 제거한다)
 T = list(set(A))
 T.sort()
 
-# 答えを求める
+# 답을 구한다
 B = [ None ] * N
 for i in range(N):
 	B[i] = bisect.bisect_left(T, A[i])
 	B[i] += 1
 
-# 答えを空白区切りで出力
+# 답을 공백으로 구분해서 출력한다
 Answer = [str(i) for i in B]
 print(" ".join(Answer))

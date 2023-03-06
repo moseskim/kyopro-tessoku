@@ -4,33 +4,33 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		N = sc.nextInt();
 		K = sc.nextInt();
 		A = new int[N + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextInt();
 
-		// 二分探索
-		// Left は探索範囲の左端を、Right は探索範囲の右端を表す
+		// 바이너리 서치
+		// Left는 탐색 범위의 왼쪽 끝, Right는 탐색 범위의 오른쪽 끝을 나타낸다
 		long Left = 1, Right = 1000000000;
 		while (Left < Right) {
 			long Mid = (Left + Right) / 2;
 			boolean Answer = check(Mid);
-			if (Answer == false) Left = Mid + 1; // 答えが Mid+1 以上であることが分かる
-			if (Answer == true) Right = Mid; // 答えが Mid 以下であることが分かる
+			if (Answer == false) Left = Mid + 1; // 답이 Mid+1 이상임을 알 수 있다
+			if (Answer == true) Right = Mid; // 답이 Mid 이하임을 알 수 있다
 		}
 
-		// 出力（このとき Left=Right になっている）
+		// 출력(이때, Left=Right가 된다)
 		System.out.println(Left);
 	}
 
 	static int N, K;
 	static int[] A;
 
-	// 答えが x 以下かを判定し、Yes であれば true、No であれば false を返す
+	// 답이 x 이하인지 판정하고 Yes라면 true, No라면 false를 반환한다
 	static boolean check(long x) {
 		long sum = 0;
-		for (int i = 1; i <= N; i++) sum += x / (long)A[i]; //「x ÷ A[i]」の小数点以下切り捨て
+		for (int i = 1; i <= N; i++) sum += x / (long)A[i]; // 'x ÷ A[i]'의 소수점 이하를 버린다
 		if (sum >= (long)K) return true;
 		return false;
 	}
