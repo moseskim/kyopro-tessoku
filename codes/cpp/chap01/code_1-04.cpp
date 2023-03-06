@@ -2,12 +2,12 @@
 using namespace std;
 
 int main() {
-	// 入力
+	// 입력
 	int N, K, A[22];
 	cin >> N >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
-	// 全探索（sum は書かれた整数の合計／ Answer は現時点での答え）
+  // 전탐색(sum은 적혀있는 정수의 합계/ Answer는 현 시점에서의 답)
 	bool Answer = false;
 	for (int i = 0; i < (1 << N); i++) {
 		int sum = 0;
@@ -18,7 +18,7 @@ int main() {
 		if (sum == K) Answer = true;
 	}
 
-	// 出力
+	// 출력
 	if (Answer == true) cout << "Yes" << endl;
 	else cout << "No" << endl;
 	return 0;

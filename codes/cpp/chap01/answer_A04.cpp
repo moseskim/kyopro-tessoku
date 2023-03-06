@@ -2,15 +2,15 @@
 using namespace std;
 
 int main() {
-	// 入力
+	// 입력
 	int N;
 	cin >> N;
 
-	// 上の桁から順番に「2 進法に変換した値」を求める
+	// 윗 자리부터 순서대로 '2진법으로 변환한 값'을 구한다
 	for (int x = 9; x >= 0; x--) {
-		int wari = (1 << x); // 2 の x 乗
-		cout << (N / wari) % 2; // 割り算の結果に応じて 0 または 1 を出力
+		int wari = (1 << x); // 2의 x제곱
+		cout << (N / wari) % 2; // 나눗셈의 결과에 대해 0 또는 1을 출력
 	}
-	cout << endl; // 最後に改行する
+	cout << endl; // 마지막에 줄바꿈한다
 	return 0;
 }
