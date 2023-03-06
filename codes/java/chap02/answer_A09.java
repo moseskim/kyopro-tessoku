@@ -4,7 +4,7 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		int H = sc.nextInt();
 		int W = sc.nextInt();
 		int N = sc.nextInt();
@@ -19,7 +19,7 @@ class Main {
 			D[i] = sc.nextInt();
 		}
 
-		// 各日について加算
+		// 각 날짜에 대해 더한다
 		int[][] X = new int[H + 2][W + 2];
 		int[][] Z = new int[H + 2][W + 2];
 		for (int t = 1; t <= N; t++) {
@@ -29,7 +29,7 @@ class Main {
 			X[C[t]+1][D[t]+1] += 1;
 		}
 
-		// 二次元累積和を求める
+		// 2차원 누적합을 구한다
 		for (int i = 0; i <= H; i++) {
 			for (int j = 0; j <= W; j++) Z[i][j] = 0;
 		}
@@ -40,7 +40,7 @@ class Main {
 			for (int i = 1; i <= H; i++) Z[i][j] = Z[i - 1][j] + Z[i][j];
 		}
 
-		// 出力
+		// 출력
 		for (int i = 1; i <= H; i++) {
 			for (int j = 1; j <= W; j++) {
 				if (j >= 2) System.out.print(" ");

@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 A = list(map(int, input().split()))
 D = int(input())
@@ -7,21 +7,21 @@ R = [ None ] * D
 for d in range(D):
 	L[d], R[d] = map(int, input().split())
 
-# P[i] を求める
-# P[0] などになっているのは、配列が 0 始まりであるため
+# P[i]를 구한다
+# P[0] 등으로 되어 있는 것은 배열이 0부터 시작하기 때문임
 P = [ None ] * N
 P[0] = A[0]
 for i in range(1, N):
 	P[i] = max(P[i-1], A[i])
 
-# Q[i] を求める
-# Q[N-1] などになっているのは、配列が 0 始まりであるため
+# Q[i]를 구한다
+# Q[N-1] 등으로 되어 있는 것은 배열이 0부터 시작하기 때문임
 Q = [ None ] * N
 Q[N-1] = A[N-1]
 for i in reversed(range(0,N-1)):
 	Q[i] = max(Q[i+1], A[i])
 
-# それぞれの日について答えを求める
-# (L[d]-1)-1 などになっているのは、配列が 0 始まりであるため
+# 각각의 날짜에 대해 답을 구한다
+# (L[d]-1)-1 등으로 되어 있는 것은 배열이 0부터 시작하기 때문임
 for d in range(D):
 	print(max(P[(L[d]-1)-1], Q[(R[d]+1)-1]))

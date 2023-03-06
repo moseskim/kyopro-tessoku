@@ -4,12 +4,12 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
  
-		// 入力（前半部分）
+		// 입력(전반 부분)
 		int N = sc.nextInt();
 		int[] A = new int[N + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextInt();
  
-		// 入力（後半部分）
+		// 입력(후반 부분)
 		int D = sc.nextInt();
 		int[] L = new int[D + 1];
 		int[] R = new int[D + 1];
@@ -18,17 +18,17 @@ class Main {
 			R[d] = sc.nextInt();
 		}
  
-		// P[i] を求める
+		// P[i]를 구한다
 		int[] P = new int[N + 1];
 		P[1] = A[1];
 		for (int i = 2; i <= N; i++) P[i] = Math.max(P[i - 1], A[i]);
  
-		// Q[i] を求める
+		// Q[i]를 구한다
 		int[] Q = new int[N + 1];
 		Q[N] = A[N];
 		for (int i = N - 1; i >= 1; i--) Q[i] = Math.max(Q[i + 1], A[i]);
  
-		// それぞれの日について答えを求める
+		// 각 날짜에 대해 답을 구한다
 		for (int d = 1; d <= D; d++) {
 			System.out.println(Math.max(P[L[d]-1], Q[R[d]+1]));
 		}
