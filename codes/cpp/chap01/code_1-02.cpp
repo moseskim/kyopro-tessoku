@@ -2,11 +2,11 @@
 using namespace std;
 
 int main() {
-	// 入力
+	// 입력
 	int N, K, Answer = 0;
 	cin >> N >> K;
 
-	// 全探索
+	// 전탐색
 	for (int x = 1; x <= N; x++) {
 		for (int y = 1; y <= N; y++) {
 			for (int z = 1; z <= N; z++) {
@@ -15,7 +15,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	cout << Answer << endl;
 	return 0;
 }
