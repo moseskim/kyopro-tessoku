@@ -5,9 +5,9 @@ class Main {
 		Scanner sc = new Scanner(System.in);
 
 		long N = sc.nextLong();
-		long A1 = N /  3; // 3 で割り切れるものの個数
-		long A2 = N /  5; // 5 で割り切れるものの個数
-		long A3 = N / 15; // 3, 5 両方で割り切れるもの（= 15 の倍数）の個数
+		long A1 = N /  3; // 3으로 나누어 떨어지는 수의 갯수
+		long A2 = N /  5; // 5로 나누어 떨어지는 수의 갯수
+		long A3 = N / 15; // 3, 5 모두로 나누어 덜어지는 수(= 15의 배수)의 갯수
 		System.out.println(A1 + A2 - A3);
 	}
 };

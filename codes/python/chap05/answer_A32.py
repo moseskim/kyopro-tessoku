@@ -1,11 +1,11 @@
-# 入力
+# 입력
 N, A, B = map(int, input().split())
 
-# 配列 dp を定義
-# dp[x]=True のとき勝ちの状態、dp[x]=False のとき負けの状態
+# 배열 dp를 정의
+# dp[x]=True일 때 승리 상태, dp[x]=False일 때 패배 상태
 dp = [ None ] * (N+1)
 
-# 勝者を計算する
+# 승자를 계산한다
 for i in range(N+1):
 	if i >= A and dp[i-A] == False:
 		dp[i] = True
@@ -14,7 +14,7 @@ for i in range(N+1):
 	else:
 		dp[i] = False
 
-# 出力
+# 출력
 if dp[N] == True:
 	print("First")
 else:

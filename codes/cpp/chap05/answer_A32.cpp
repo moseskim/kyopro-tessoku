@@ -1,22 +1,22 @@
 #include <iostream>
 using namespace std;
 
-// 配列 dp について： dp[x]=true のとき勝ちの状態、dp[x]=false のとき負けの状態
+// 배열 dp에: dp[x]=true일 때 승리 상태, dp[x]=false일 때 패배 상태
 int N, A, B;
 bool dp[100009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> A >> B;
 
-	// 勝者を計算する
+	// 승자를 계산한다
 	for (int i = 0; i <= N; i++) {
-		if (i >= A && dp[i - A] == false) dp[i] = true; // 勝ちの状態
-		else if (i >= B && dp[i - B] == false) dp[i] = true; // 勝ちの状態
-		else dp[i] = false; // 負けの状態
+		if (i >= A && dp[i - A] == false) dp[i] = true; // 승리 상태
+		else if (i >= B && dp[i - B] == false) dp[i] = true; // 승리 상태
+		else dp[i] = false; // 패배 상태
 	}
 
-	// 出力
+	// 출력
 	if (dp[N] == true) cout << "First" << endl;
 	else cout << "Second" << endl;
 	return 0;

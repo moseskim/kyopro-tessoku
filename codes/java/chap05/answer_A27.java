@@ -4,23 +4,23 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		int A = sc.nextInt();
 		int B = sc.nextInt();
 
-		// 出力
+		// 출력
 		System.out.println(GCD(A, B));
 	}
 
-	// 正の整数 A と B の最大公約数を返す関数
-	// GCD は Greatest Common Divisor（最大公約数）の略
+	// 양의 정수 A와 B의 최대 공약수를 반환하는 함수
+	// GCD는 Greatest Common Divisor(최대 공약수)의 약어
 	static int GCD(int A, int B) {
 		while (A >= 1 && B >= 1) {
 			if (A >= B) {
-				A %= B; // A の値を変更する場合
+				A %= B; // A의 값을 변경하는 경우
 			}
 			else {
-				B %= A; // B の値を変更する場合
+				B %= A; // B의 값을 변경하는 경우
 			}
 		}
 		if (A >= 1) {

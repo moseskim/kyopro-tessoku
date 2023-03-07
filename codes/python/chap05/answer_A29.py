@@ -1,16 +1,16 @@
-# a の b 乗を m で割った余りを返す関数
+# a의 b 제곱을 m으로 나눈 나머지를 반환하는 함수
 def Power(a, b, m):
 	p = a
 	Answer = 1
 	for i in range(30):
 		wari = 2 ** i
 		if (b // wari) % 2 == 1:
-			Answer = (Answer * p) % m # a の 2^i 乗が掛けられるとき
+			Answer = (Answer * p) % m # a의 2^i 제곱을 곱했을 때
 		p = (p * p) % m
 	return Answer
 
-# 入力
+# 입력
 a, b = map(int, input().split())
 
-# 出力
+# 출력
 print(Power(a, b, 1000000007))

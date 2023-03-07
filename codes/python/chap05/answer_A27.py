@@ -1,13 +1,13 @@
 def GCD(A, B):
 	while A >= 1 and B >= 1:
 		if A >= B:
-			A = A % B # A の値を変更する場合
+			A = A % B # A의 값을 변경하는 경우
 		else:
-			B = B % A # B の値を変更する場合
+			B = B % A # B의 값을 변경하는 경우
 	if A >= 1:
 		return A
 	return B
 
-# 入力
+# 입력
 A, B = map(int, input().split())
 print(GCD(A, B))

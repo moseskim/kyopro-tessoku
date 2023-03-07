@@ -1,13 +1,13 @@
-# 入力
+# 입력
 N = int(input())
 A = list(map(int, input().split()))
 
-# 全部 XOR した値（ニム和）を求める
+# 전부 XOR한 값(Nim sum)을 구한다
 XOR_Sum = A[0]
 for i in range(1,N):
 	XOR_Sum = (XOR_Sum ^ A[i])
 
-# 出力
+# 출력
 if XOR_Sum >= 1:
 	print("First")
 else:
