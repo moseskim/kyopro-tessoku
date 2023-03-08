@@ -2,12 +2,12 @@
 using namespace std;
 
 int main() {
-	// 入力
+	// 입력
 	long long N, A[100009]; char T[100009];
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> T[i] >> A[i];
 
-	// 出力（Answer は現在の黒板の数）
+	// 출력(Answer는 현재 칠판의 수)
 	long long Answer = 0;
 	for (int i = 1; i <= N; i++) {
 		if (T[i] == '+') Answer += A[i];

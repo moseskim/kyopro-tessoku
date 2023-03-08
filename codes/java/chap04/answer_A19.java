@@ -4,7 +4,7 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		int N = sc.nextInt();
 		int W = sc.nextInt();
 		int[] w = new int[N + 1];
@@ -14,13 +14,13 @@ class Main {
 			v[i] = sc.nextInt();
 		}
 
-		// 配列 dp の定義・初期化
+		// 배열 dp 정의, 초기화
 		long[][] dp = new long[N + 1][W + 1];
 		for (int i = 0; i <= N; i++) {
 			for (int j = 0; j <= W; j++) dp[i][j] = -1000000000000L;
 		}
 
-		// 動的計画法
+		// 동적 계획법
 		dp[0][0] = 0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 0; j <= W; j++) {
@@ -29,7 +29,7 @@ class Main {
 			}
 		}
 
-		// 出力
+		// 출력
 		long Answer = 0;
 		for (int i = 0; i <= W; i++) Answer = Math.max(Answer, dp[N][i]);
 		System.out.println(Answer);

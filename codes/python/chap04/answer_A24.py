@@ -1,25 +1,25 @@
 import bisect
 
-# 入力（A は 0 番目から始まることに注意！）
+# 입력(A는 0번째부터 시작하는 점에 주의!)
 N = int(input())
 A = list(map(int, input().split()))
 
-# 動的計画法の準備
-LEN = 0 # LEN は L の長さ（例：L[3] まで書き込まれている場合 LEN=4）
-L = []  # 0 番目から始まることに注意
-dp = [ None ] * N # 0 番目から始まることに注意
+# 동적 계획법 준비
+LEN = 0 # LEN은 L의 길이(예: L[3]까지 쓰여져 있는 경우 LEN=4)
+L = []  # 0번째부터 시작하는 점에 주의
+dp = [ None ] * N # 0번째부터 시작하는 점에 주의
 
-# 動的計画法（配列 dp を使った実装）
+# 동적 계획법(배열 dp를 사용한 구현)
 for i in range(N):
 	pos = bisect.bisect_left(L, A[i])
 	dp[i] = pos
 
-	# 配列 L を更新
+	# 배열 L을 업데이트
 	if dp[i] >= LEN:
 		L.append(A[i])
 		LEN += 1
 	else:
 		L[dp[i]] = A[i]
 
-# 答えを出力
+# 답을 출력
 print(LEN)

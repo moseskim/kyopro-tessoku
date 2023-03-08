@@ -13,17 +13,17 @@ class Main {
 			A[i] = sc.nextInt();
 		}
 
-		// 出力（Answer は現在の黒板の数）
+		// 출력(Answer는 현재 칠판의 수)
 		long Answer = 0;
 		for (int i = 1; i <= N; i++) {
 			if (T[i] == '+') Answer += A[i];
 			if (T[i] == '-') Answer -= A[i];
 			if (T[i] == '*') Answer *= A[i];
 
-			// 引き算で答えが 0 未満になった場合
+			// 뺄셈에서 답이 0 미만이 된 경우
 			if (Answer < 0) Answer += 10000;
 
-			// ここで余りをとっている！
+			// 여기에서 나머지를 얻는다!
 			Answer %= 10000;
 			System.out.println(Answer);
 		}

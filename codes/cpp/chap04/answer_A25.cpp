@@ -6,13 +6,13 @@ char c[39][39];
 long long dp[39][39];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> H >> W;
 	for (int i = 1; i <= H; i++) {
 		for (int j = 1; j <= W; j++) cin >> c[i][j];
 	}
 
-	// 動的計画法
+	// 동적 계획법
 	for (int i = 1; i <= H; i++) {
 		for (int j = 1; j <= W; j++) {
 			if (i == 1 && j == 1) {
@@ -26,7 +26,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	cout << dp[H][W] << endl;
 	return 0;
 }

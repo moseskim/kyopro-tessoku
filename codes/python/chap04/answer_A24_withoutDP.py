@@ -1,18 +1,18 @@
 ###########################
-# 配列 dp を使わない実装 
+# 배열 dp를 사용하지 않는 구현
 ###########################
 
 import bisect
 
-# 入力（A は 0 番目から始まることに注意！）
+# 입력(A는 0번째부터 시작하는 점에 주의!)
 N = int(input())
 A = list(map(int, input().split()))
 
-# 動的計画法の準備
+# 동적 계획법 준비
 LEN = 0
 L = []
 
-# 動的計画法（配列 dp を使った実装）
+# 동적 계획법(배열 dp를 사용한 구현)
 for i in range(N):
 	pos = bisect.bisect_left(L, A[i])
 	if pos >= LEN:
@@ -21,5 +21,5 @@ for i in range(N):
 	else:
 		L[pos] = A[i]
 
-# 答えを出力
+# 답을 출력
 print(LEN)

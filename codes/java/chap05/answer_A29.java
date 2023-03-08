@@ -4,22 +4,22 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		long a = sc.nextLong();
 		long b = sc.nextLong();
 
-		// 出力（Answer は現在の黒板の数）
+		// 출력(Answer는 현재 칠판의 수)
 		System.out.println(Power(a, b, 1000000007));
 	}
 
-	// a の b 乗を m で割った余りを返す関数
-	// 変数 a は a^1 → a^2 → a^4 → a^8 → a^16 → ･･･ と変化
+	// a의 b 제곱을 m으로 나눈 나머지를 반환하는 함수
+	// 변수 a는 a^1 → a^2 → a^4 → a^8 → a^16 → ･･･ 로 변화
 	static long Power(long a, long b, long m) {
 		long p = a, Answer = 1;
 		for (int i = 0; i < 30; i++) {
 			int wari = (1 << i);
 			if ((b / wari) % 2 == 1) {
-				Answer = (Answer * p) % m; // 「a の 2i 乗」が掛けられるとき
+				Answer = (Answer * p) % m; // 'a의 2^i 제곱'을 곱했을 때
 			}
 			p = (p * p) % m;
 		}

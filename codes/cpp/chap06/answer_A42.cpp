@@ -5,7 +5,7 @@ using namespace std;
 int N, K;
 int A[309], B[309];
 
-// 整数の組 (a, b) が決まったときの、参加可能な生徒数を返す関数
+// 정수의 쌍(a, b))가 결정되었을 때, 참가 가능한 학생 수를 반환하는 함수
 int GetScore(int a, int b) {
 	int cnt = 0;
 	for (int i = 1; i <= N; i++) {
@@ -17,11 +17,11 @@ int GetScore(int a, int b) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i] >> B[i];
 
-	// (a, b) の組を全探索
+	// (a, b)쌍을 전탐색
 	int Answer = 0;
 	for (int a = 1; a <= 100; a++) {
 		for (int b = 1; b <= 100; b++) {
@@ -30,7 +30,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	cout << Answer << endl;
 	return 0;
 }

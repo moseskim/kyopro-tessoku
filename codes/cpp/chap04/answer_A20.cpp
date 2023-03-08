@@ -7,11 +7,11 @@ int N, M, dp[2009][2009];
 string S, T;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> S; N = S.size();
 	cin >> T; M = T.size();
 
-	// 動的計画法
+	// 동적 계획법
 	dp[0][0] = 0;
 	for (int i = 0; i <= N; i++) {
 		for (int j = 0; j <= M; j++) {
@@ -30,7 +30,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	cout << dp[N][M] << endl;
 	return 0;
 }

@@ -4,16 +4,16 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		int N = sc.nextInt();
 		int X = sc.nextInt();
 		int Y = sc.nextInt();
 		int[] A = new int[N + 1];
 		for (int i = 1; i <= N; i++) A[i] = sc.nextInt();
 
-		// Grundy 数を求める
-		// 変数 grundy[i] : 石が i 個の時の Grundy 数
-		// 変数 Transit[i]: Grundy 数が i となるような遷移ができるか
+		// Grundy 수를 구한다
+		// 변수 grundy[i]: 돌이 i개일 때의 Grundy 수
+		// 변수 Transit[i]: Grundy 수가 i가 되도록 전이할 수 있는가
 		int[] grundy = new int[100001];
 		for (int i = 0; i <= 100000; i++) {
 			boolean[] Transit = {false, false, false};
@@ -24,7 +24,7 @@ class Main {
 			else grundy[i] = 2;
 	  }
 		
-		// 出力
+		// 출력
 		int XOR_Sum = 0;
 		for (int i = 1; i <= N; i++) XOR_Sum = (XOR_Sum ^ grundy[A[i]]);
 		if (XOR_Sum != 0) System.out.println("First");

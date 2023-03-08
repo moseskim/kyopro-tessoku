@@ -4,7 +4,7 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		int N = sc.nextInt();
 		int M = sc.nextInt();
 		long B = sc.nextLong();
@@ -13,13 +13,13 @@ class Main {
 		for (int i = 1; i <= N; i++) A[i] = sc.nextLong();
 		for (int j = 1; j <= M; j++) C[j] = sc.nextLong();
 
-		// 答えの計算
+		// 답 계산
 		long Answer = 0;
 		for (int i = 1; i <= N; i++) Answer += A[i] * M;
 		Answer += B * N * M;
 		for (int j = 1; j <= M; j++) Answer += C[j] * N;
 
-		// 出力
+		// 출력
 		System.out.println(Answer);
 	}
 };

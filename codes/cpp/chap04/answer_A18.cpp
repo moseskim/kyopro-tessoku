@@ -5,15 +5,15 @@ int N, S, A[69];
 bool dp[69][10009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> S;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
-	// 動的計画法 (i = 0)
+	// 동적 계획법(i = 0)
 	dp[0][0] = true;
 	for (int i = 1; i <= S; i++) dp[0][i] = false;
 
-	// 動的計画法 (i >= 1)
+	// 동적 계획법(i >= 1)
 	for (int i = 1; i <= N; i++) {
 		for (int j = 0; j <= S; j++) {
 			if (j < A[i]) {
@@ -27,7 +27,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	if (dp[N][S] == true) cout << "Yes" << endl;
 	else cout << "No" << endl;
 	return 0;
