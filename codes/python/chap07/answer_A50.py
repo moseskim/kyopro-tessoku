@@ -1,20 +1,20 @@
-# 本プログラムでは、プログラムの実行速度を上げるため、numpy を使って 2 次元配列を計算しています。
-# numpy で計算しやすくするために、B[i][j] は 100×100 の配列ではなく、左右に広げた 300×300 の配列を使って計算しています。
-# プログラムは https://atcoder.jp/contests/future-contest-2018-qual/submissions/4216898 を参考に、本書籍のコードに基づいて実装しています。
-# ※ 期待されるスコアは、およそ 99.940 億点です。
-# ※ 焼きなまし法の実装は answer_A50_extra.py に載せています。
+# 이 프로그램에서는 프로그램 실행 속도를 높이기 위해 numpy를 사용해서 2차원 배열을 계산합니다.
+# numpy로 계산하기 쉽도록 B[i][j]는 100x100의 배열이 아니라 좌우로 넓힌 300×300의 배열을 사용해서 계산합니다.
+# 프로그램은 https://atcoder.jp/contests/future-contest-2018-qual/submissions/4216898을 참고로, 책의 코드에 기반해서 구현했습니다.
+# ※ 기대 점수는 대략 99.940억점입니다.
+# ※ 담금질 알고리즘의 구현은 answer_A50_extra.py를 참조하십시오.
 
 import numpy as np
 import random
 import time
 import sys
 
-# 定数の設定・入力
+# 상수 설정, 입력
 N = 100
 Q = 1000
 A = np.array([ list(map(int, input().split())) for i in range(N) ])
 
-# 初期解を生成
+# 초기 해 생성
 X = [ random.randint(0, N - 1) for i in range(Q) ]
 Y = [ random.randint(0, N - 1) for i in range(Q) ]
 H = [ 1 ] * Q
@@ -22,25 +22,25 @@ B = np.zeros((3 * N, 3 * N))
 for i in range(Q):
 	B[Y[i]][X[i]] += 1
 
-# H = 1, 2, ..., N に設定された場合の「増減分」を持った numpy 配列を作る
+# H = 1, 2, ..., N에 설정된 경우의 '증감분'을 가진 numpy 배열을 만든다
 delta = [ None ] * (N + 1)
 for i in range(1, N + 1):
 	delta[i] = np.array([ [ max(i - abs(y) - abs(x), 0) for x in range(-i + 1, i) ] for y in range(-i + 1, i) ])
 
-# 現在のスコアを取得する関数
+# 현재 점수를 얻는 함수
 def get_score():
 	return 200000000 - np.absolute(A - B[N:2*N, N:2*N]).sum()
 
-# 山登り法の設定
-# （現在のスコアを np.absolute(A - B[N:2*N, N:2*N]).sum() として、これを最大化するという方法で実装する）
+# 등산 알고리즘 설정
+# (현재 점수를 np.absolute(A - B[N:2*N, N:2*N]).sum()로 하고, 이것을 최대화하는 방법을 구현한다)
 TIME_LIMIT = 5.4
 current_score = get_score()
 ti = time.time()
 
-# 山登り法スタート
+# 등산 알고리즘
 loops = 0
 while time.time() - ti < TIME_LIMIT:
-	# 「小さな変更」をランダムに選ぶ
+	# '작은 변경'을 무작위로 선택한다
 	t = random.randint(0, Q - 1)
 	old_x, new_x = X[t], X[t] + random.randint(-9, +9)
 	old_y, new_y = Y[t], Y[t] + random.randint(-9, +9)
@@ -48,27 +48,27 @@ while time.time() - ti < TIME_LIMIT:
 	if new_x < 0 or new_x >= N or new_y < 0 or new_y >= N or new_h <= 0 or new_h > N:
 		continue
 	
-	# X[t] = new_x, Y[t] = new_y, H[t] = new_h に変更（書籍中の Change(t, new_x, new_y, new_h) の呼び出しに対応）
+	# X[t] = new_x, Y[t] = new_y, H[t] = new_h로 변경(책의 Change(t, new_x, new_y, new_h) 호출에 대응)
 	B[N+Y[t]-H[t]+1:N+Y[t]+H[t], N+X[t]-H[t]+1:N+X[t]+H[t]] -= delta[H[t]]
 	X[t], Y[t], H[t] = new_x, new_y, new_h
 	B[N+Y[t]-H[t]+1:N+Y[t]+H[t], N+X[t]-H[t]+1:N+X[t]+H[t]] += delta[H[t]]
 
-	# スコアを計算
+	# 점수 계산
 	new_score = get_score()
 
-	# スコアに応じて採用／不採用を決める
+	# 점수에 따라 채용 여부를 결정한다
 	if current_score < new_score:
-		# 採用の場合
+		# 채용하는 경우
 		current_score = new_score
 	else:
-		# 不採用の場合：X[t] = old_x, Y[t] = old_y, H[t] = old_h に戻す（書籍中の Change(t, old_x, old_y, old_h) の呼び出しに対応）
+		# 채용하지 않는 경우: X[t] = old_x, Y[t] = old_y, H[t] = old_h로 되돌린다(책의 Change(t, old_x, old_y, old_h) 호출에 대응)
 		B[N+Y[t]-H[t]+1:N+Y[t]+H[t], N+X[t]-H[t]+1:N+X[t]+H[t]] -= delta[H[t]]
 		X[t], Y[t], H[t] = old_x, old_y, old_h
 		B[N+Y[t]-H[t]+1:N+Y[t]+H[t], N+X[t]-H[t]+1:N+X[t]+H[t]] += delta[H[t]]
 	
 	loops += 1
 
-# 出力
+# 출력
 print(Q)
 for i in range(Q):
 	print(X[i], Y[i], H[i])

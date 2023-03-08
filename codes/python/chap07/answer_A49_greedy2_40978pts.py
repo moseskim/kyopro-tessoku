@@ -1,24 +1,24 @@
 ################################################
-# 本の 272 ページ後半の評価関数を用いた実装です
+# 책 272페이지 후반의 평가 함수를 이용한 구현입니다
 ################################################
 
-# 入力
+# 입력
 T = int(input())
 P = [ None ] * T
 Q = [ None ] * T
 R = [ None ] * T
 for i in range(T):
 	P[i], Q[i], R[i] = map(int, input().split())
-	P[i] -= 1 # 0 始まりに直す
+	P[i] -= 1 # 0 시작으로 수정한다
 	Q[i] -= 1
 	R[i] -= 1
 
-# 配列 A の初期化
+# 배열 A 초기화
 A = [ 0 ] * 20
 
-# 貪欲法
+# 탐욕 알고리즘
 for i in range(T):
-	# パターン A の場合のスコアを求める
+	# 패턴 A인 경우의 점수를 구한다
 	ScoreA = 0
 	PatA = [ 0 ] * 20
 	for j in range(20):
@@ -29,7 +29,7 @@ for i in range(T):
 	for j in range(20):
 		ScoreA += abs(PatA[j])
 
-	# パターン B の場合のスコアを求める
+	# 패턴 B인 경우의 점수를 구한다
 	ScoreB = 0
 	PatB = [ 0 ] * 20
 	for j in range(20):
@@ -40,7 +40,7 @@ for i in range(T):
 	for j in range(20):
 		ScoreB += abs(PatB[j])
 
-	# スコアの小さい方を採用
+	# 점수가 낮은 쪽을 채용한다
 	if ScoreA <= ScoreB:
 		print("A")
 		CurrentScore = ScoreA

@@ -9,12 +9,12 @@ int Q = 1000;
 int A[109][109], B[109][109];
 int X[1009], Y[1009], H[1009];
 
-// L 以上 R 以下のランダムな整数を返す関数
+// L 이상 R 이하의 무작위 정수를 반환하는 함수
 int RandInt(int L, int R) {
 	return rand() % (R - L + 1) + L;
 }
 
-// 現在のスコアを返す関数
+// 현재 점수를 반환하는 함수
 int GetScore() {
 	int sum = 0;
 	for (int i = 0; i < N; i++) {
@@ -23,7 +23,7 @@ int GetScore() {
 	return 200000000 - sum;
 }
 
-// X[t]=x, Y[t]=y, H[t]=h に変更する関数
+// X[t]=x, Y[t]=y, H[t]=h로 변경하는 함수
 void Change(int t, int x, int y, int h) {
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
@@ -41,12 +41,12 @@ void Change(int t, int x, int y, int h) {
 }
 
 void Yamanobori() {
-	// 変数の設定（5.95 秒ループを回す）
+	// 변수 설정(5.95초 동안 루프를 돌린다)
 	int TIMELIMIT = 5.95 * CLOCKS_PER_SEC;
 	int CurrentScore = GetScore();
 	int ti = clock();
 
-	// 山登り法スタート
+	// 등산 알고리즘 시작
 	while (clock() - ti < TIMELIMIT) {
 		int t = RandInt(1, Q);
 		int old_x = X[t], new_x = X[t] + RandInt(-9, 9);
@@ -56,34 +56,34 @@ void Yamanobori() {
 		if (new_y < 0 || new_y >= N) continue;
 		if (new_h <= 0 || new_h > N) continue;
 
-		// とりあえず変更し、スコアを評価する
+		// 일단 변경하고, 점수를 평가한다
 		Change(t, new_x, new_y, new_h);
 		int NewScore = GetScore();
 
-		// スコアに応じて採用／不採用を決める
+		// 점수에 따라 채용 여부를 결정한다
 		if (CurrentScore < NewScore) CurrentScore = NewScore;
 		else Change(t, old_x, old_y, old_h);
 	}
 }
 
 int main() {
-	// 入力
+	// 입력
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) cin >> A[i][j];
 	}
 
-	// 初期解を生成
+	// 초기 해 생성
 	for (int i = 1; i <= 1000; i++) {
-		X[i] = rand() % N; // 0 以上 N-1 以下のランダムな整数
-		Y[i] = rand() % N; // 0 以上 N-1 以下のランダムな整数
+		X[i] = rand() % N; // 0 이상 N-1 이하의 무작위 정수
+		Y[i] = rand() % N; // 0 이상 N-1 이하의 무작위 정수
 		H[i] = 1;
 		B[X[i]][Y[i]] += 1;
 	}
 
-	// 山登り法
+	// 등산 알고리즘
 	Yamanobori();
 
-	// 出力
+	// 출력
 	cout << "1000" << endl;
 	for (int i = 1; i <= 1000; i++) {
 		cout << X[i] << " " << Y[i] << " " << H[i] << endl;

@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力
+		// 입력
 		Scanner sc = new Scanner(System.in);
 		final int N = 20;
 		int T = sc.nextInt();
@@ -15,28 +15,28 @@ class Main {
 			R[i] = sc.nextInt();
 		}
 		
-		// ビームサーチ（書籍とは異なり、ビームサーチの復元は関数の中で行う）
+		// 빔 서치(책과 달리, 빔 서치 복원은 함수 안에서 수행한다)
 		char[] answer = beamSearch(N, T, P, Q, R);
 
-		// 答えの出力
+		// 답을 출력
 		for (int i = 1; i <= T; i++) {
 			System.out.println(answer[i]);
 		}
 	}
 
-	// ビームサーチを行う関数
+	// 빔 서치를 수행하는 함수
 	static char[] beamSearch(int N, int T, int[] P, int[] Q, int[] R) {
-		// 2 次元配列 beam を用意し、0 手目の状態を設定
-		final int WIDTH = 7000; // WIDTH はビーム幅
+		// 2차원 배열 beam을 준비하고, 0번째 수의 상태를 설정
+		final int WIDTH = 7000; // WIDTH는 빔 폭
 		ArrayList<State>[] beam = new ArrayList[T + 1];
 		beam[0] = new ArrayList<>();
 		beam[0].add(new State(N));
 
-		// ビームサーチ
+		// 빔 서치
 		for (int i = 1; i <= T; i++) {
 			ArrayList<State> candidate = new ArrayList<>();
 			for (int j = 0; j < beam[i - 1].size(); j++) {
-				// 操作 A の場合
+				// 조작 A인 경우
 				State sousaA = new State(beam[i - 1].get(j));
 				sousaA.lastMove = 'A';
 				sousaA.lastPos = j;
@@ -48,7 +48,7 @@ class Main {
 						sousaA.score += 1;
 					}
 				}
-				// 操作 B の場合
+				// 조작 B인 경우
 				State sousaB = new State(beam[i - 1].get(j));
 				sousaB.lastMove = 'B';
 				sousaB.lastPos = j;
@@ -60,16 +60,16 @@ class Main {
 						sousaB.score += 1;
 					}
 				}
-				// 候補に追加
+				// 후보에 추가
 				candidate.add(sousaA);
 				candidate.add(sousaB);
 			}
-			// ソートして beam[i] の結果を計算する
+			// 정렬해서 beam[i]의 결과를 계산한다
 			Collections.sort(candidate);
 			beam[i] = new ArrayList<State>(candidate.subList(0, Math.min(candidate.size(), WIDTH)));
 		}
 
-		// ビームサーチの復元（currentPlace は配列 beam のどの位置を見ているかを表す）
+		// 빔 서치 복원(currentPlace는 배열 beam의 어드 위치를 보고 있는가를 나타낸다)
 		char[] answer = new char[T + 1];
 		int currentPlace = 0;
 		for (int i = T; i >= 1; i--) {
@@ -80,20 +80,20 @@ class Main {
 		return answer;
 	}
 
-	// 盤面の状態を表す構造体 State
+	// 국면의 상태를 나타내는 구조체 State
 	static class State implements Comparable<State> {
-		int score;     // 暫定スコア
-		int[] x;       // 現在の配列 X の値
-		char lastMove; // 最後の動き（'A' または 'B'）
-		int lastPos;   // Beam[i-1][どこ] から遷移したか
-		// 盤面の状態の初期化
+		int score;     // 잠정 점수
+		int[] x;       // 현재 배열 X의 값
+		char lastMove; // 마지막 동작('A' 또는 'B')
+		int lastPos;   // Beam[i-1][어디]로부터 전이했는가
+		// 국면 상태 초기화
 		public State(int N) {
 			score = 0;
 			x = new int[N + 1];
 			lastMove = '?';
 			lastPos = -1;
 		}
-		// コピーコンストラクタ
+		// 복사 생성자
 		public State(State s) {
 			score = s.score;
 			x = s.x.clone();
@@ -101,7 +101,7 @@ class Main {
 			lastPos = s.lastPos;
 		}
 		@Override public int compareTo(State s) {
-			return s.score - score; // ソートの際は、self.score > s.score のとき self が s よりも前に来るようにする
+			return s.score - score; // 정렬 시에는 self.score > s.score일 때, self가 s보다 앞에 오도록 한다
 		}
 	}
 }

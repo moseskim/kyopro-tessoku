@@ -1,10 +1,10 @@
-// A[Left], A[Left+1], ..., A[Right-1] の最大値を求める関数
+// A[Left], A[Left+1], ..., A[Right-1]의 최댓값을 구하는 함수
 int GetMax(int Left, int Right) {
-	// 区間に含まれる要素が 1 つになった場合
+	// 구간에 포함된 요소가 1개가 된 경우
 	if (Right - Left == 1) return A[Left];
-	// 左半分と右半分に分割する
+	// 왼쪽 반과 오른쪽 반을 분할한다
 	int Mid = (Left + Right) / 2;
-	int res1 = GetMax(Left, Mid); // res1 は「左半分の最大値」
-	int res2 = GetMax(Mid, Right); // res2 は「右半分の最大値」
+	int res1 = GetMax(Left, Mid); // res1은 '왼쪽 반의 최댓값'
+	int res2 = GetMax(Mid, Right); // res2는 '오른쪽 반의 최댓값'
 	return max(res1, res2);
 }

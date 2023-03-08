@@ -1,4 +1,4 @@
-// sort 関数の順序を決める（スコアが大きい方が「大きい」とする）
+// sort 함수의 순서를 결정한다(점수가 높은 쪽을 '크다'고 한다)
 bool operator>(const State& a1, const State& a2) {
 	if (a1.score > a2.score) return true;
 	else return false;

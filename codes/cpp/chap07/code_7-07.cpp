@@ -1,4 +1,4 @@
-// 現在のスコアを返す関数
+// 현재 점수를 반환하는 함수
 int GetScore() {
 	int sum = 0;
 	for (int i = 0; i < N; i++) {
