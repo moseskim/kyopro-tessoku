@@ -1,10 +1,10 @@
 from collections import deque
 
-# 入力
-Q = int(input()) # クエリ数
-queries = [ input().split() for i in range(Q) ] # クエリの情報（各要素は ["1", 名前を表す文字列] or ["2"] or ["3"]）
+# 입력
+Q = int(input()) # 쿼리 수
+queries = [ input().split() for i in range(Q) ] # 쿼리 정보(각 요소는 ["1", 이름을_나타내는_문자열] 또는 ["2"] 또는 ["3"]）
 
-# クエリの処理
+# 쿼리 처리
 T = deque()
 for q in queries:
 	if q[0] == "1":

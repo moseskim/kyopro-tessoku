@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 入力（高速な入力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력(고속의 입력을 위해, Scanner 대신 BufferedReader를 사용하고 있습니다)
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -14,7 +14,7 @@ class Main {
 			A[i] = Integer.parseInt(st.nextToken());
 		}
 
-		// スタックの変化の再現
+		// 스택 변화 재현
 		int[] answer = new int[N + 1];
 		Stack<PairInt> level2 = new Stack<>();
 		for (int i = 1; i <= N; i++) {
@@ -30,7 +30,7 @@ class Main {
 					}
 				}
 			}
-			// 起算日の特定
+			// 기준 산정일 특정
 			if (!level2.empty()) {
 				answer[i] = level2.peek().first;
 			}
@@ -39,7 +39,7 @@ class Main {
 			}
 		}
 
-		// 出力（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
+		// 출력(고속 출력을 위해, System.out.println이 아닌 PrintWriter를 사용하고 있습니다)
 		PrintWriter output = new PrintWriter(System.out);
 		for (int i = 1; i <= N; i++) {
 			if (i >= 2) {
@@ -51,7 +51,7 @@ class Main {
 		output.flush();
 	}
 	
-	// int 型のペアのクラス PairInt
+	// int 타입의 쌍의 클래스 PairInt
 	static class PairInt {
 		int first, second;
 		public PairInt(int first, int second) {

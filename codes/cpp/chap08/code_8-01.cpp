@@ -1,16 +1,16 @@
-// 連想配列の定義　　｜ map< 添字の型 , 型 > という形
-// 連想配列のアクセス｜通常の配列とほぼ同じ
+// 연상 배열 정의   | map<첨자_타입, 타입>의 형태
+// 연상 배열의 접근  | 일반적인 배열과 거의 같음
 // ----------------------------------------------------------------
 
-// 添字が string 型、記録する値が int 型の連想配列を定義
+// 첨자가 string 타입, 기록하는 값이 int 타입인 연상 배열을 정의
 map<string, int> Map;
 
-// 連想配列のアクセス
+// 연상 배열 접근
 Map["tanaka"] = 49;
 Map["suzuki"] = 50;
-cout << Map["tanaka"] << endl; // 49 と出力される
-cout << Map["suzuki"] << endl; // 50 と出力される
+cout << Map["tanaka"] << endl; // 49가 출력된다
+cout << Map["suzuki"] << endl; // 50이 출력된다
 
 Map["suzuki"] = 53;
-cout << Map["suzuki"] << endl; // 53 と出力される
-cout << Map["sato"] << endl; // 0 と出力される
+cout << Map["suzuki"] << endl; // 53이 출력된다
+cout << Map["sato"] << endl; // 0이 출력된다
