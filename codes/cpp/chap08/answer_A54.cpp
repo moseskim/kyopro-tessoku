@@ -9,7 +9,7 @@ string x[100009];
 map<string, int> Map;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> Q;
 	for (int i = 1; i <= Q; i++) {
 		cin >> QueryType[i];
@@ -17,7 +17,7 @@ int main() {
 		if (QueryType[i] == 2) cin >> x[i];
 	}
 
-	// クエリの処理
+	// 쿼리 처리
 	for (int i = 1; i <= Q; i++) {
 		if (QueryType[i] == 1) Map[x[i]] = y[i];
 		if (QueryType[i] == 2) cout << Map[x[i]] << endl;

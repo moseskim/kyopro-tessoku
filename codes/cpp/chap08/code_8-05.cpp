@@ -1,4 +1,4 @@
-void update(int pos, int x) { // セル i に書かれた整数を dat[i] で表す
+void update(int pos, int x) { // 셀 i에 쓰여진 정수를 dat[i]로 나타낸다
 	pos = pos + siz - 1;
 	dat[pos] = x;
 	while (pos >= 2) {

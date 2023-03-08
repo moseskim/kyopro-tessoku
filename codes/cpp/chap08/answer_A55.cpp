@@ -3,12 +3,12 @@
 using namespace std;
 
 int main() {
-	// 入力
+	// 입력
 	int Q, QueryType[100009], x[100009];
 	cin >> Q;
 	for (int i = 1; i <= Q; i++) cin >> QueryType[i] >> x[i];
 
-	// クエリの処理
+	// 쿼리 처리
 	set<int> S;
 	for (int i = 1; i <= Q; i++) {
 		if (QueryType[i] == 1) S.insert(x[i]);

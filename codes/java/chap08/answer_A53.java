@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力
+		// 입력
 		Scanner sc = new Scanner(System.in);
 		int Q = sc.nextInt();
 		int[] queryType = new int[Q + 1];
@@ -14,7 +14,7 @@ class Main {
 			}
 		}
 
-		// クエリの処理
+		// 쿼리 처리
 		Queue<Integer> T = new PriorityQueue<>();
 		for (int i = 1; i <= Q; i++) {
 			if (queryType[i] == 1) {

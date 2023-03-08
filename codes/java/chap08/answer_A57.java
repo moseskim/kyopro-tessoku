@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力
+		// 입력
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		int Q = sc.nextInt();
@@ -17,7 +17,7 @@ class Main {
 			Y[i] = sc.nextInt();
 		}
 
-		// 前計算
+		// 먼저 계산
 		final int LEVELS = 30;
 		int[][] dp = new int[LEVELS][N + 1];
 		for (int i = 1; i <= N; i++) {
@@ -29,7 +29,7 @@ class Main {
 			}
 		}
 
-		// クエリの処理
+		// 쿼리 처리
 		for (int i = 1; i <= Q; i++) {
 			int currentPlace = X[i];
 			for (int d = 29; d >= 0; d--) {
