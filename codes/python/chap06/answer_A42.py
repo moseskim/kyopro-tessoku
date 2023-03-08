@@ -1,4 +1,4 @@
-# 整数の組 (a, b) が決まったときの、参加可能な生徒数を返す関数
+# 정수의 쌍(a, b))가 결정되었을 때, 참가 가능한 학생 수를 반환하는 함수
 def GetScore(a, b, A, B, K):
 	cnt = 0
 	for i in range(N):
@@ -6,19 +6,19 @@ def GetScore(a, b, A, B, K):
 			cnt += 1
 	return cnt
 
-# 入力
+# 입력
 N, K = map(int, input().split())
 A = [ None ] * N
 B = [ None ] * N
 for i in range(N):
 	A[i], B[i] = map(int, input().split())
 
-# (a, b) の組を全探索
+# (a, b)쌍을 전탐색
 Answer = 0
 for a in range(1, 101):
 	for b in range(1, 101):
 		Score = GetScore(a, b, A, B, K)
 		Answer = max(Answer, Score)
 
-# 出力
+# 출력
 print(Answer)

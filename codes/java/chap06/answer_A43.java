@@ -4,7 +4,7 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		int N = sc.nextInt();
 		int L = sc.nextInt();
 		int[] A = new int[N + 1];
@@ -14,7 +14,7 @@ class Main {
 			B[i] = sc.next().charAt(0);
 		}
 
-		// 答えを求める
+		// 답을 구한다
 		int Answer = 0;
 		for (int i = 1; i <= N; i++) {
 			if (B[i] == 'E') Answer = Math.max(Answer, L - A[i]);

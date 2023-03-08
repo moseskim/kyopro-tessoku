@@ -5,28 +5,28 @@ int N, Q, State = 1;
 int E[200009];
 
 int main() {
-	// 入力 → 配列の準備
+	// 입력 → 배열 준비
 	cin >> N >> Q;
 	for (int i = 1; i <= N; i++) E[i] = i;
 
-	// クエリの処理
+	// 쿼리 처리
 	for (int i = 1; i <= Q; i++) {
 		int Type, x, y; cin >> Type;
 
-		// [1] 変更操作
+		// [1] 변경 조작
 		if (Type == 1) {
 			cin >> x >> y;
 			if (State == 1) E[x] = y;
 			if (State == 2) E[N + 1 - x] = y;
 		}
 
-		// [2] 反転操作
+		// [2] 반전 조작
 		if (Type == 2) {
 			if (State == 1) State = 2;
 			else State = 1;
 		}
 
-		// [3] 取得操作
+		// [3] 취득 조작
 		if (Type == 3) {
 			cin >> x;
 			if (State == 1) cout << E[x] << endl;

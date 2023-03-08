@@ -1,9 +1,9 @@
-# 入力
+# 입력
 N, C = input().split()
 A = input()
 N = int(N)
 
-# スコアの計算
+# 점수 계산
 score = 0
 for i in range(N):
 	if A[i] == 'W':
@@ -13,7 +13,7 @@ for i in range(N):
 	if A[i] == 'R':
 		score += 2
 
-# 出力
+# 출력
 if score%3 == 0 and C == 'W':
 	print("Yes")
 elif score%3 == 1 and C == 'B':
