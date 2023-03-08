@@ -1,25 +1,25 @@
 ################################################
-# 本の 266 ページ前半の貪欲法を用いた実装です
+# 책 266페이지 전반의 탐욕 알고리즘을 이용한 구현입니다
 ################################################
 
-# 入力
+# 입력
 T = int(input())
 P = [ None ] * T
 Q = [ None ] * T
 R = [ None ] * T
 for i in range(T):
 	P[i], Q[i], R[i] = map(int, input().split())
-	P[i] -= 1 # 0 始まりに直す
+	P[i] -= 1 # 0 시작으로 수정한다
 	Q[i] -= 1
 	R[i] -= 1
 
-# 配列 A の初期化
+# 배열 A 초기화
 A = [ 0 ] * 20
 
-# 貪欲法
+# 탐욕 알고리즘
 CurrentScore = 0
 for i in range(T):
-	# パターン A の場合のスコアを求める
+	# 패턴 A인 경우의 점수를 구한다
 	ScoreA = CurrentScore
 	PatA = [ 0 ] * 20
 	for j in range(20):
@@ -31,7 +31,7 @@ for i in range(T):
 		if PatA[j] == 0:
 			ScoreA += 1
 
-	# パターン B の場合のスコアを求める
+	# 패턴 B인 경우의 점수를 구한다
 	ScoreB = CurrentScore
 	PatB = [ 0 ] * 20
 	for j in range(20):
@@ -43,7 +43,7 @@ for i in range(T):
 		if PatB[j] == 0:
 			ScoreB += 1
 
-	# スコアの大きい方を採用
+	# 점수가 높은 쪽을 채용한다
 	if ScoreA >= ScoreB:
 		print("A")
 		CurrentScore = ScoreA

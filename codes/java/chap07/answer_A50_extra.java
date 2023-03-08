@@ -1,12 +1,12 @@
-// 本プログラムは、書籍 p.283「さらなる高みへ」を実装した、焼きなまし法のコードとなります。
-// ベースとなる山登り法の実装については、answer_A50.java をご覧ください。
-// ※ 期待されるスコアは、およそ 99.977 億点です。
+// 이 프로그램은 책 p.283 '한층 더 높이'를 구현한, 담금질 알고리즘 코드입니다.
+// 기반이 되는 등산 알고리즘에 관해서는 answer_A50.java를 참고하십시오.
+// ※ 기대 점수는 대략 99.977억점입니다.
 
 import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力
+		// 입력
 		Scanner sc = new Scanner(System.in);
 		final int N = 100;
 		final int Q = 1000;
@@ -17,19 +17,19 @@ class Main {
 			}
 		}
 
-		// 初期解を生成
+		// 초기 해 생성
 		Random rnd = new Random();
 		Answer ans = new Answer(N, Q, A, rnd);
 
-		// 山登り法：変数の設定（5.4 秒ループを回す）
+		// 등산 알고리즘: 변수 설정(5.4초 동안 루프를 돌린다)
 		final double TIME_LIMIT = 5.4;
 		long ti = System.currentTimeMillis();
 		int currentScore = ans.getScore();
 
-		// 山登り法スタート
+		// 등산 알고리즘 시작
 		int loops = 0;
 		while ((System.currentTimeMillis() - ti) / 1000.0 < TIME_LIMIT) {
-			// 「小さな変更」をランダムに選ぶ
+			// '작은 변경'을 무작위로 선택한다.
 			int t = rnd.nextInt(Q);
 			int h_limit = 14;
 			if (currentScore >= 199900000) {
@@ -38,16 +38,16 @@ class Main {
 			else if (currentScore >= 199500000) {
 				h_limit = 7;
 			}
-			int old_x = ans.X[t], new_x = ans.X[t] + (rnd.nextInt(3) - 1);  // X[t] を -1 から +1 まで増減
-			int old_y = ans.Y[t], new_y = ans.Y[t] + (rnd.nextInt(3) - 1);  // Y[t] を -1 から +1 まで増減
-			int old_z = ans.H[t], new_z = ans.H[t] + (rnd.nextInt(h_limit * 2 + 1) - h_limit); // H[t] を -h_limit から +h_limit まで増減
+			int old_x = ans.X[t], new_x = ans.X[t] + (rnd.nextInt(3) - 1);  // X[t]를 -1부터 +1까지 증ㅇ감
+			int old_y = ans.Y[t], new_y = ans.Y[t] + (rnd.nextInt(3) - 1);  // Y[t]를 -1부터 +1까지 증감
+			int old_z = ans.H[t], new_z = ans.H[t] + (rnd.nextInt(h_limit * 2 + 1) - h_limit); // H[t]를 -h_limit부터 +h_limit까지 증감
 			if (new_x < 0 || new_x >= N || new_y < 0 || new_y >= N || new_z <= 0 || new_z > N) {
 				continue;
 			}
-			// とりあえず変更し、スコアを評価する
+      // 일단 변경하고 점수를 평가한다
 			ans.change(t, new_x, new_y, new_z);
 			int newScore = ans.getScore();
-			// スコアに応じて採用／不採用を決める
+			// 점수에 따라 채용 여부를 결정한다
 			double temperature = 180.0 - 179.0 * ((System.currentTimeMillis() - ti) / 1000.0 / TIME_LIMIT);
 			double probability = Math.exp(Math.min((newScore - currentScore) / temperature, 0.0));
 			if (rnd.nextDouble() < probability) {
@@ -59,7 +59,7 @@ class Main {
 			loops += 1;
 		}
 
-		// 出力
+		// 출력
 		System.out.println(Q);
 		for (int i = 0; i < Q; i++) {
 			System.out.println(ans.X[i] + " " + ans.Y[i] + " " + ans.H[i]);
@@ -68,17 +68,17 @@ class Main {
 		System.err.println("score = " + currentScore);
 	}
 
-	// 操作手順や盤面を記録した構造体 Answer
-	// （ここでは書籍内のコードとは異なり、操作の番号は 1-indexed ではなく 0-indexed で実装しています（つまり番号が 0 から 999 になります））
+	// 조작 순서나 매트릭스를 기록한 구조체 Answer
+	// (여기에서는 책 안의 코드와 달리, 조작 번호는 1-indexed가 아니라 0-indexed로 구현했습니다(즉, 번호가 0부터 999가 됩니다))
 	static class Answer {
-		int N; // 盤面のサイズ
-		int Q; // 操作の回数
+		int N; // 매트릭스 크기
+		int Q; // 조작 횟수
 		int[] X;
 		int[] Y;
 		int[] H;
 		int[][] A;
 		int[][] B;
-		// 初期解を生成
+		// 초기 해 생성
 		public Answer(int N, int Q, int[][] A, Random rnd) {
 			this.N = N;
 			this.Q = Q;
@@ -93,13 +93,13 @@ class Main {
 			H = new int[Q];
 			B = new int[N][N];
 			for (int i = 0; i < Q; i++) {
-				X[i] = rnd.nextInt(N); // 0 以上 N-1 以下のランダムな整数
-				Y[i] = rnd.nextInt(N); // 0 以上 N-1 以下のランダムな整数
+				X[i] = rnd.nextInt(N); // 0 이상 N-1 이하의 무작위 정수
+				Y[i] = rnd.nextInt(N); // 0 이상 N-1 이하의 무작위 정수
 				H[i] = 1;
 				B[Y[i]][X[i]] += 1;
 			}
 		}
-		// X[t] = x, Y[t] = y, H[t] = h に変更する関数
+		// X[t] = x, Y[t] = y, H[t] = h로 변경하는 함수
 		void change(int t, int x, int y, int h) {
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
@@ -115,7 +115,7 @@ class Main {
 				}
 			}
 		}
-		// 現在のスコアを返す関数
+		// 현재 점수를 반환하는 함수
 		int getScore() {
 			int sum = 0;
 			for (int i = 0; i < N; i++) {

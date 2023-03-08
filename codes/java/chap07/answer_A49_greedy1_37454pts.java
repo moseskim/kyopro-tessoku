@@ -1,5 +1,5 @@
 // ###############################################
-// # 本の 266 ページ前半の貪欲法を用いた実装です
+// # 책 266 페이지 전반의 탐욕 알고리즘을 이용한 구현입니다
 // ###############################################
  
 import java.util.*;
@@ -8,7 +8,7 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
  
-		// 入力
+		// 입력
 		int N = 20;
 		int T = sc.nextInt();
 		int[] P = new int[T + 1];
@@ -20,16 +20,16 @@ class Main {
 			R[i] = sc.nextInt();
 		}
  
-		// 配列 A の初期化
+		// 배열 A 초기화
 		int[] A = new int[21];
 		int[] PatA = new int[21];
 		int[] PatB = new int[21];
 		for (int i = 1; i <= 20; i++) A[i] = 0;
  
-		// 貪欲法
+		// 탐욕 알고리즘
 		int CurrentScore = 0;
 		for (int i = 1; i <= T; i++) {
-			// パターン A の場合のスコアを求める
+			// 패턴 A인 경우의 점수를 구한다
 			int ScoreA = CurrentScore;
 			for (int j = 1; j <= 20; j++) PatA[j] = A[j];
 			PatA[P[i]] += 1;
@@ -39,7 +39,7 @@ class Main {
 				if (PatA[j] == 0) ScoreA += 1;
 			}
  
-			// パターン B の場合のスコアを求める
+			// 패턴 B인 경우의 점수를 구한다
 			int ScoreB = CurrentScore;
 			for (int j = 1; j <= 20; j++) PatB[j] = A[j];
 			PatB[P[i]] -= 1;
@@ -49,7 +49,7 @@ class Main {
 				if (PatB[j] == 0) ScoreB += 1;
 			}
  
-			// スコアの大きい方を採用
+			// 점수가 높은 쪽을 채용한다
 			if (ScoreA >= ScoreB) {
 				System.out.println("A");
 				CurrentScore = ScoreA;

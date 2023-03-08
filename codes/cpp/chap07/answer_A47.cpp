@@ -7,17 +7,17 @@ using namespace std;
 int N, X[159], Y[159];
 int P[159];
 
-// a 以上 b 以下の整数をランダムに返す関数
+// a 이상 b 이하의 정수를 무작위로 반환하는 함수
 int RandInt(int a, int b) {
 	return a + rand() % (b - a + 1);
 }
 
-// 都市 p と q の間の距離を求める関数
+// 도시 p와 q 사이의 거리를 구하는 함수
 double GetDistance(int p, int q) {
 	return sqrt((X[p] - X[q]) * (X[p] - X[q]) + (Y[p] - Y[q]) * (Y[p] - Y[q]));
 }
 
-// スコアを計算する関数
+// 점수를 계산하는 함수
 double GetScore() {
 	double sum = 0;
 	for (int i = 1; i <= N; i++) sum += GetDistance(P[i], P[i + 1]);
@@ -25,32 +25,32 @@ double GetScore() {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> X[i] >> Y[i];
 
-	// 初期解生成
+	// 초기 해 생성
 	P[1] = 1; P[N + 1] = 1;
 	for (int i = 2; i <= N; i++) P[i] = i;
 
-	// 山登り法
+	// 등산 알고리즘
 	double CurrentScore = GetScore();
 	for (int t = 1; t <= 200000; t++) {
-		// ランダムに反転させる区間 [L, R] を選ぶ
+		// 무작위로 반전시킬 구간 [L, R]를 선택한다
 		int L = RandInt(2, N);
 		int R = RandInt(2, N);
 		if (L > R) swap(L, R);
 
-		// reverse は配列の L ～ R 番目を反転させる関数
+		// reverse는 배열의 L ~ R번째를 반전시키는 함수
 		reverse(P + L, P + R + 1);
 		double NewScore = GetScore();
 
-		// 改善すればスコアを更新、悪化すれば元に戻す
+		// 개선되면 점수를 업데이트, 악화되면 원래대로 되돌린다
 		if (CurrentScore >= NewScore) CurrentScore = NewScore;
 		else reverse(P + L, P + R + 1);
 	}
 
-	// 出力
+	// 출력
 	for (int i = 1; i <= N + 1; i++) cout << P[i] << endl;
 	return 0;
 }

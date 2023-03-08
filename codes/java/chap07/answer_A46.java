@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力
+		// 입력
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		Point2D[] points = new Point2D[N + 1];
@@ -10,29 +10,29 @@ class Main {
 			points[i] = new Point2D(sc.nextInt(), sc.nextInt());
 		}
 
-		// 貪欲法
+		// 탐욕법
 		int[] answer = playGreedy(N, points);
 
-		// 答えを出力
+		// 답을 출력
 		for (int i = 1; i <= N + 1; i++) {
 			System.out.println(answer[i]);
 		}
 	}
 
-	// 貪欲法によって答えを求める関数
+	// 탐욕법을 이용한 답을 구하는 함수
 	static int[] playGreedy(int N, Point2D[] points) {
-		// 配列の初期化
+		// 배열 초기화
 		int currentPlace = 1;
 		int[] P = new int[N + 2];
-		boolean[] visited = new boolean[N + 1]; // Java では new で初期化した配列の要素は false になることに注意
+		boolean[] visited = new boolean[N + 1]; // Java에서는 new로 초기화한 배열의 요소는 false가 되는 것에 주의
 		P[1] = 1;
 		visited[1] = true;
 
-		// 貪欲法スタート
+		// 탐욕법 시작
 		for (int i = 2; i <= N; i++) {
-			double minDist = 1.0e+99; // 現時点での距離の最小
-			int minID = -1;           // 次はどの都市に移動すればよいか
-			// 距離が最小となる都市を探す
+			double minDist = 1.0e+99; // 현 시점에서의 거리의 최소
+			int minID = -1;           // 다음은 어떤 도시로 이동하면 좋은가
+			// 거리가 최소가 되는 도시를 찾는다
 			for (int j = 1; j <= N; j++) {
 				if (visited[j]) {
 					continue;
@@ -44,26 +44,26 @@ class Main {
 				}
 			}
 
-			// 現在位置の更新
+			// 현재 위치 업데이트
 			visited[minID] = true;
 			P[i] = minID;
 			currentPlace = minID;
 		}
 
-		// 最後に訪問する都市
+		// 마지막으로 방문하는 도시
 		P[N + 1] = 1;
 
 		return P;
 	}
 
-	// 二次元の点を扱うクラス Point2D
+	// 2차원 점을 다루는 클래스 Point2D
 	static class Point2D {
 		int x, y;
 		public Point2D(int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
-		// 2 点間の距離を求める関数
+		// 2점 사이의 거리를 구하는 함수
 		double dist(Point2D p) {
 			return Math.sqrt((x - p.x) * (x - p.x) + (y - p.y) * (y - p.y));
 		}

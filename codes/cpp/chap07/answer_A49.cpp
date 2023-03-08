@@ -4,21 +4,21 @@
 #include <functional>
 using namespace std;
 
-// 盤面の状態を表す構造体
+// 국면 상태를 나타내는 구조체
 struct State {
-	int score; // 暫定スコア
-	int X[29]; // 現在の配列 X の値
-	char LastMove; // 最後の動き（'A' または 'B'）
-	int LastPos; // Beam[i-1][ どこ ] から遷移したか
+	int score; // 잠정 점수
+	int X[29]; // 현재 배열 X의 값
+	char LastMove; // 마지막 동작('A' 또는 'B'）
+	int LastPos; // Beam[i-1][ 어디 ]에서 전이했는가
 };
 
-// sort 関数の順序を決める（スコアが大きい方が「大きい」とする）
+// sort 함수의 순서를 결정한다(점수가 높은 쪽이 '크다'고 한다)
 bool operator>(const State& a1, const State& a2) {
 	if (a1.score > a2.score) return true;
 	else return false;
 }
 
-// 必要な変数・配列（WIDTH はビーム幅、NumState[i] は i 手目時点での状態数）
+// 필요한 변수/배열(WIDTH는 빔 폭,, NumState[i]는 i번째 수 시점에서의 상태 수)
 const int WIDTH = 10000;
 const int N = 20;
 int T, P[109], Q[109], R[109];
@@ -26,18 +26,18 @@ int NumState[109];
 State Beam[109][WIDTH];
 char Answer[109];
 
-// ビームサーチを行う関数
+// 빔 서치를 수행하는 함수
 void BeamSearch() {
-	// 0 手目の状態を設定
+	// 0번째 수의 상태를 설정
 	NumState[0] = 1;
 	Beam[0][0].score = 0;
 	for (int i = 1; i <= N; i++) Beam[0][0].X[i] = 0;
 
-	// ビームサーチ
+	// 빔 서치
 	for (int i = 1; i <= T; i++) {
 		vector<State> Candidate;
 		for (int j = 0; j < NumState[i - 1]; j++) {
-			// 操作 A の場合
+			// 조작 A인 경우
 			State SousaA = Beam[i - 1][j];
 			SousaA.LastMove = 'A';
 			SousaA.LastPos = j;
@@ -48,7 +48,7 @@ void BeamSearch() {
 				if (SousaA.X[k] == 0) SousaA.score += 1;
 			}
 
-			// 操作 B の場合
+			// 조작 B인 경우
 			State SousaB = Beam[i - 1][j];
 			SousaB.LastMove = 'B';
 			SousaB.LastPos = j;
@@ -59,12 +59,12 @@ void BeamSearch() {
 				if (SousaB.X[k] == 0) SousaB.score += 1;
 			}
 
-			// 候補に追加
+			// 후보에 추가
 			Candidate.push_back(SousaA);
 			Candidate.push_back(SousaB);
 		}
 
-		// ソートして Beam[i] の結果を計算する
+		// 정렬해서 Beam[i]의 결과를 계산한다
 		sort(Candidate.begin(), Candidate.end(), greater<State>());
 		NumState[i] = min(WIDTH, (int)Candidate.size());
 		for (int j = 0; j < NumState[i]; j++) Beam[i][j] = Candidate[j];
@@ -72,21 +72,21 @@ void BeamSearch() {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> T;
 	for (int i = 1; i <= T; i++) cin >> P[i] >> Q[i] >> R[i];
 
-	// ビームサーチ
+	// 빔 서치
 	BeamSearch();
 
-	// ビームサーチの復元（CurrentPlace は配列 Beam のどの位置を見ているかを表す）
+	// 빔 서치 복원(CurrentPlace는 배열 Beam의 어느 위치를 보고 있는가를 나타낸다)
 	int CurrentPlace = 0;
 	for (int i = T; i >= 1; i--) {
 		Answer[i] = Beam[i][CurrentPlace].LastMove;
 		CurrentPlace = Beam[i][CurrentPlace].LastPos;
 	}
 
-	// 出力
+	// 출력
 	for (int i = 1; i <= T; i++) cout << Answer[i] << endl;
 	return 0;
 }

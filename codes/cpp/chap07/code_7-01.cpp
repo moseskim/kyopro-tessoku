@@ -1,4 +1,4 @@
-// a 以上 b 以下の整数をランダムに返す関数
+// a 이상 b 이사의 정수를 무작위로 반환하는 함수
 int RandInt(int a, int b) {
 	return a + rand() % (b - a + 1);
 }

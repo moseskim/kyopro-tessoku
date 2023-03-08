@@ -3,27 +3,27 @@
 using namespace std;
 
 int N, X[159], Y[159];
-int P[159]; // 都市を訪れる順番の情報
-bool visited[159]; // visited[i]=true のとき都市 i を訪問した
+int P[159]; // 도시를 방문하는 순서 정보
+bool visited[159]; // visited[i]=true일 때 도시 i를 방문했음
 
-// 都市 p と q の間の距離を求める関数
+// 도시 p와 q 사이의 거리르 구하는 함수
 double GetDistance(int p, int q) {
 	return sqrt((X[p] - X[q]) * (X[p] - X[q]) + (Y[p] - Y[q]) * (Y[p] - Y[q]));
 }
 
-// 貪欲法によって答えを求める関数
+// 탐욕법을 사용해 답을 구하는 함수
 void PlayGreedy() {
-	// 配列の初期化
+	// 배열 초기화
 	int CurrentPlace = 1;
 	for (int i = 1; i <= N; i++) visited[i] = false;
 	P[1] = 1; visited[1] = true;
 
-	// 貪欲法スタート
+	// 탐욕법 시작
 	for (int i = 2; i <= N; i++) {
-		double MinDist = 10000.0; // 現時点での距離の最小
-		int Min_ID = -1; // 次はどの都市に移動すれば良いか
+		double MinDist = 10000.0; // 현 시점에서의 거리의 최소
+		int Min_ID = -1; // 다음은 어떤 도시로 이동해야 좋은가
 
-		// 距離が最小となる都市を探す
+		// 거리가 최소가 되는 도시를 찾는다
 		for (int j = 1; j <= N; j++) {
 			if (visited[j] == true) continue;
 			double NewDist = GetDistance(CurrentPlace, j);
@@ -33,25 +33,25 @@ void PlayGreedy() {
 			}
 		}
 
-		// 現在位置の更新
+		// 현재 위치 업데이트
 		visited[Min_ID] = true;
 		P[i] = Min_ID;
 		CurrentPlace = Min_ID;
 	}
 
-	// 最後に訪問する都市
+	// 최후에 방문하는 도시
 	P[N + 1] = 1;
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> X[i] >> Y[i];
 
-	// 貪欲法
+	// 탐욕법
 	PlayGreedy();
 
-	// 出力
+	// 출력
 	for (int i = 1; i <= N + 1; i++) cout << P[i] << endl;
 	return 0;
 }
