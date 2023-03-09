@@ -41,7 +41,7 @@
 | 1장 | 알고리즘과 계산량 | [링크](https://github.com/moseskim/kyopro-tessoku/tree/main/editorial/chap01) |
 | 2장 | 누적합 | [링크](https://github.com/moseskim/kyopro-tessoku/tree/main/editorial/chap02) |
 | 3장 | 바이너리 서치 | [링크](https://github.com/moseskim/kyopro-tessoku/tree/main/editorial/chap03) |
-| 4장 | 동적 계획법 | [링크](https://github.com/moseskim/kyopro-tessoku/tree/main/editorial/chap04) |
+| 4장 | 동적 계획 알고리즘 | [링크](https://github.com/moseskim/kyopro-tessoku/tree/main/editorial/chap04) |
 | 5장 | 수학적 문제 | [링크](https://github.com/moseskim/kyopro-tessoku/tree/main/editorial/chap05) |
 | 6장 | 사고 기법 | [링크](https://github.com/moseskim/kyopro-tessoku/tree/main/editorial/chap06) |
 | 7장 | 휴리스틱 | 응용 문제 없음 |
