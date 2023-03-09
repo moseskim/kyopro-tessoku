@@ -2,11 +2,11 @@
 using namespace std;
 
 int main() {
-	// 入力
+	// 입력
 	int N;
 	cin >> N;
 
-	// 出力
+	// 출력
 	cout << N * 11 / 10 << endl;
 	return 0;
 }

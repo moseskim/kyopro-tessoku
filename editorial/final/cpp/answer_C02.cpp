@@ -6,7 +6,7 @@ int N, A[109];
 int Answer = 0;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
@@ -15,7 +15,7 @@ int main() {
 		for (int j = i + 1; j <= N; j++) Answer = max(Answer, A[i] + A[j]);
 	}
 
-	// 出力
+	// 출력
 	cout << Answer << endl;
 	return 0;
 }

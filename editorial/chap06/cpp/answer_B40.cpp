@@ -6,7 +6,7 @@ long long cnt[109];
 long long Answer = 0;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
@@ -19,7 +19,7 @@ int main() {
 	Answer += cnt[0] * (cnt[0] - 1LL) / 2LL;
 	Answer += cnt[50] * (cnt[50] - 1LL) / 2LL;
  
-	// 出力
+	// 출력
 	cout << Answer << endl;
 	return 0;
 }

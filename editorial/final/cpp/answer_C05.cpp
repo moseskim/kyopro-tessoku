@@ -2,11 +2,11 @@
 using namespace std;
 
 int main() {
-	// 入力
+	// 입력
 	int N;
 	cin >> N; N -= 1;
 
-	// 出力
+	// 출력
 	for (int x = 9; x >= 0; x--) {
 		int wari = (1 << x);
 		if ((N / wari) % 2 == 0) cout << "4"; // 2 進法の 0 が 4 に対応

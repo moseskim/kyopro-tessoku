@@ -18,7 +18,7 @@ int Hantei(string A1, string A2) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> S[i] >> T[i];
 
@@ -41,7 +41,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	if (Answer.size() != 1) {
 		cout << "Can't Solve" << endl;
 	}

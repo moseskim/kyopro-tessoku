@@ -2,7 +2,7 @@
 using namespace std;
  
 int main() {
-	// 入力
+	// 입력
 	int N, A[109];
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
@@ -17,7 +17,7 @@ int main() {
 		}
 	}
 	
-	// 出力
+	// 출력
 	if (Answer == true) cout << "Yes" << endl;
 	else cout << "No" << endl;
 	return 0;

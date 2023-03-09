@@ -38,11 +38,11 @@ long long ncr(int n, int r) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	long long H, W;
 	cin >> H >> W;
 
-	// 出力
+	// 출력
 	cout << ncr(H + W - 2, W - 1) << endl;
 	return 0;
 }

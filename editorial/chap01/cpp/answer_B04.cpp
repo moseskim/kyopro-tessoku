@@ -3,7 +3,7 @@
 using namespace std;
  
 int main() {
-	// 入力
+	// 입력
 	string N;
 	cin >> N;
 	
@@ -17,7 +17,7 @@ int main() {
 		Answer += keta * kurai;
 	}
 	
-	// 出力
+	// 출력
 	cout << Answer << endl;
 	return 0;
 }

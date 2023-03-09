@@ -6,7 +6,7 @@ int N, M, A[100009], B[100009];
 vector<int> G[100009];
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> M;
 	for (int i = 1; i <= M; i++) {
 		cin >> A[i] >> B[i];
@@ -24,7 +24,7 @@ int main() {
 		}
 	}
  
-	// 出力
+	// 출력
 	cout << MaxID << endl;
 	return 0;
 }

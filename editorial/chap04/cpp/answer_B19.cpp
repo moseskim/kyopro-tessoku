@@ -6,7 +6,7 @@ long long N, W, w[109], v[109];
 long long dp[109][100009];
 
 int main() {
-	// 入力・配列の初期化
+	// 입력・配列の初期化
 	cin >> N >> W;
 	for (int i = 1; i <= N; i++) cin >> w[i] >> v[i];
 	for (int i = 0; i <= N; i++) {
@@ -22,7 +22,7 @@ int main() {
 		}
 	}
 
-	// 答えの出力
+	// 답 출력
 	long long Answer = 0;
 	for (int i = 0; i <= 100000; i++) {
 		if (dp[N][i] <= W) Answer = i;

@@ -7,7 +7,7 @@ bool used[2009]; // used[i] は仕事 i を選んだかどうか
 int Answer = 0;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> D;
 	for (int i = 1; i <= N; i++) cin >> X[i] >> Y[i];
  
@@ -30,7 +30,7 @@ int main() {
 		}
 	}
  
-	// 出力
+	// 출력
 	cout << Answer << endl;
 	return 0;
 }

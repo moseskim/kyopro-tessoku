@@ -7,7 +7,7 @@ int N, ret1[1 << 18], ret2[1 << 18];
 string S;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> S;
  
 	// 答えを求める
@@ -24,7 +24,7 @@ int main() {
 		ret2[i] = streak2;
 	}
  
-	// 出力
+	// 출력
 	long long Answer = 0;
 	for (int i = 0; i < N; i++) Answer += max(ret1[i], ret2[i]);
 	cout << Answer << endl;

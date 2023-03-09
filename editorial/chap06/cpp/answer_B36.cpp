@@ -6,7 +6,7 @@ int N, K;
 string S;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> K;
 	cin >> S;
  
@@ -16,7 +16,7 @@ int main() {
 		if (S[i] == '1') numON += 1;
 	}
  
-	// 答えを出力
+	// 답을 출력
 	if (numON % 2 == K % 2) cout << "Yes" << endl;
 	else cout << "No" << endl;
 	return 0;

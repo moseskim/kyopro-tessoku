@@ -13,7 +13,7 @@ long long check(double x) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
@@ -34,7 +34,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	for (int i = 1; i <= N; i++) {
 		if (i >= 2) cout << " ";
 		cout << (long long)(A[i] / Border);

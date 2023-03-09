@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-// 入力で与えられる変数など
+// 입력で与えられる変数など
 int N, Q, L[100009], R[100009];
 string S;
 string SRev; // S の逆順
@@ -35,7 +35,7 @@ long long GetHashRight(int l, int r) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> Q;
 	cin >> S;
 	for (int i = 1; i <= Q; i++) cin >> L[i] >> R[i];
@@ -58,7 +58,7 @@ int main() {
 	HRev[0] = 1;
 	for (int i = 1; i <= N; i++) HRev[i] = (100LL * HRev[i - 1] + TRev[i]) % mod;
 
-	// クエリの処理
+	// 쿼리 처리
 	for (int i = 1; i <= Q; i++) {
 		long long v1 = GetHashLeft(L[i], R[i]);
 		long long v2 = GetHashRight(L[i], R[i]);

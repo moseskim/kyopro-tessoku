@@ -7,7 +7,7 @@ int N, A[409];
 int dp[409][409];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= 2 * N; i++) cin >> A[i];
 
@@ -36,7 +36,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	cout << dp[1][2 * N] << endl;
 	return 0;
 }

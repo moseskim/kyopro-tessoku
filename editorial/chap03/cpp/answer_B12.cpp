@@ -7,7 +7,7 @@ double f(double x) {
 }
  
 int main() {
-	// 入力
+	// 입력
 	int N;
 	cin >> N;
  
@@ -22,7 +22,7 @@ int main() {
 		else Left = Mid; // 右半分に絞られる
 	}
  
-	// 出力
+	// 출력
 	printf("%.12lf\n", Mid);
 	return 0;
 }

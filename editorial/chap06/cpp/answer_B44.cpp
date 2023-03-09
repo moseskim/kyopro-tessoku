@@ -6,7 +6,7 @@ int Q, QueryType[200009], x[200009], y[200009];
 int T[509];
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= N; j++) cin >> A[i][j];
@@ -15,7 +15,7 @@ int main() {
 	// 配列 T を初期化
 	for (int i = 1; i <= N; i++) T[i] = i;
  
-	// クエリの処理
+	// 쿼리 처리
 	cin >> Q;
 	for (int i = 1; i <= Q; i++) {
 		cin >> QueryType[i] >> x[i] >> y[i];

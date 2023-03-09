@@ -29,11 +29,11 @@ long long GetUp(long long r) {
 }
  
 int main() {
-	// 入力
+	// 입력
 	cin >> Q;
 	for (int i = 1; i <= Q; i++) cin >> QueryType[i] >> x[i];
  
-	// クエリの処理
+	// 쿼리 처리
 	for (int i = 1; i <= Q; i++) {
 		if (QueryType[i] == 1) {
 			Set1.insert(x[i]);

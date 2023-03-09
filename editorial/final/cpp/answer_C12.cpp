@@ -16,7 +16,7 @@ int tsunagari(int l, int r) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> M >> K;
 	for (int i = 1; i <= M; i++) cin >> A[i] >> B[i];
 
@@ -36,7 +36,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	cout << dp[K][N] << endl;
 	return 0;
 }

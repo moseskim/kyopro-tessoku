@@ -5,7 +5,7 @@ const int mod = 1000000007;
 int N, a[10000009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 
 	// フィボナッチ数列の計算
@@ -15,7 +15,7 @@ int main() {
 		a[i] = (a[i - 1] + a[i - 2]) % mod;
 	}
 
-	// 出力
+	// 출력
 	cout << a[N] << endl;
 	return 0;
 }

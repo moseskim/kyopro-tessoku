@@ -7,7 +7,7 @@ long long R[18][10]; // R[i][j] は「下から i 桁目が j となるような
 long long Power10[18];
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
  
 	// 10 の N 乗を求める
@@ -39,7 +39,7 @@ int main() {
 		for (int j = 0; j < 10; j++) Answer += 1LL * j * R[i][j];
 	}
  
-	// 出力
+	// 출력
 	cout << Answer << endl;
 	return 0;
 }

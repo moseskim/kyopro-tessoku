@@ -6,7 +6,7 @@ int N, A[100009];
 map<int, int> Map;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
@@ -17,7 +17,7 @@ int main() {
 		Map[A[i]] += 1;
 	}
  
-	// 出力
+	// 출력
 	cout << Answer << endl;
 	return 0;
 }

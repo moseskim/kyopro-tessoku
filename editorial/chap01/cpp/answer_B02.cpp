@@ -2,7 +2,7 @@
 using namespace std;
  
 int main() {
-	// 入力
+	// 입력
 	int A, B;
 	cin >> A >> B;
 	
@@ -12,7 +12,7 @@ int main() {
 		if (100 % i == 0) Answer = true;
 	}
 	
-	// 出力
+	// 출력
 	if (Answer == true) cout << "Yes" << endl;
 	else cout << "No" << endl;
 	return 0;

@@ -26,7 +26,7 @@ long long A[100009];
 map<long long, long long> Count;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> P;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 	for (int i = 1; i <= N; i++) A[i] %= mod;

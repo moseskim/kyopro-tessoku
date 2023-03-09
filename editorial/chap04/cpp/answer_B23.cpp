@@ -7,7 +7,7 @@ int N, X[19], Y[19];
 double dp[1 << 16][19];
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 0; i < N; i++) cin >> X[i] >> Y[i];
  
@@ -34,7 +34,7 @@ int main() {
 		}
 	}
  
-	// 答えを出力
+	// 답을 출력
 	printf("%.12lf\n", dp[(1 << N) - 1][0]);
 	return 0;
 }

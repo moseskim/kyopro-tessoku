@@ -22,7 +22,7 @@ int Get_LISvalue(vector<int> A) {
 }
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> X[i] >> Y[i];
  
@@ -37,7 +37,7 @@ int main() {
 		A.push_back(-tmp[i].second);
 	}
  
-	// 出力
+	// 출력
 	cout << Get_LISvalue(A) << endl;
 	return 0;
 }

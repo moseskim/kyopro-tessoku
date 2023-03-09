@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-// 入力で与えられる変数
+// 입력で与えられる変数
 int Q;
 char QueryType[300009]; string X[300009];
 
@@ -11,14 +11,14 @@ char QueryType[300009]; string X[300009];
 deque<string> Z1, Z2;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> Q;
 	for (int i = 1; i <= Q; i++) {
 		cin >> QueryType[i];
 		if (QueryType[i] == 'A' || QueryType[i] == 'B') cin >> X[i];
 	}
 
-	// クエリの処理
+	// 쿼리 처리
 	for (int i = 1; i <= Q; i++) {
 		// [A] 最後尾に入る
 		if (QueryType[i] == 'A') {

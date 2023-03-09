@@ -3,7 +3,7 @@
 using namespace std;
  
 int main() {
-	// 入力
+	// 입력
 	string S;
 	cin >> S;
  

@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-// 入力で与えられる変数
+// 입력で与えられる変数
 int N, K;
 int L[100009], R[100009];
 
@@ -12,7 +12,7 @@ int cntL[200009];
 int cntR[200009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> K;
 	for (int i = 1; i <= N; i++) cin >> L[i] >> R[i];
 
