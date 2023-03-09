@@ -30,7 +30,7 @@ class Main {
 					}
 				}
 			}
-			// 기준 산정일 특정
+			// 기산일 특정
 			if (!level2.empty()) {
 				answer[i] = level2.peek().first;
 			}

@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 入力（高速な入力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력(고속의 입력을 위해, Scanner 대신 BufferedReader를 사용하고 있습니다)
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -27,7 +27,7 @@ class Main {
 			G[B[i]].add(A[i]); // 頂点 B[i] に隣接する頂点として A[i] を追加
 		}
 		
-		// 出力（G[i].size() は頂点 i に隣接する頂点のリストの大きさ ＝ 次数）
+		// 출력（G[i].size() は頂点 i に隣接する頂点のリストの大きさ ＝ 次数）
 		//（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
 		PrintWriter output = new PrintWriter(System.out);
 		for (int i = 1; i <= N; i++) {

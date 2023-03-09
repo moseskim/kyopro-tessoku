@@ -7,7 +7,7 @@ int N, T[109], D[109];
 int dp[109][1449], Answer = 0;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> T[i] >> D[i];
 
@@ -20,7 +20,7 @@ int main() {
 		T[i] = Problems[i - 1].second;
 	}
 
-	// 配列の初期化
+	// 배열 초기화
 	for (int i = 1; i <= N; i++) {
 		for (int j = 0; j <= 1440; j++) dp[i][j] = -1;
 	}
@@ -34,7 +34,7 @@ int main() {
 		}
 	}
 
-	// 答えを出力
+	// 답을 출력
 	for (int i = 0; i <= 1440; i++) Answer = max(Answer, dp[N][i]);
 	cout << Answer << endl;
 	return 0;

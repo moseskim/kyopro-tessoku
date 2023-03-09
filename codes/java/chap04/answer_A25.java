@@ -10,7 +10,7 @@ class Main {
 		String[] c = new String[H];
 		for (int i = 0; i < H; i++) c[i] = sc.next();
 
-		// 동적 계획법
+		// 동적 계획 알고리즘
 		long[][] dp = new long[H][W];
 		for (int i = 0; i < H; i++) {
 			for (int j = 0; j < W; j++) {

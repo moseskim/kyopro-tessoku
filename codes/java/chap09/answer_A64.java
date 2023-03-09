@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 入力（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -29,29 +29,29 @@ class Main {
 			G[B[i]].add(new Edge(A[i], C[i]));
 		}
 		
-		// 配列の初期化
+		// 배열 초기화
 		final int INF = 2000000000;
 		boolean[] kakutei = new boolean[N + 1]; // Java では new で初期化した配列の要素は false になることに注意
 		int[] cur = new int[N + 1];
 		Arrays.fill(cur, INF);
 
-		// スタート地点をキューに追加
+		// 시작 지점을 큐에 추가
 		cur[1] = 0;
 		Queue<State> Q = new PriorityQueue<>();
 		Q.add(new State(cur[1], 1));
 
-		// ダイクストラ法
+		// 다이크스트라 알고리즘
 		while (Q.size() >= 1) {
-			// 次に確定させるべき頂点を求める
+			// 다음에 확정시킬 노드를 구한다
 			// （ここでは、優先度付きキュー Q の最小要素を取り出し、これを Q から削除する）
 			int pos = Q.remove().pos;
 
-			// Q の最小要素が「既に確定した頂点」の場合
+			// Q의 최소 요소가 '이미 확정한 노드'인 경우
 			if (kakutei[pos]) {
 				continue;
 			}
 
-			// cur[x] の値を更新する
+			// cur[x] 값을 업데이트 한다
 			kakutei[pos] = true;
 			for (int i = 0; i < G[pos].size(); i++) {
 				Edge e = G[pos].get(i);
@@ -62,7 +62,7 @@ class Main {
 			}
 		}
 		
-		// 答えを出力（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
+		// 답을 출력（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
 		PrintWriter output = new PrintWriter(System.out);
 		for (int i = 1; i <= N; i++) {
 			if (cur[i] != INF) {
@@ -84,7 +84,7 @@ class Main {
 		}
 	}
 
-	// ダイクストラ法の (cur[x], x) を管理するクラス（cur[x] = dist, x = pos に対応）
+	// 다이크스트라 알고리즘の (cur[x], x) を管理するクラス（cur[x] = dist, x = pos に対応）
 	static class State implements Comparable<State> {
 		int dist, pos;
 		public State(int dist, int pos) {

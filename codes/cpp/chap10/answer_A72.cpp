@@ -38,7 +38,7 @@ int paintRow(int remaining_steps) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> H >> W >> K;
 	for (int i = 1; i <= H; i++) {
 		for (int j = 1; j <= W; j++) cin >> c[i][j];
@@ -68,7 +68,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	cout << Answer << endl;
 	return 0;
 }

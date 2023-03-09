@@ -11,7 +11,7 @@ class Main {
 		// 배열 dp 정의
 		int[][] dp = new int[N + 1][M + 1];
 
-		// 동적 계획법
+		// 동적 계획 알고리즘
 		dp[0][0] = 0;
 		for (int i = 0; i <= N; i++) {
 			for (int j = 0; j <= M; j++) {

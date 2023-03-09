@@ -13,7 +13,7 @@ class Main {
 		int LEN = 0; // LEN은 L의 길이(예: L[4]까지 쓰여 있는 경우 LEN=4)
 		ArrayList<Integer> L = new ArrayList<Integer>();
 
-		// 동적 계획법(배열 dp를 사용하지 않는 구현)
+		// 동적 계획 알고리즘(배열 dp를 사용하지 않는 구현)
 		for (int i = 1; i <= N; i++) {
 			int pos = ~Collections.binarySearch(L, A[i], (x, y) -> x.compareTo(y) >= 0 ? 1 : -1);
 

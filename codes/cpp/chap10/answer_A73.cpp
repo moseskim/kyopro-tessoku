@@ -4,16 +4,16 @@
 #include <algorithm>
 using namespace std;
 
-// 入力・グラフを表す変数
+// 입력/그래프を表す変数
 int N, M, A[100009], B[100009], C[100009], D[100009];
 vector<pair<int, int>> G[8009];
 
-// ダイクストラ法で使う変数
+// 다이크스트라 알고리즘で使う変数
 long long cur[8009]; bool kakutei[8009];
 priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> Q;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> M;
 	for (int i = 1; i <= M; i++) {
 		cin >> A[i] >> B[i] >> C[i] >> D[i];
@@ -27,17 +27,17 @@ int main() {
 		}
 	}
 
-	// 配列の初期化
+	// 배열 초기화
 	for (int i = 1; i <= N; i++) kakutei[i] = false;
 	for (int i = 1; i <= N; i++) cur[i] = (1LL << 60);
 
-	// スタート地点をキューに追加
+	// 시작 지점을 큐에 추가
 	cur[1] = 0;
 	Q.push(make_pair(cur[1], 1));
 
-	// ダイクストラ法
+	// 다이크스트라 알고리즘
 	while (!Q.empty()) {
-		// 次に確定させるべき頂点を求める
+		// 다음에 확정시킬 노드를 구한다
 		int pos = Q.top().second; Q.pop();
 		if (kakutei[pos] == true) continue;
 
@@ -53,7 +53,7 @@ int main() {
 		}
 	}
 
-	// 答えを出力
+	// 답을 출력
 	// マラソンコースの距離：cur[N]/10000 を小数点以下切り上げた値
 	// コース上の木の数：cur[N] と Distance*10000 の差分
 	long long Distance = (cur[N] + 9999) / 10000;

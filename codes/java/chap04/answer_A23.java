@@ -18,7 +18,7 @@ class Main {
 			for (int j = 0; j < (1 << N); j++) dp[i][j] = 1000000000;
 		}
 
-		// 동적 계획법
+		// 동적 계획 알고리즘
 		dp[0][0] = 0;
 		for (int i = 1; i <= M; i++) {
 			for (int j = 0; j < (1 << N); j++) {

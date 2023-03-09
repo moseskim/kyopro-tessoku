@@ -5,7 +5,7 @@ v = [ None ] * (N + 1)
 for i in range(1, N+1):
 	w[i], v[i] = map(int, input().split())
 
-# 동적 계획법
+# 동적 계획 알고리즘
 dp = [ [ -10 ** 15 ] * (W + 1) for i in range(N + 1) ]
 dp[0][0] = 0
 for i in range(1, N+1):

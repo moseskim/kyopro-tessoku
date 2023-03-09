@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力
+		// 입력
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		int W = sc.nextInt();
@@ -35,7 +35,7 @@ class Main {
 			sum[i] %= MOD;
 		}
 
-		// 出力
+		// 출력
 		System.out.println(dp[N + 1]);
 	}
 

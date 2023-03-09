@@ -14,7 +14,7 @@ int main() {
 	dp[1] = 0;
 	for (int i = 2; i <= N; i++) dp[i] = -1000000000;
 
-	// 동적 계획법 → 출력
+	// 동적 계획 알고리즘 → 출력
 	for (int i = 1; i <= N - 1; i++) {
 		dp[A[i]] = max(dp[A[i]], dp[i] + 100);
 		dp[B[i]] = max(dp[B[i]], dp[i] + 150);

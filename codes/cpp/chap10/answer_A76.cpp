@@ -7,7 +7,7 @@ long long N, W, L, R, X[150009];
 int dp[150009], sum[150009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> W >> L >> R;
 	for (int i = 1; i <= N; i++) cin >> X[i];
 

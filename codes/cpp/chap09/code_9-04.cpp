@@ -9,5 +9,5 @@ for (int i = 1; i <= N - 1; i++) {
 	}
 }
 
-// 答えを出力
+// 답을 출력
 for (int i = 1; i <= N; i++) cout << dist[i] << endl;

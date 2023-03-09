@@ -11,7 +11,7 @@ int main() {
 	cin >> S; N = S.size();
 	cin >> T; M = T.size();
 
-	// 동적 계획법
+	// 동적 계획 알고리즘
 	dp[0][0] = 0;
 	for (int i = 0; i <= N; i++) {
 		for (int j = 0; j <= M; j++) {

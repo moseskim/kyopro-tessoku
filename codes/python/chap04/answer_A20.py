@@ -4,7 +4,7 @@ T = input()
 N = len(S)
 M = len(T)
 
-# 동적 계획법
+# 동적 계획 알고리즘
 dp = [ [ None ] * (M + 1) for i in range(N + 1) ]
 dp[0][0] = 0
 for i in range(0, N+1):

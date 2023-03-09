@@ -4,7 +4,7 @@ c = [ None ] * H
 for i in range(H):
 	c[i] = input()
 
-# 동적 계획법
+# 동적 계획 알고리즘
 dp = [ [ 0 ] * (W + 1) for i in range(H + 1) ]
 for i in range(H):
 	for j in range(W):

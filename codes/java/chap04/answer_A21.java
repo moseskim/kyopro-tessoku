@@ -13,7 +13,7 @@ class Main {
 			A[i] = sc.nextInt();
 		}
 
-		// 동적 계획법(LEN은 r-l의 값)
+		// 동적 계획 알고리즘(LEN은 r-l의 값)
 		int[][] dp = new int[N + 1][N + 1];
 		dp[1][N] = 0;
 		for (int LEN = N - 2; LEN >= 0; LEN--) {

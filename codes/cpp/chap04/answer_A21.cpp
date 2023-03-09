@@ -10,7 +10,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> P[i] >> A[i];
 
-	// 동적 계획법(LEN은 r-l의 값)
+	// 동적 계획 알고리즘(LEN은 r-l의 값)
 	dp[1][N] = 0;
 	for (int LEN = N - 2; LEN >= 0; LEN--) {
 		for (int l = 1; l <= N - LEN; l++) {

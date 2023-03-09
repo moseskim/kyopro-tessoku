@@ -12,7 +12,7 @@ int main() {
 		for (int j = 1; j <= W; j++) cin >> c[i][j];
 	}
 
-	// 동적 계획법
+	// 동적 계획 알고리즘
 	for (int i = 1; i <= H; i++) {
 		for (int j = 1; j <= W; j++) {
 			if (i == 1 && j == 1) {

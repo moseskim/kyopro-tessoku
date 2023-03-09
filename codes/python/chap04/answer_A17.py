@@ -3,7 +3,7 @@ N = int(input())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 
-# 동적 계획법
+# 동적 계획 알고리즘
 dp = [ None ] * (N+1)
 dp[1] = 0
 dp[2] = A[0]

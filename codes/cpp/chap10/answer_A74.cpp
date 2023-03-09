@@ -6,7 +6,7 @@ int X[109], InversionX = 0;
 int Y[109], InversionY = 0;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= N; j++) {
@@ -23,7 +23,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	cout << InversionX + InversionY << endl;
 	return 0;
 }
