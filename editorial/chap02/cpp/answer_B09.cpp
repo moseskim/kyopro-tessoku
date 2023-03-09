@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
  
-// 入力で与えられる変数
+// 입력で与えられる変数
 int N;
 int A[100009], B[100009], C[100009], D[100009];
  
@@ -9,7 +9,7 @@ int A[100009], B[100009], C[100009], D[100009];
 int T[1509][1509];
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i] >> B[i] >> C[i] >> D[i];
  

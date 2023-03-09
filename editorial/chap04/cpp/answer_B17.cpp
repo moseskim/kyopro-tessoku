@@ -9,7 +9,7 @@ int dp[100009];
 vector<int> Answer;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> H[i];
  

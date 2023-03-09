@@ -6,7 +6,7 @@ using namespace std;
 int X, Y;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> X >> Y;
  
 	// 逆から考えていく
@@ -18,7 +18,7 @@ int main() {
 	}
 	reverse(Answer.begin(), Answer.end());
  
-	// 出力
+	// 출력
 	cout << Answer.size() << endl;
 	for (int i = 0; i < Answer.size(); i++) {
 		cout << Answer[i].first << " " << Answer[i].second << endl;

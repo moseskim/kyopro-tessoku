@@ -15,12 +15,12 @@ long long Power(long long a, long long b, long long m) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	const long long mod = 1000000007;
 	long long W;
 	cin >> W;
 
-	// 出力
+	// 출력
 	cout << 12LL * Power(7, W - 1, mod) % mod << endl;
 	return 0;
 }

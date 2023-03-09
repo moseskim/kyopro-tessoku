@@ -8,7 +8,7 @@ bool dp[69][10009];
 vector<int> Answer;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> S;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
@@ -49,7 +49,7 @@ int main() {
 	}
 	reverse(Answer.begin(), Answer.end());
  
-	// 出力
+	// 출력
 	cout << Answer.size() << endl;
 	for (int i = 0; i < Answer.size(); i++) {
 		if (i >= 1) cout << " ";

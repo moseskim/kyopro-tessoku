@@ -2,11 +2,11 @@
 using namespace std;
  
 int main() {
-	// 入力
+	// 입력
 	int A, B;
 	cin >> A >> B;
 	
-	// 出力
+	// 출력
 	cout << A + B << endl;
 	return 0;
 }

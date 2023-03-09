@@ -6,7 +6,7 @@ int N, A[100009];
 int Q, X[100009];
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 	cin >> Q;

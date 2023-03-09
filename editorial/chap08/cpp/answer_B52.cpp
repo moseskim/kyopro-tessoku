@@ -7,7 +7,7 @@ char A[100009];
 queue<int> Q;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> X;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
@@ -25,7 +25,7 @@ int main() {
 		}
 	}
  
-	// 出力
+	// 출력
 	for (int i = 1; i <= N; i++) cout << A[i];
 	cout << endl;
 	return 0;

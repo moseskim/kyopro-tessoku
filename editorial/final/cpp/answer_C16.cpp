@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-// 入力部分
+// 입력部分
 int N, M, K;
 int A[100009], B[100009], S[100009], T[100009];
 
@@ -23,7 +23,7 @@ vector<pair<int, int>> G[400009];
 int dp[400009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> M >> K;
 	for (int i = 1; i <= M; i++) {
 		cin >> A[i] >> S[i] >> B[i] >> T[i];
@@ -78,7 +78,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	cout << dp[List.size() + 1] << endl;
 	return 0;
 }

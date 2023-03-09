@@ -3,7 +3,7 @@
 #include <queue>
 using namespace std;
 
-// 入力
+// 입력
 int H, W;
 int sx, sy, start; // スタートの座標 (sx, sy) と頂点番号 sx*H+sy
 int gx, gy, goal;  // ゴールの座標 (gx, gy) と頂点番号 gx*W+gy
@@ -14,7 +14,7 @@ int dist[2509];
 vector<int> G[2509];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> H >> W;
 	cin >> sx >> sy; start = sx * W + sy;
 	cin >> gx >> gy; goal = gx * W + gy;
@@ -64,7 +64,7 @@ int main() {
 		}
 	}
 
-	// 答えを出力
+	// 답을 출력
 	cout << dist[goal] << endl;
 	return 0;
 }

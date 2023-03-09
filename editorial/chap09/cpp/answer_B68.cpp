@@ -27,7 +27,7 @@ public:
 		G[b].push_back(Edge{ a, 0, Current_Ga });
 	}
  
-	// 深さ優先探索（F はスタートから pos に到達する過程での " 残余グラフの辺の容量 " の最小値）
+	// 깊이 우선 탐색（F はスタートから pos に到達する過程での " 残余グラフの辺の容量 " の最小値）
 	// 返り値は流したフローの量（流せない場合は 0 を返す）
 	int dfs(int pos, int goal, int F) {
 		// ゴールに到着：フローを流せる！
@@ -77,7 +77,7 @@ int M, A[159], B[159];
 MaximumFlow Z;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> M;
 	for (int i = 1; i <= N; i++) cin >> P[i];
 	for (int i = 1; i <= M; i++) cin >> A[i] >> B[i];

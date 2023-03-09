@@ -21,7 +21,7 @@ long long solve(int omote, int ura) {
 }
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i] >> B[i];
  
@@ -31,7 +31,7 @@ int main() {
 	long long Answer3 = solve(2, 1);
 	long long Answer4 = solve(2, 2);
  
-	// 答えを出力
+	// 답을 출력
 	cout << max({ Answer1,Answer2,Answer3,Answer4 }) << endl;
 	return 0;
 }

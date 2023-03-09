@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-	// 入力
+	// 입력
 	long long N;
 	cin >> N;
 
@@ -20,7 +20,7 @@ int main() {
 	// 小さい順にソート
 	sort(Yakusuu.begin(), Yakusuu.end());
 
-	// 出力
+	// 출력
 	for (int i = 0; i < Yakusuu.size(); i++) {
 		cout << Yakusuu[i] << endl;
 	}

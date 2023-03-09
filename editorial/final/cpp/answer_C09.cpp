@@ -6,11 +6,11 @@ long long N, A[500009];
 long long dp1[500009], dp2[500009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
-	// 配列の初期化
+	// 배열 초기화
 	dp1[0] = 0;
 	dp2[0] = 0;
 
@@ -20,7 +20,7 @@ int main() {
 		dp2[i] = max(dp1[i - 1], dp2[i - 1]);
 	}
 
-	// 答えを出力
+	// 답을 출력
 	cout << max(dp1[N], dp2[N]) << endl;
 	return 0;
 }

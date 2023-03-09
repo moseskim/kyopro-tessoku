@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
  
-// 入力される変数・答え
+// 입력される変数・答え
 int N, T, A[100009], B[100009];
 int Answer[100009];
  
@@ -11,7 +11,7 @@ int Answer[100009];
 vector<int> G[100009];
 bool visited[100009];
  
-// 深さ優先探索を行う関数（pos は現在位置）
+// 깊이 우선 탐색を行う関数（pos は現在位置）
 // 返り値は社員 pos の階級
 int dfs(int pos) {
 	// 最初、社員 pos の階級を 0 に設定する
@@ -32,7 +32,7 @@ int dfs(int pos) {
 }
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> T;
 	for (int i = 1; i <= N - 1; i++) {
 		cin >> A[i] >> B[i];
@@ -40,10 +40,10 @@ int main() {
 		G[B[i]].push_back(A[i]); // B[i]→A[i] の方向に辺を追加
 	}
  
-	// 深さ優先探索
+	// 깊이 우선 탐색
 	dfs(T);
  
-	// 出力
+	// 출력
 	for (int i = 1; i <= N; i++) {
 		if (i >= 2) cout << " ";
 		cout << Answer[i];

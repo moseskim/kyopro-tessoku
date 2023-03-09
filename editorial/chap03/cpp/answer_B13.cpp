@@ -12,7 +12,7 @@ long long sum(int l, int r) {
 }
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  

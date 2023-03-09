@@ -6,14 +6,14 @@ class SegmentTree {
 public:
 	int dat[300000], siz = 1;
  
-	// 要素 dat の初期化を行う（最初は全部ゼロ）
+	// 요소 dat의 초기화를 수행한다(최초에는 전부 0)
 	void init(int N) {
 		siz = 1;
 		while (siz < N) siz *= 2;
 		for (int i = 1; i < siz * 2; i++) dat[i] = 0;
 	}
  
-	// クエリ 1 に対する処理
+	// 쿼리 1에 대한 처리
 	void update(int pos, int x) {
 		pos = pos + siz - 1;
 		dat[pos] = x;
@@ -23,8 +23,8 @@ public:
 		}
 	}
  
-	// クエリ 2 に対する処理
-	// u は現在のセル番号、[a, b) はセルに対応する半開区間、[l, r) は求めたい半開区間
+	// 쿼리 2에 대한 처리
+	// u는 현재의 셀 번호, [a, b)는 셀에 대응하는 반개구간, [l, r)은 구할 반개구간
 	int query(int l, int r, int a, int b, int u) {
 		if (r <= a || b <= l) return 1000000000; // 一切含まれない場合
 		if (l <= a && b <= r) return dat[u]; // 完全に含まれる場合
@@ -40,7 +40,7 @@ int dp[100009];
 SegmentTree Z;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> L >> R;
 	for (int i = 1; i <= N; i++) cin >> X[i];
  
@@ -57,7 +57,7 @@ int main() {
 		Z.update(i, dp[i]);
 	}
  
-	// 答えを出力
+	// 답을 출력
 	cout << dp[N] << endl;
 	return 0;
 }

@@ -7,7 +7,7 @@ int dp[1009][1009];
 string S;
  
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	cin >> S;
  

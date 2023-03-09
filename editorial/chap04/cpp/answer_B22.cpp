@@ -6,7 +6,7 @@ int N, A[100009], B[100009];
 int dp[100009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 2; i <= N; i++) cin >> A[i];
 	for (int i = 3; i <= N; i++) cin >> B[i];
@@ -21,7 +21,7 @@ int main() {
 		if (i <= N - 2) dp[i + 2] = min(dp[i + 2], dp[i] + B[i + 2]); // 部屋 i+2 に行く場合
 	}
 
-	// 出力
+	// 출력
 	cout << dp[N] << endl;
 	return 0;
 }

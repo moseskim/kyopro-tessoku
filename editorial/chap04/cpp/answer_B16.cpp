@@ -7,7 +7,7 @@ int N, H[100009];
 int dp[100009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> H[i];
 
@@ -18,7 +18,7 @@ int main() {
 		dp[i] = min(dp[i - 1] + abs(H[i - 1] - H[i]), dp[i - 2] + abs(H[i - 2] - H[i]));
 	}
 
-	// 出力
+	// 출력
 	cout << dp[N] << endl;
 	return 0;
 }

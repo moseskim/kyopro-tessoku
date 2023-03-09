@@ -6,7 +6,7 @@ int N, K, A[109];
 bool dp[100009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> K;
 	for (int i = 1; i <= K; i++) cin >> A[i];
 
@@ -20,7 +20,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	if (dp[N] == true) cout << "First" << endl;
 	else cout << "Second" << endl;
 	return 0;
