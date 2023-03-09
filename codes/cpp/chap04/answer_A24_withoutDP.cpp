@@ -14,7 +14,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
-	// 동적 계획법
+	// 동적 계획 알고리즘
 	for (int i = 1; i <= N; i++) {
 		int pos = lower_bound(L + 1, L + LEN + 1, A[i]) - L;
 		L[pos] = A[i];

@@ -4,7 +4,7 @@ class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// 入力
+		// 입력
 		int N = sc.nextInt();
 		char[] T = new char[N + 1];
 		long[] A = new long[N + 1];

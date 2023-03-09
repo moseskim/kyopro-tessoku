@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力（書籍とは異なり c[i][j] は 0-indexed で入力しています）
+		// 입력（書籍とは異なり c[i][j] は 0-indexed で入力しています）
 		Scanner sc = new Scanner(System.in);
 		int H = sc.nextInt();
 		int W = sc.nextInt();
@@ -46,7 +46,7 @@ class Main {
 			}
 		}
 
-		// 出力
+		// 출력
 		System.out.println(answer);
 	}
 
@@ -85,7 +85,7 @@ class Main {
 		return ret;
 	}
 
-	// int 型のペアのクラス PairInt
+	// int 타입의 쌍의 클래스 PairInt
 	static class PairInt implements Comparable<PairInt> {
 		int first, second;
 		public PairInt(int first, int second) {

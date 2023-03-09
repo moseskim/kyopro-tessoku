@@ -40,7 +40,7 @@ int Query[100009], pos[100009], x[100009], l[100009], r[100009];
 SegmentTree Z;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> Q;
 	for (int i = 1; i <= Q; i++) {
 		cin >> Query[i];

@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 入力（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -35,7 +35,7 @@ class Main {
 			}
 		);
 		
-		// 最小全域木を求める
+		// 최소 전역 트리를 구한다
 		int answer = 0;
 		UnionFind uf = new UnionFind(N);
 		for (int i = 0; i < M; i++) {
@@ -46,7 +46,7 @@ class Main {
 			}
 		}
 
-		// 答えの出力
+		// 답 출력
 		System.out.println(answer);
 	}
 	
@@ -56,32 +56,32 @@ class Main {
 		int[] par;
 		int[] size;
 
-		// n 頂点の Union-Find を作成
+		// N 노드의 Union-Find를 작성
 		public UnionFind(int n) {
 			this.n = n;
 			par = new int[n + 1];
 			size = new int[n + 1];
-			Arrays.fill(par, -1); // 最初は親が無い (par[i] = -1)
-			Arrays.fill(size, 1); // 最初はグループの頂点数が 1 (size[i] = 1)
+			Arrays.fill(par, -1); // 최초에는 부모가 없다 (par[i] = -1)
+			Arrays.fill(size, 1); // 최초에는 그룹의 노드 수가 1 (size[i] = 1)
 		}
 
-		// 頂点 x の根を返す関数
+		// 노드 x의 루트를 반환하는 함수
 		int root(int x) {
 			while (true) {
 				if (par[x] == -1) {
-					break;  // 1 個先（親）がなければ、ここが根
+					break;  // 1개 앞(부모)이 없으면, 여기가 루트
 				}
-				x = par[x]; // 1 個先（親）に進む
+				x = par[x]; // 1 개 앞(부모)로 진행한다
 			}
 			return x;
 		}
 
-		// 要素 u と v を統合する関数
+		// 요소 u와 v를 통합하는 함수
 		void unite(int u, int v) {
 			int rootU = root(u);
 			int rootV = root(v);
 			if (rootU == rootV) {
-				return; // u と v が同グループのときは処理を行わない
+				return; // u와 v가 같은 그룹일 때는 처리를 수행하지 않는다
 			}
 			if (size[rootU] < size[rootV]) {
 				par[rootU] = rootV;
@@ -93,7 +93,7 @@ class Main {
 			}
 		}
 
-		// 要素 u と v が同一のグループかどうかを返す関数
+		// 요소 u와 v가 같은 그룹인지 반환하는 함수
 		boolean same(int u, int v) {
 			return root(u) == root(v);
 		}

@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力
+		// 입력
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		String[] C = new String[N + 1];
@@ -63,7 +63,7 @@ class Main {
 			G[b].add(new FlowEdge(a, 0, currentGa));
 		}
 
-		// 深さ優先探索（F はスタートから pos に到達する過程での " 残余グラフの辺の容量 " の最小値）
+		// 깊이 우선 탐색（F はスタートから pos に到達する過程での " 残余グラフの辺の容量 " の最小値）
 		// 返り値は流したフローの量（流せない場合は 0 を返す）
 		int dfs(int pos, int goal, int F) {
 			// ゴールに到着：フローを流せる！

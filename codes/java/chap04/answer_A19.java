@@ -20,7 +20,7 @@ class Main {
 			for (int j = 0; j <= W; j++) dp[i][j] = -1000000000000L;
 		}
 
-		// 동적 계획법
+		// 동적 계획 알고리즘
 		dp[0][0] = 0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 0; j <= W; j++) {

@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力（書籍とは異なり A[i], B[i] は 0-indexed で入力しています）
+		// 입력（書籍とは異なり A[i], B[i] は 0-indexed で入力しています）
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		Integer[] A = new Integer[N];

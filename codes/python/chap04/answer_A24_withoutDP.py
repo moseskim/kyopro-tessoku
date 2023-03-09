@@ -8,11 +8,11 @@ import bisect
 N = int(input())
 A = list(map(int, input().split()))
 
-# 동적 계획법 준비
+# 동적 계획 알고리즘 준비
 LEN = 0
 L = []
 
-# 동적 계획법(배열 dp를 사용한 구현)
+# 동적 계획 알고리즘(배열 dp를 사용한 구현)
 for i in range(N):
 	pos = bisect.bisect_left(L, A[i])
 	if pos >= LEN:

@@ -1,5 +1,5 @@
 // ###############################
-// # 深さ優先探索を使った実装
+// # 깊이 우선 탐색을 사용한 구현
 // ###############################
 
 #include <iostream>
@@ -10,26 +10,26 @@ int N, A[100009], dp[100009];
 vector<int> G[100009];
 
 void dfs(int pos) {
-	// 再帰的に計算する
+	// 재귀적으로 계산한다
 	for (int i = 0; i < G[pos].size(); i++) {
-		int to = G[pos][i]; // to は直属の部下の番号
+		int to = G[pos][i]; // to는 직속 부하의 번호
 		dfs(to);
 		dp[pos] += (dp[to] + 1);
 	}
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 2; i <= N; i++) {
 		cin >> A[i];
-		G[A[i]].push_back(i); // 「上司→部下」の方向に辺を追加
+		G[A[i]].push_back(i); // '상사→부하' 방향으로 에지를 추가
 	}
 
-	// 深さ優先探索
+	// 깊이 우선 탐색
 	dfs(1);
 
-	// 空白区切りで出力
+	// 공백으로 구분해서 출력
 	for (int i = 1; i <= N; i++) {
 		if (i >= 2) cout << " ";
 		cout << dp[i];

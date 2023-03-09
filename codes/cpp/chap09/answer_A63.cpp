@@ -9,7 +9,7 @@ vector<int> G[100009];
 queue<int> Q;
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> M;
 	for (int i = 1; i <= M; i++) {
 		cin >> A[i] >> B[i];
@@ -17,7 +17,7 @@ int main() {
 		G[B[i]].push_back(A[i]);
 	}
 
-	// 幅優先探索（dist[i]=? ではなく dist[i]=-1 で初期化していることに注意）
+	// 너비 우선 탐색(dist[i]=?가 아니라 dist[i]=-1로 초기화 하는 것에 주의)
 	for (int i = 1; i <= N; i++) dist[i] = -1;
 	Q.push(1);
 	dist[1] = 0;
@@ -32,7 +32,7 @@ int main() {
 		}
 	}
 
-	// 出力
+	// 출력
 	for (int i = 1; i <= N; i++) cout << dist[i] << endl;
 	return 0;
 }

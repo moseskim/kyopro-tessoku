@@ -10,7 +10,7 @@ int main() {
 	for (int i = 1; i <= N; i++) cin >> A[i];
 	for (int j = 1; j <= Q; j++) cin >> X[j] >> Y[j];
 
-	// 전 계산
+	// 사전 계산
 	for (int i = 1; i <= N; i++) dp[0][i] = A[i];
 	for (int d = 1; d <= 29; d++) {
 		for (int i = 1; i <= N; i++) dp[d][i] = dp[d - 1][dp[d - 1][i]];

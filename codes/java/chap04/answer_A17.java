@@ -11,7 +11,7 @@ class Main {
 		for (int i = 2; i <= N; i++) A[i] = sc.nextInt();
 		for (int i = 3; i <= N; i++) B[i] = sc.nextInt();
 
-		// 동적 계획법
+		// 동적 계획 알고리즘
 		int[] dp = new int[N + 1];
 		dp[1] = 0;
 		dp[2] = A[2];

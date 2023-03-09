@@ -30,7 +30,7 @@ int GetNext(int pos, int idx) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> M;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 	for (int j = 1; j <= M; j++) cin >> X[j] >> Y[j] >> Z[j];
@@ -50,7 +50,7 @@ int main() {
 		if (A[i] == 1) Start += (1 << (i - 1));
 	}
 
-	// 配列の初期化／スタート地点をキューに入れる
+	// 배열 초기화／スタート地点をキューに入れる
 	queue<int> Q;
 	for (int i = 0; i < (1 << N); i++) dist[i] = -1;
 	dist[Start] = 0;
@@ -68,7 +68,7 @@ int main() {
 		}
 	}
 
-	// 答えを出力
+	// 답을 출력
 	cout << dist[Goal] << endl;
 	return 0;
 }

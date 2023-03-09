@@ -5,7 +5,7 @@ A = [ None ] * (N + 1)
 for i in range(1, N+1):
 	P[i], A[i] = map(int, input().split())
 
-# 동적 계획법(LEN은 r-l의 값)
+# 동적 계획 알고리즘(LEN은 r-l의 값)
 dp = [ [ None ] * (N + 1) for i in range(N + 1) ]
 dp[1][N] = 0
 for LEN in reversed(range(0, N-1)):

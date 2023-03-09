@@ -22,7 +22,7 @@ int main() {
 			}
 		}
 
-		// 기준 산정일 특정
+		// 기산일 특정
 		if (!Level2.empty()) Answer[i] = Level2.top().first;
 		else Answer[i] = -1;
 	}

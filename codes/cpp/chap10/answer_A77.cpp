@@ -16,7 +16,7 @@ bool check(int x) {
 }
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N >> L >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
@@ -29,7 +29,7 @@ int main() {
 		if (Answer == true) left = mid; // 答えが後半部分に絞られる
 	}
 
-	// 出力
+	// 출력
 	cout << left << endl;
 	return 0;
 }

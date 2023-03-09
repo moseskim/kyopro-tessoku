@@ -6,18 +6,18 @@ int N, A[100009], dp[100009];
 vector<int> G[100009];
 
 int main() {
-	// 入力
+	// 입력
 	cin >> N;
 	for (int i = 2; i <= N; i++) {
 		cin >> A[i];
-		G[A[i]].push_back(i); // 「上司→部下」の方向に辺を追加
+		G[A[i]].push_back(i); // '상사→부하' 방향으로 에지를 추가
 	}
-	// 動的計画法（dp[x] は社員 x の部下の数）
+	// 동적 계획 알고리즘(dp[x]는 사원 x의 부하의 수)
 	for (int i = N; i >= 1; i--) {
 		dp[i] = 0;
 		for (int j = 0; j < G[i].size(); j++) dp[i] += (dp[G[i][j]] + 1);
 	}
-	// 空白区切りで出力
+	// 공백으로 구분해서 출력
 	for (int i = 1; i <= N; i++) {
 		if (i >= 2) cout << " ";
 		cout << dp[i];

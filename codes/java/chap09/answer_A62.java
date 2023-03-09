@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 入力（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -27,7 +27,7 @@ class Main {
 			G[B[i]].add(A[i]);
 		}
 		
-		// 深さ優先探索
+		// 깊이 우선 탐색
 		visited = new boolean[N + 1];
 		for (int i = 1; i <= N; i++) {
 			visited[i] = false;
@@ -42,7 +42,7 @@ class Main {
 			}
 		}
 
-		// 答えの出力
+		// 답 출력
 		if (answer == true) {
 			System.out.println("The graph is connected.");
 		}

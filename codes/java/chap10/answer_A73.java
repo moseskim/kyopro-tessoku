@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 入力（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -37,7 +37,7 @@ class Main {
 			}
 		}
 		
-		// ダイクストラ法（ダイクストラ法の詳しい説明については本書籍の 9.4 節、および ../chap09/answer_A64.java を参照）
+		// 다이크스트라 알고리즘（ダイクストラ法の詳しい説明については本書籍の 9.4 節、および ../chap09/answer_A64.java を参照）
 		final long INF = (1L << 60);
 		boolean[] kakutei = new boolean[N + 1];
 		long[] cur = new long[N + 1];
@@ -60,7 +60,7 @@ class Main {
 			}
 		}
 		
-		// 答えを出力
+		// 답을 출력
 		// マラソンコースの距離：cur[N]/10000 を小数点以下切り上げた値
 		// コース上の木の数：cur[N] と distance*10000 の差分
 		long distance = (cur[N] + 9999) / 10000;
@@ -77,7 +77,7 @@ class Main {
 		}
 	}
 
-	// ダイクストラ法の (cur[x], x) を管理するクラス（cur[x] = dist, x = pos に対応）
+	// 다이크스트라 알고리즘の (cur[x], x) を管理するクラス（cur[x] = dist, x = pos に対応）
 	static class State implements Comparable<State> {
 		long dist; int pos;
 		public State(long dist, int pos) {

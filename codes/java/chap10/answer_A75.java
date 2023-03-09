@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力
+		// 입력
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		int[] T = new int[N + 1];
@@ -56,7 +56,7 @@ class Main {
 		System.out.println(answer);
 	}
 	
-	// int 型のペアのクラス PairInt
+	// int 타입의 쌍의 클래스 PairInt
 	static class PairInt implements Comparable<PairInt> {
 		int first, second;
 		public PairInt(int first, int second) {

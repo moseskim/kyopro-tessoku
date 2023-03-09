@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
-		// 入力
+		// 입력
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		int M = sc.nextInt();
@@ -28,7 +28,7 @@ class Main {
 		}
 		int goal = (1 << N) - 1;
 
-		// 配列の初期化／スタート地点をキューに入れる
+		// 배열 초기화／スタート地点をキューに入れる
 		int[] dist = new int[1 << N];
 		Arrays.fill(dist, -1);
 		dist[start] = 0;
@@ -50,7 +50,7 @@ class Main {
 			}
 		}
 
-		// 答えを出力
+		// 답을 출력
 		System.out.println(dist[goal]);
 	}
 }

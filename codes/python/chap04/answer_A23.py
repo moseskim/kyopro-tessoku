@@ -7,7 +7,7 @@ for i in range(0, M):
 # 배열 초기화
 dp = [ [ 10 ** 9 ] * (2 ** N) for i in range(M + 1) ]
 
-# 동적 계획법
+# 동적 계획 알고리즘
 dp[0][0] = 0
 for i in range(1, M+1):
 	for j in range(0, 2 ** N):

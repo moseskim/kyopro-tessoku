@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 入力（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -20,11 +20,11 @@ class Main {
 			G[i] = new ArrayList<Integer>();
 		}
 		for (int i = 2; i <= N; i++) {
-			G[A[i]].add(i); // 「上司→部下」の方向に辺を追加
+			G[A[i]].add(i); // '상사→부하' 방향으로 에지를 추가
 		}
 
-		// 動的計画法（dp[x] は社員 x の部下の数）
-		int[] dp = new int[N + 1]; // Java では new で初期化した配列の要素は 0 になることに注意
+		// 동적 계획 알고리즘(dp[x]는 사원 x의 부하의 수)
+		int[] dp = new int[N + 1]; // Java에서는 new로 초기화한 배열의 요소는 0이 되는 것에 주의
 		for (int i = N; i >= 1; i--) {
 			for (int j = 0; j < G[i].size(); j++) {
 				dp[i] += (dp[G[i].get(j)] + 1);
