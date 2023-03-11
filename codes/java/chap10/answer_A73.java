@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력(빠른 입출력을 위해 Scanner 대신 BufferedReader를 사용한다)
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -61,23 +61,23 @@ class Main {
 		}
 		
 		// 답을 출력
-		// マラソンコースの距離：cur[N]/10000 を小数点以下切り上げた値
-		// コース上の木の数：cur[N] と distance*10000 の差分
+		// 마라톤 코스의 거리: cur[N]/10000을 소수점 이하를 자른 값
+		// 코드 상의 나무의 수: cur[N]과 Distance*10000의 차이
 		long distance = (cur[N] + 9999) / 10000;
 		long numTrees = distance * 10000 - cur[N];
 		System.out.println(distance + " " + numTrees);
 	}
 
-	// 重み付きグラフの辺のクラス Edge
+	// 가중치가 있는 그래프의 에지의 클래스 Edge
 	static class Edge {
-		int to; long cost; // 行き先 to、長さ cost
+		int to; long cost; // 행선지 to, 길이 cost
 		public Edge(int to, long cost) {
 			this.to = to;
 			this.cost = cost;
 		}
 	}
 
-	// 다이크스트라 알고리즘の (cur[x], x) を管理するクラス（cur[x] = dist, x = pos に対応）
+	// 다이크스트라 알고리즘의 (cur[x], x)를 관리하는 클래스(cur[x] = dist, x = pos에 대응)
 	static class State implements Comparable<State> {
 		long dist; int pos;
 		public State(long dist, int pos) {
@@ -85,7 +85,7 @@ class Main {
 			this.pos = pos;
 		}
 		@Override public int compareTo(State s) {
-			// State 型同士の比較をする関数
+			// State 타입끼리 비교하는 함수
 			if (this.dist < s.dist) {
 				return -1;
 			}

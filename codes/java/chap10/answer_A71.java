@@ -18,7 +18,7 @@ class Main {
 		Arrays.sort(A);
 		Arrays.sort(B, Collections.reverseOrder());
 
-		// 答えを求めて出力
+		// 답을 구해서 출력
 		int answer = 0;
 		for (int i = 0; i < N; i++) {
 			answer += A[i] * B[i];

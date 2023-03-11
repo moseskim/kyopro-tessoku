@@ -1,11 +1,11 @@
-# 入力
+# 입력
 N = int(input())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 
-# 配列のソート（A は昇順に、B は降順にソート）
+# 배열 정렬(A는 오름차순, B는 내림차순 정렬)
 A.sort()
 B.sort(reverse = True)
 
-# 答えは A[i] * B[i] の総和
+# 답은 A[i] * B[i]의 총합
 print(sum([ A[i] * B[i] for i in range(N) ]))

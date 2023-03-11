@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력(빠른 입출력을 위해 Scanner 대신 BufferedReader를 사용한다)
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -19,8 +19,8 @@ class Main {
 			C[i] = Integer.parseInt(st.nextToken());
 		}
 
-		// 辺の長さの小さい順にソートする
-		// （書籍内のコードでは edgeList は (長さ, 辺番号) のペアになっていますが、ここでは辺番号のみを記録した配列を長さの小さい順にソートするという方法をとります）
+		// 에지의 길이의 오름차순으로 정렬한다
+		// (책의 코드에서는 edgeList는 (길이, 에지 번호)의 쌍으로 되어 있지만, 여기에서는 에지 번호만 기록한 배열을 길이의 오름차순으로 정렬하는 방법을 사용한다)
 		Integer[] edgeList = new Integer[M];
 		for (int i = 0; i < M; i++) {
 			edgeList[i] = i + 1;
@@ -30,7 +30,7 @@ class Main {
 			new Comparator<Integer>() {
 				@Override
 				public int compare(Integer id1, Integer id2) {
-					return C[id1] - C[id2]; // C[id1] < C[id2] のとき id1 が id2 よりも前に来るようにする
+					return C[id1] - C[id2]; // C[id1] < C[id2]일 때, id1이 id2 보다 앞에 오도록 한다
 				}
 			}
 		);
@@ -50,7 +50,7 @@ class Main {
 		System.out.println(answer);
 	}
 	
-	// Union-Find 木を実装したクラス UnionFind
+	// Union-Find 트리를 구현한 클래스 UnionFind
 	static class UnionFind {
 		int n;
 		int[] par;

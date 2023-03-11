@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력(빠른 입출력을 위해 Scanner 대신 BufferedReader를 사용한다)
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -17,7 +17,7 @@ class Main {
 			B[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		// 隣接リストの作成
+		// 인접 리스트 작성
 		G = new ArrayList[N + 1];
 		for (int i = 1; i <= N; i++) {
 			G[i] = new ArrayList<Integer>();
@@ -34,7 +34,7 @@ class Main {
 		}
 		dfs(1);
 
-		// 連結かどうかの判定（answer = true のとき連結）
+		// 연결인지 판정(answer = true일 때 연결)
 		boolean answer = true;
 		for (int i = 1; i <= N; i++) {
 			if (visited[i] == false) {
@@ -51,9 +51,9 @@ class Main {
 		}
 	}
 	
-	static boolean[] visited; // 頂点 x が青色の場合、visited[x] = true
+	static boolean[] visited; // 노드 x가 파란색인 경우, visited[x] = true
 	static ArrayList<Integer>[] G;
-	static void dfs(int pos) { // pos は現在位置
+	static void dfs(int pos) { // pos는 현재 위치
 		visited[pos] = true;
 		for (int i : G[pos]) {
 			if (visited[i] == false) {

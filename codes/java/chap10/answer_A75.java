@@ -12,7 +12,7 @@ class Main {
 			D[i] = sc.nextInt();
 		}
 
-		// D[i] の小さい順に並べ替える
+		// D[i]의 오름차순으로 정렬한다
 		PairInt[] problems = new PairInt[N];
 		for (int i = 0; i < N; i++) {
 			problems[i] = new PairInt(D[i + 1], T[i + 1]);
@@ -23,7 +23,7 @@ class Main {
 			D[i + 1] = problems[i].first;
 		}
 
-		// 動的計画法：前準備
+		// 동적 계획 알고리즘：前準備
 		int maxD = 0; // D[i] の最大値（書籍内のコードでは「1440」という定数を使っているが、ここでは代わりに MAX_D を使うことにする）
 		for (int i = 1; i <= N; i++) {
 			maxD = Math.max(maxD, D[i]);
@@ -35,7 +35,7 @@ class Main {
 			}
 		}
 
-		// 動的計画法
+		// 동적 계획 알고리즘
 		dp[0][0] = 0;
 		for (int i = 1; i <= N; i++) {
 			for (int j = 0; j <= maxD; j++) {
@@ -48,7 +48,7 @@ class Main {
 			}
 		}
 
-		// 答えを求めて出力
+		// 답을 구해서 출력
 		int answer = 0;
 		for (int i = 0; i <= maxD; i++) {
 			answer = Math.max(answer, dp[N][i]);
