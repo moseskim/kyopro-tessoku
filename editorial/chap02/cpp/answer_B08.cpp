@@ -30,7 +30,7 @@ int main() {
 		for (int j = 1; j <= 1500; j++) T[i][j] = T[i - 1][j] + T[i][j];
 	}
  
-	// 答えを求める
+	// 답을 구한다
 	for (int i = 1; i <= Q; i++) {
 		cout << T[C[i]][D[i]] + T[A[i] - 1][B[i] - 1] - T[A[i] - 1][D[i]] - T[C[i]][B[i] - 1] << endl;
 	}

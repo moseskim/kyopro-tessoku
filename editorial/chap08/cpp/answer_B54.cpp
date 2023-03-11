@@ -10,7 +10,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
-	// 答えを求める
+	// 답을 구한다
 	long long Answer = 0;
 	for (int i = 1; i <= N; i++) {
 		Answer += Map[A[i]];

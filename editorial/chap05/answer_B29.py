@@ -9,8 +9,8 @@ def Power(a, b, m):
 		p = (p * p) % m
 	return Answer
 
-# 入力
+# 입력
 a, b = map(int, input().split())
 
-# 出力
+# 출력
 print(Power(a, b, 1000000007))

@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 S = input()
 
@@ -26,7 +26,7 @@ for i in reversed(range(N-1)):
 		streak2 += 1
 	ret2[i] = streak2
 
-# 出力
+# 출력
 Answer = 0
 for i in range(N):
 	Answer += max(ret1[i], ret2[i])

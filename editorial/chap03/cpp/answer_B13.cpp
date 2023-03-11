@@ -29,7 +29,7 @@ int main() {
 		}
 	}
 	
-	// 答えを求める
+	// 답을 구한다
 	long long Answer = 0;
 	for (int i = 1; i <= N; i++) Answer += (R[i] - i + 1);
 	cout << Answer << endl;

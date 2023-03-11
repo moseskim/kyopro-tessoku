@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N, X, Y = map(int, input().split())
 A = list(map(int, input().split()))
 
@@ -8,7 +8,7 @@ for i in range(N):
 	Grundy = [0, 0, 1, 1, 2] # 5 で割った余りに対応する Grundy 数
 	XOR_Sum ^= Grundy[A[i] % 5]
 
-# 出力
+# 출력
 if XOR_Sum != 0:
 	print("First")
 else:

@@ -3,7 +3,7 @@ import heapq
 
 G = [list() for _ in range(375)] # G[i] は i 日目から始まる仕事の給料のリスト
 
-# 入力
+# 입력
 N, D = map(int, input().split())
 for _ in range(N):
 	X, Y = map(int, input().split())
@@ -21,5 +21,5 @@ for i in range(1, D + 1):
 	if Q:
 		Answer -= heapq.heappop(Q)
 
-# 出力
+# 출력
 print(Answer)

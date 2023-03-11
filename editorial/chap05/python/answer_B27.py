@@ -8,6 +8,6 @@ def GCD(A, B):
 		return A
 	return B
 
-# 入力
+# 입력
 A, B = map(int, input().split())
 print(A * B // GCD(A, B))

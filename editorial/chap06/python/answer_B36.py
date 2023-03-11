@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N, K = map(int, input().split())
 S = input()
 
@@ -8,7 +8,7 @@ for i in range(N):
 	if S[i] == '1':
 		numON += 1
 
-# 答えを出力
+# 답을 출력
 if numON%2 == K%2:
 	print("Yes")
 else:

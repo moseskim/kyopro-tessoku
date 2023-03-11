@@ -58,7 +58,7 @@ int main() {
 	dijkstra(1); for (int i = 1; i <= N; i++) dist1[i] = cur[i];
 	dijkstra(N); for (int i = 1; i <= N; i++) distN[i] = cur[i];
 
-	// 答えを求める
+	// 답을 구한다
 	int Answer = 0;
 	for (int i = 1; i <= N; i++) {
 		if (dist1[i] + distN[i] == dist1[N]) Answer += 1;

@@ -1,4 +1,4 @@
-# 入力
+# 입력
 X, Y = map(int, input().split())
 
 # 逆から考えていく
@@ -11,7 +11,7 @@ while X>=2 or Y>=2:
 		Y -= X
 Answer.reverse()
 
-# 出力
+# 출력
 print(len(Answer))
 for i in range(len(Answer)):
 	print(str(Answer[i][0]) + ' ' + str(Answer[i][1]))

@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N, M = map(int, input().split())
 
 # 友達の数を数える

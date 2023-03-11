@@ -31,12 +31,12 @@ def query(l: int, r: int) -> int:
 		r >>= 1
 	return answer
 
-# 入力
+# 입력
 N, L, R = map(int, input().split())
 X = list(map(int, input().split()))
 dp = [0] * N
 
-# 動的計画法
+# 동적 계획 알고리즘
 update(0, 0)
 for i in range(1, N):
 	x = X[i]

@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 X = [ None ] * N
 Y = [ None ] * N
@@ -8,7 +8,7 @@ for i in range(N):
 # 配列 dp の初期化
 dp = [ [ 1000000000.0 ] * N for i in range(2 ** N) ]
 
-# 動的計画法（dp[通った都市][今いる都市] となっている）
+# 동적 계획 알고리즘（dp[通った都市][今いる都市] となっている）
 dp[0][0] = 0
 for i in range(2 ** N):
 	for j in range(N):
@@ -20,5 +20,5 @@ for i in range(2 ** N):
 					DIST = ((1.0*(X[j]-X[k])* (X[j]-X[k]) + 1.0*(Y[j]-Y[k])*(Y[j]-Y[k])) ** 0.5)
 					dp[i + (2 ** k)][k] = min(dp[i + (2 ** k)][k], dp[i][j] + DIST)
 
-# 出力
+# 출력
 print(dp[(2 ** N) - 1][0])

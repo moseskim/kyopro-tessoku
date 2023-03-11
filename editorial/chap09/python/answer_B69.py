@@ -34,7 +34,7 @@ class FordFulkerson:
                 continue
             # 目的地までのパスを探す
             flow = self.dfs(e.to, goal, min(F, e.cap))
-            # フローを流せる場合、残余グラフの容量を flow だけ増減させる
+            # 플로를 흘려 보내는 경우, 잔여 그래프의 용량을 flow 만큼 증감시킨다
             if flow:
                 e.cap -= flow
                 e.rev.cap += flow

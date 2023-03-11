@@ -13,7 +13,7 @@ for _ in range(N - 1):
 
 rank = [0] * N
 
-# 深さ優先探索
+# 깊이 우선 탐색
 def dfs(parent: int, i: int) -> int:
     for j in g[i]:
         if j == parent:

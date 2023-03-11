@@ -1,4 +1,4 @@
-# 入力
+# 입력
 A, B = map(int, input().split())
 
 # 答えを求める
@@ -7,7 +7,7 @@ for i in range(A, B + 1):
 	if 100 % i == 0:
 		Answer = True
 
-# 出力
+# 출력
 if Answer == True:
 	print("Yes")
 else:

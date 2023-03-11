@@ -1,11 +1,11 @@
-# 入力（前半）
+# 입력（前半）
 N = int(input())
 X = [ None ] * N
 Y = [ None ] * N
 for i in range(N):
 	X[i], Y[i] = map(int, input().split())
 
-# 入力（後半）
+# 입력（後半）
 Q = int(input())
 A = [ None ] * Q
 B = [ None ] * Q

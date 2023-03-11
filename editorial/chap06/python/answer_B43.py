@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N, M = map(int, input().split())
 A = list(map(int, input().split()))
 
@@ -9,6 +9,6 @@ Incorrect = [ 0 ] * (N + 1)
 for i in range(M):
 	Incorrect[A[i]] += 1
 
-# 答えを出力
+# 답을 출력
 for i in range(1, N+1):
 	print(M - Incorrect[i])

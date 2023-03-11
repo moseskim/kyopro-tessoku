@@ -1,4 +1,4 @@
-# 入力
+# 입력
 T = int(input())
 N = int(input())
 L = [ None ] * N
@@ -18,6 +18,6 @@ Answer[0] = B[0]
 for d in range(1, T+1):
 	Answer[d] = Answer[d-1] + B[d]
 
-# 出力
+# 출력
 for d in range(T):
 	print(Answer[d])

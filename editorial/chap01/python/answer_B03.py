@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 A = list(map(int, input().split()))
 
@@ -10,7 +10,7 @@ for i in range(N):
 			if A[i] + A[j] + A[k] == 1000:
 				Answer = True
 
-# 出力
+# 출력
 if Answer == True:
 	print("Yes")
 else:

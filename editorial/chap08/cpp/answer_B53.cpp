@@ -16,7 +16,7 @@ int main() {
 		G[X[i]].push_back(Y[i]);
 	}
 
-	// 答えを求める
+	// 답을 구한다
 	priority_queue<long long> Q;
 	for (int i = 1; i <= D; i++) {
 		// i 日目から始まる仕事をキューに追加

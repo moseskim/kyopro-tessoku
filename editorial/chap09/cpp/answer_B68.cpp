@@ -13,39 +13,39 @@ public:
 	bool used[409];
 	vector<Edge> G[409];
  
-	// 頂点数 N の残余グラフを準備
+	// 노드 수 N인 잔여 그래프를 준비
 	void init(int N) {
 		size_ = N;
 		for (int i = 0; i <= size_; i++) G[i].clear();
 	}
  
-	// 頂点 a から b に向かう、上限 c リットル／秒の辺を追加
+	// 노드 a에서 b로 향하는, 상한 c 리터/초의 에지를 추가
 	void add_edge(int a, int b, int c) {
-		int Current_Ga = G[a].size(); // 現時点での G[a] の要素数
-		int Current_Gb = G[b].size(); // 現時点での G[b] の要素数
+		int Current_Ga = G[a].size(); // 현 시점에서의 G[a]의 요소 수
+		int Current_Gb = G[b].size(); // 현 시점에서의 G[b]의 요소 수
 		G[a].push_back(Edge{ b, c, Current_Gb });
 		G[b].push_back(Edge{ a, 0, Current_Ga });
 	}
  
-	// 깊이 우선 탐색（F はスタートから pos に到達する過程での " 残余グラフの辺の容量 " の最小値）
-	// 返り値は流したフローの量（流せない場合は 0 を返す）
+	// 깊이 우선 탐색(F는 시작부터 pos에 도달하는 과정에서의 "잔여 그래프의 에지의 용량"의 최솟값)
+	// 반환값은 흘려 보낸 플로의 양(흘려 보내지 못한 경우는 0을 반환한다)
 	int dfs(int pos, int goal, int F) {
-		// ゴールに到着：フローを流せる！
+		// 골에 도착: 플로를 흘려 보낼 수 있다! 
 		if (pos == goal) return F;
 		used[pos] = true;
  
-		// 探索する
+		// 탐색한다
 		for (int i = 0; i < G[pos].size(); i++) {
-			// 容量 0 の辺は使えない
+			// 용량 0인 에지는 사용할 수 없다
 			if (G[pos][i].cap == 0) continue;
  
-			// 既に訪問した頂点に行っても意味がない
+			// 이미 방문한 노드에 가도 의미가 없다
 			if (used[G[pos][i].to] == true) continue;
  
-			// 目的地までのパスを探す
+			// 목적지까지의 패스를 찾는다
 			int flow = dfs(G[pos][i].to, goal, min(F, G[pos][i].cap));
  
-			// フローを流せる場合、残余グラフの容量を flow だけ増減させる
+			// 플로를 흘려 보낼 수 있는 경우, 잔여 그래프의 용량을 flow만큼만 증가시킨다
 			if (flow >= 1) {
 				G[pos][i].cap -= flow;
 				G[G[pos][i].to][G[pos][i].rev].cap += flow;
@@ -53,18 +53,18 @@ public:
 			}
 		}
  
-		// すべての辺を探索しても見つからなかった ･･･
+		// 모든 에지를 탐색해도 찾지 못했다･･･
 		return 0;
 	}
  
-	// 頂点 s から頂点 t までの最大フローの総流量を返す
+	// 노드 s에서 노드 t까지의 최대 플로의 총유량을 반환한다
 	int max_flow(int s, int t) {
 		int Total_Flow = 0;
 		while (true) {
 			for (int i = 0; i <= size_; i++) used[i] = false;
 			int F = dfs(s, t, 1000000000);
  
-			// フローを流せなくなったら操作終了
+			// 플로를 흘려 보낼 수 없다면 조작 종료
 			if (F == 0) break;
 			Total_Flow += F;
 		}
@@ -102,7 +102,7 @@ int main() {
 		Z.add_edge(A[i], B[i], 1000000000);
 	}
  
-	// 答えを求める
+	// 답을 구한다
 	int Answer = Offset - Z.max_flow(N + 1, N + 2);
 	cout << Answer << endl;
 	return 0;

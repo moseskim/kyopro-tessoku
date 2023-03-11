@@ -134,11 +134,11 @@ class SortedSet(Generic[T]):
 
 # SortedSet ここまで
  
-# 入力
+# 입력
 Q = int(input())
 Query = [tuple(map(int, input().split())) for _ in range(Q)]
 
-# クエリの処理
+# 쿼리 처리
 INF = 1 << 61
 Set = SortedSet([-INF, INF]) # x より小さい / 大きい数が存在しなかったときのための番兵
 

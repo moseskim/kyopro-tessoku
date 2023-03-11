@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 A = list(map(int, input().split()))
  
@@ -14,5 +14,5 @@ for i in range(1, 50):
 Answer += cnt[0] * (cnt[0] - 1) // 2
 Answer += cnt[50] * (cnt[50] - 1) // 2
  
-# 出力
+# 출력
 print(Answer)

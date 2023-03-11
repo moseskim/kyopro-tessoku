@@ -57,7 +57,7 @@ int main() {
 	for (int i = 1; i <= 200000; i++) cntL[i] = max(cntL[i], cntL[i - 1]);
 	for (int i = 199999; i >= 0; i--) cntR[i] = max(cntR[i], cntR[i + 1]);
 
-	// 答えを求める
+	// 답을 구한다
 	for (int i = 1; i <= N; i++) {
 		cout << cntL[L[i]] + cntR[R[i]] + 1 << endl;
 	}

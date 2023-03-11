@@ -1,7 +1,7 @@
 from collections import deque
 
 
-# 入力
+# 입력
 N, X = map(int, input().split())
 X -= 1
 A = list(input())
@@ -19,5 +19,5 @@ while Q:
 		A[pos + 1] = '@'
 		Q.append(pos + 1)
 
-# 出力
+# 출력
 print("".join(A))

@@ -1,6 +1,6 @@
 Map = {}
  
-# 入力
+# 입력
 N = int(input())
 A = [int(input()) for _ in range(N)]
 
@@ -11,5 +11,5 @@ for a in A:
 	Answer += Map.get(a, 0)
 	Map[a] = Map.get(a, 0) + 1
 
-# 出力
+# 출력
 print(Answer)

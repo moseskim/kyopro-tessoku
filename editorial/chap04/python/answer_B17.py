@@ -1,11 +1,11 @@
-# 入力
+# 입력
 N = int(input())
 H = list(map(int, input().split()))
 
 # 配列の準備
 dp = [ None ] * N
 
-# 動的計画法
+# 동적 계획 알고리즘
 dp[0] = 0
 dp[1] = abs(H[0] - H[1])
 for i in range(2, N):
@@ -27,7 +27,7 @@ while True:
 		Place = Place - 2
 Answer.reverse()
 
-# 答えを出力
+# 답을 출력
 Answer2 = [str(i) for i in Answer]
 print(len(Answer))
 print(" ".join(Answer2))

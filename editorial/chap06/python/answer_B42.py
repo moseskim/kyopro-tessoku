@@ -14,7 +14,7 @@ def solve(omote, ura, A, B):
 			sum += (card1 + card2)
 	return sum
 
-# 入力
+# 입력
 N = int(input())
 A = [ None ] * N
 B = [ None ] * N
@@ -27,5 +27,5 @@ Answer2 = solve(1, 2, A, B);
 Answer3 = solve(2, 1, A, B);
 Answer4 = solve(2, 2, A, B);
 
-# 出力
+# 출력
 print(max(Answer1, Answer2, Answer3, Answer4))

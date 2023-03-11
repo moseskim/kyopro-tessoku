@@ -10,7 +10,7 @@ int main() {
 	// 입력
 	cin >> N >> S;
  
-	// 答えを求める
+	// 답을 구한다
 	int streak1 = 1; ret1[0] = 1; // streak1 は「何個 A が連続したか」+ 1
 	for (int i = 0; i < N - 1; i++) {
 		if (S[i] == 'A') streak1 += 1;

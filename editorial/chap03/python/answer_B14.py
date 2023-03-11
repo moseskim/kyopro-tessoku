@@ -14,7 +14,7 @@ def Enumerate(A):
 		SumList.append(sum)
 	return SumList
 
-# 入力
+# 입력
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
 

@@ -1,11 +1,11 @@
-# 入力
+# 입력
 S = input()
 T = input()
 
 # 配列の準備
 dp = [ [ None ] * (len(T) + 1) for i in range(len(S) + 1) ]
 
-# 動的計画法
+# 동적 계획 알고리즘
 dp[0][0] = 0
 for i in range(len(S)+1):
 	for j in range(len(T)+1):
@@ -18,5 +18,5 @@ for i in range(len(S)+1):
 		elif j>=1:
 			dp[i][j] = dp[i][j-1]+1
 
-# 出力
+# 출력
 print(dp[len(S)][len(T)])

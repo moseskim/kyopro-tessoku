@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N, D = map(int, input().split())
 X = [ None ] * N
 Y = [ None ] * N
@@ -24,5 +24,5 @@ for i in range(1, D+1):
 		Answer += maxValue
 		used[maxID] = True
 
-# 出力
+# 출력
 print(Answer)

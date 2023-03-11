@@ -10,7 +10,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
-	// 答えを求める（全探索）
+	// 답을 구한다（全探索）
 	for (int i = 1; i <= N; i++) {
 		for (int j = i + 1; j <= N; j++) Answer = max(Answer, A[i] + A[j]);
 	}

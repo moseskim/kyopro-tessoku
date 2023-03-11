@@ -1,6 +1,6 @@
 dp = [[0] * 300009 for _ in range(30)]
  
-# 入力
+# 입력
 N, K = map(int, input().split())
 
 # 1 回操作した後の値を求める

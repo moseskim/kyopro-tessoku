@@ -6,7 +6,7 @@ int main() {
 	int A, B;
 	cin >> A >> B;
 	
-	// 答えを求める
+	// 답을 구한다
 	bool Answer = false;
 	for (int i = A; i <= B; i++) {
 		if (100 % i == 0) Answer = true;

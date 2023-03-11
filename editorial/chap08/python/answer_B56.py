@@ -11,7 +11,7 @@ def GetHashRight(l: int, r: int) -> int:
 	val = HRev[r] - Power100[r - l + 1] * HRev[l - 1]
 	return val % mod
 
-# 入力
+# 입력
 N, Q = map(int, input().split())
 S = input()
 Query = [tuple(map(int, input().split())) for _ in range(Q)]
@@ -37,7 +37,7 @@ HRev = [1] * (N + 1)
 for i in range(N):
 	HRev[i + 1] = (HRev[i] * 100 + SRev[i]) % mod
 
-# クエリの処理
+# 쿼리 처리
 for L, R in Query:
 	v1 = GetHashLeft(L, R)
 	v2 = GetHashRight(L, R)

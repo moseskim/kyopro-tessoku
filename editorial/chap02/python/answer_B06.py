@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 A = list(map(int, input().split()))
 Q = int(input())

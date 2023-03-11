@@ -12,7 +12,7 @@ int Get_LISvalue(vector<int> A) {
 	LEN = 0;
 	for (int i = 1; i <= A.size(); i++) L[i] = 0;
  
-	// 動的計画法
+	// 동적 계획 알고리즘
 	for (int i = 0; i < A.size(); i++) {
 		int pos = lower_bound(L + 1, L + LEN + 1, A[i]) - L;
 		L[pos] = A[i];
