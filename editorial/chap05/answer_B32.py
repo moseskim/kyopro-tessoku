@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
 
@@ -11,7 +11,7 @@ for i in range(N+1):
 		if i>=A[j] and dp[i-A[j]]==False:
 			dp[i] = True # 負けの状態に遷移できれば、勝ちの状態
 
-# 出力
+# 출력
 if dp[N] == True:
 	print("First")
 else:

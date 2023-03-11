@@ -12,11 +12,11 @@ int main() {
 	cin >> N >> S;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
-	// 動的計画法 (i = 0)
+	// 동적 계획 알고리즘 (i = 0)
 	dp[0][0] = true;
 	for (int i = 1; i <= S; i++) dp[0][i] = false;
  
-	// 動的計画法 (i >= 1)
+	// 동적 계획 알고리즘 (i >= 1)
 	for (int i = 1; i <= N; i++) {
 		for (int j = 0; j <= S; j++) {
 			if (j < A[i]) {

@@ -1,2 +1,2 @@
-A, B = map(int, input().split()) # 入力
-print(A + B) # 出力
+A, B = map(int, input().split()) # 입력
+print(A + B) # 출력

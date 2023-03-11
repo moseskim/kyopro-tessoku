@@ -46,12 +46,12 @@ int main() {
 		}
 	}
 
-	// 幅優先探索の初期化
+	// 너비 우선 탐색の初期化
 	for (int i = 1; i <= H * W; i++) dist[i] = -1;
 	queue<int> Q;
 	Q.push(start); dist[start] = 0;
 
-	// 幅優先探索
+	// 너비 우선 탐색
 	while (!Q.empty()) {
 		int pos = Q.front();
 		Q.pop();

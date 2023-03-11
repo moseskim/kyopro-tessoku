@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 
 # エラトステネスのふるい
@@ -10,7 +10,7 @@ for i in range(2, LIMIT+1):
 		for j in range(i*2, N+1, i):
 			Deleted[j] = True
 
-# 答えを出力
+# 답을 출력
 for i in range(2, N+1):
 	if Deleted[i] == False:
 		print(i)

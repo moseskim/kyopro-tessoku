@@ -49,7 +49,7 @@ int main() {
 	dp[1] = 0;
 	Z.update(1, 0);
  
-	// 動的計画法
+	// 동적 계획 알고리즘
 	for (int i = 2; i <= N; i++) {
 		int posL = lower_bound(X + 1, X + N + 1, X[i] - R) - X;
 		int posR = lower_bound(X + 1, X + N + 1, X[i] - L + 1) - X - 1;

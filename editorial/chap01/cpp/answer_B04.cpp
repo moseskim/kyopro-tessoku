@@ -7,7 +7,7 @@ int main() {
 	string N;
 	cin >> N;
 	
-	// 答えを求める
+	// 답을 구한다
 	int Answer = 0;
 	for (int i = 0; i < N.size(); i++) {
 		int keta;

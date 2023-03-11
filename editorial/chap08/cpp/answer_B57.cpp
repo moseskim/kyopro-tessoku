@@ -23,7 +23,7 @@ int main() {
 		for (int i = 1; i <= N; i++) dp[d][i] = dp[d - 1][dp[d - 1][i]];
 	}
  
-	// 答えを求める
+	// 답을 구한다
 	for (int i = 1; i <= N; i++) {
 		int CurrentNum = i; // 現在の整数
 		for (int d = 29; d >= 0; d--) {

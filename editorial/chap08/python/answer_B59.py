@@ -25,7 +25,7 @@ def query(l: int, r: int) -> int:
 		r >>= 1
 	return answer
 
-# 入力
+# 입력
 N = int(input())
 A = list(map(int, input().split()))
 
@@ -35,5 +35,5 @@ for a in A:
 	Answer += query(a + 1, siz)
 	update(a, 1)
 
-# 出力
+# 출력
 print(Answer)

@@ -45,7 +45,7 @@ int main() {
 	// セグメント木の準備
 	Z.init(N);
  
-	// 答えを求める
+	// 답을 구한다
 	long long Answer = 0;
 	for (int i = 1; i <= N; i++) {
 		Answer += Z.query(A[i] + 1, N + 1, 1, Z.siz + 1, 1);

@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 A = [ None ] * N
 B = [ None ] * N
@@ -30,5 +30,5 @@ for i in range(1501):
 		if T[i][j] >= 1:
 			Answer += 1
 
-# 出力
+# 출력
 print(Answer)

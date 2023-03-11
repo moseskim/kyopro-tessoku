@@ -53,7 +53,7 @@ int main() {
 	Z.init(L);
 	for (int i = 1; i <= L - 1; i++) Z.update(i, Min_Value[i]);
 
-	// 答えを求める
+	// 답을 구한다
 	long long Answer = 0;
 	for (int i = 1; i <= L - K; i++) {
 		long long val = Z.query(i, i + K, 1, Z.siz + 1, 1);

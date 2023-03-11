@@ -14,7 +14,7 @@ int main() {
 	for (int i = 0; i < 100; i++) cnt[i] = 0;
 	for (int i = 1; i <= N; i++) cnt[A[i] % 100] += 1;
  
-	// 答えを求める
+	// 답을 구한다
 	for (int i = 1; i < 50; i++) Answer += cnt[i] * cnt[100 - i];
 	Answer += cnt[0] * (cnt[0] - 1LL) / 2LL;
 	Answer += cnt[50] * (cnt[50] - 1LL) / 2LL;

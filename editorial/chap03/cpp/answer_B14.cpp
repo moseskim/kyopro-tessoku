@@ -4,7 +4,7 @@
 using namespace std;
  
 // 「配列 A にあるカードからいくつか選んだときの合計」として考えられるものを列挙
-// ビット全探索を使う
+// 비트 전탐색を使う
 vector<long long> Enumerate(vector<long long> A) {
 	vector<long long> SumList;
 	for (int i = 0; i < (1 << A.size()); i++) {

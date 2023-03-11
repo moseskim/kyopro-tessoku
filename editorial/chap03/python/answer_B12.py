@@ -16,5 +16,5 @@ for i in range(20):
 	else:
 		Left = Mid # 右半分に絞られる
 
-# 出力
+# 출력
 print(Mid)

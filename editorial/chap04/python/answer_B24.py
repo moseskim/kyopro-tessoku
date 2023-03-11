@@ -14,7 +14,7 @@ def Get_LISvalue(A):
 			L[pos] = A[i]
 	return LEN
 
-# 入力
+# 입력
 N = int(input())
 X = [ None ] * N
 Y = [ None ] * N
@@ -32,5 +32,5 @@ A = []
 for i in range(N):
 	A.append(-tmp[i][1])
 
-# 出力
+# 출력
 print(Get_LISvalue(A))

@@ -1,4 +1,4 @@
-# 入力
+# 입력
 H, W = map(int, input().split())
 sx, sy = map(int, input().split())
 sx -= 1
@@ -22,7 +22,7 @@ def push(x: int, y: int, c: int):
     cost[x][y] = c
     q.append((x, y))
 
-# 幅優先探索
+# 너비 우선 탐색
 push(sx, sy, 0)
 for x, y in q:
     c2 = cost[x][y] + 1

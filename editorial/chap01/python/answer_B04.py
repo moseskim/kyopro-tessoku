@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = input()
 
 # 答えを求める
@@ -10,5 +10,5 @@ for i in range(len(N)):
 		keta = 1
 	Answer += keta * kurai
 
-# 出力
+# 출력
 print(Answer)

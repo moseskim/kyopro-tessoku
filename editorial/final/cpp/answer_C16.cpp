@@ -69,7 +69,7 @@ int main() {
 		G[List.size() + 1].push_back(make_pair(Airport[i][Airport[i].size() - 1], 0));
 	}
 
-	// 動的計画法によって dp[i] の値を求める
+	// 동적 계획 알고리즘によって dp[i] の値を求める
 	// 頂点番号は時刻の早い順になっているので、dp[1] から順に計算すれば良い
 	dp[0] = 0;
 	for (int i = 1; i <= List.size() + 1; i++) {

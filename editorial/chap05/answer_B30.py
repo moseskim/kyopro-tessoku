@@ -32,8 +32,8 @@ def ncr(n, r):
 	# 手順 3: 答えを求める
 	return Division(a, b, M);
 
-# 入力
+# 입력
 H, W = map(int, input().split())
 
-# 出力
+# 출력
 print(ncr(H + W - 2, W - 1))

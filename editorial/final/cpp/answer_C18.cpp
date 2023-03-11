@@ -16,12 +16,12 @@ int main() {
 		for (int j = 1; j <= 2 * N; j++) dp[i][j] = 1000000000;
 	}
 	
-	// 動的計画法（初期状態）
+	// 동적 계획 알고리즘（初期状態）
 	for (int i = 1; i <= 2 * N - 1; i++) {
 		dp[i][i + 1] = abs(A[i] - A[i + 1]);
 	}
 
-	// 動的計画法（遷移）
+	// 동적 계획 알고리즘（遷移）
 	for (int LEN = 2; LEN <= 2 * N - 1; LEN++) {
 		for (int l = 1; l <= 2 * N - LEN; l++) {
 			int r = l + LEN;

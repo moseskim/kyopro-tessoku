@@ -2,7 +2,7 @@
 def sum(l, r, S):
 	return S[r+1] - S[l]
 
-# 入力
+# 입력
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
 

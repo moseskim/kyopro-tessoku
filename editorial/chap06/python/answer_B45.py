@@ -1,7 +1,7 @@
-# 入力
+# 입력
 a, b, c = map(int, input().split())
 
-# 出力
+# 출력
 if a + b + c == 0:
 	print("Yes")
 else:

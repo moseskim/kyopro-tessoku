@@ -14,7 +14,7 @@ int main() {
 	dp1[0] = 0;
 	dp2[0] = 0;
 
-	// 動的計画法
+	// 동적 계획 알고리즘
 	for (int i = 1; i <= N; i++) {
 		dp1[i] = dp2[i - 1] + A[i];
 		dp2[i] = max(dp1[i - 1], dp2[i - 1]);

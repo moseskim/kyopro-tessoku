@@ -11,7 +11,7 @@ int main() {
 	cin >> N >> D;
 	for (int i = 1; i <= N; i++) cin >> X[i] >> Y[i];
  
-	// 答えを求める
+	// 답을 구한다
 	for (int i = 1; i <= D; i++) {
 		int maxValue = 0; // 給料の最大値
 		int maxID = -1;   // 給料が最大となる仕事の番号

@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 A = [ None ] * N
 for i in range(N):
@@ -10,7 +10,7 @@ T = [ None ] * N
 for i in range(N):
 	T[i] = i
 
-# クエリの処理
+# 쿼리 처리
 Q = int(input())
 for i in range(Q):
 	Query = list(map(int, input().split()))

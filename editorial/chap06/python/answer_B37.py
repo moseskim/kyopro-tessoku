@@ -1,4 +1,4 @@
-# 入力
+# 입력
 N = int(input())
 
 # 10 の N 乗を求める
@@ -27,5 +27,5 @@ for i in range(16):
 	for j in range(10):
 		Answer += j * R[i][j]
 
-# 出力
+# 출력
 print(Answer)

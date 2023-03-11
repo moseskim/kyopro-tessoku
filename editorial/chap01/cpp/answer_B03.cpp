@@ -7,7 +7,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 	
-	// 答えを求める
+	// 답을 구한다
 	bool Answer = false;
 	for (int i = 1; i <= N; i++) {
 		for (int j = i + 1; j <= N; j++) {

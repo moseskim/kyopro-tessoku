@@ -33,7 +33,7 @@ int main() {
 		}
 	}
  
-	// 答えを求める
+	// 답을 구한다
 	long long Answer = 0;
 	for (int i = 0; i <= 15; i++) {
 		for (int j = 0; j < 10; j++) Answer += 1LL * j * R[i][j];
