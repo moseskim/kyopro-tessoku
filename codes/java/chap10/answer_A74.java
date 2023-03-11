@@ -24,7 +24,7 @@ class Main {
 			}
 		}
 
-		// X の転倒数・Y の転倒数を求める
+		// X의 전도 수, Y의 전도 수를 구한다
 		int inversionX = 0;
 		int inversionY = 0;
 		for (int i = 1; i <= N; i++) {

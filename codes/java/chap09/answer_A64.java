@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력(빠른 입출력을 위해 Scanner 대신 BufferedReader를 사용한다)
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -19,7 +19,7 @@ class Main {
 			C[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		// 隣接リストの作成
+		// 인접 리스트 작성
 		ArrayList<Edge>[] G = new ArrayList[N + 1];
 		for (int i = 1; i <= N; i++) {
 			G[i] = new ArrayList<Edge>();
@@ -31,7 +31,7 @@ class Main {
 		
 		// 배열 초기화
 		final int INF = 2000000000;
-		boolean[] kakutei = new boolean[N + 1]; // Java では new で初期化した配列の要素は false になることに注意
+		boolean[] kakutei = new boolean[N + 1]; // Java에서는 new로 초기화 한 배열의 요소는 false가 되는 것에 주의
 		int[] cur = new int[N + 1];
 		Arrays.fill(cur, INF);
 
@@ -43,7 +43,7 @@ class Main {
 		// 다이크스트라 알고리즘
 		while (Q.size() >= 1) {
 			// 다음에 확정시킬 노드를 구한다
-			// （ここでは、優先度付きキュー Q の最小要素を取り出し、これを Q から削除する）
+			// (여기에서는 우선 순위 큐 Q의 최소 요소를 꺼내고, 이것을 Q에서 삭제한다)
 			int pos = Q.remove().pos;
 
 			// Q의 최소 요소가 '이미 확정한 노드'인 경우
@@ -62,7 +62,7 @@ class Main {
 			}
 		}
 		
-		// 답을 출력（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
+		// 답을 출력(빠른 출력을 위해 System.out.println가 아니라 PrintWriter를 사용한다)
 		PrintWriter output = new PrintWriter(System.out);
 		for (int i = 1; i <= N; i++) {
 			if (cur[i] != INF) {
@@ -75,16 +75,16 @@ class Main {
 		output.flush();
 	}
 
-	// 重み付きグラフの辺のクラス Edge
+	// 가중치가 있는 그래프의 에지의 클래스 Edge
 	static class Edge {
-		int to, cost; // 行き先 to、長さ cost
+		int to, cost; // 행선지 to, 길이 cost
 		public Edge(int to, int cost) {
 			this.to = to;
 			this.cost = cost;
 		}
 	}
 
-	// 다이크스트라 알고리즘の (cur[x], x) を管理するクラス（cur[x] = dist, x = pos に対応）
+	// 다이크스트라 알고리즘의 (cur[x], x)를 관리하는 클래스(cur[x] = dist, x = pos에 대응)
 	static class State implements Comparable<State> {
 		int dist, pos;
 		public State(int dist, int pos) {
@@ -92,7 +92,7 @@ class Main {
 			this.pos = pos;
 		}
 		@Override public int compareTo(State s) {
-			// State 型同士の比較をする関数
+			// State 타입끼리 비교하는 함수
 			if (this.dist < s.dist) {
 				return -1;
 			}

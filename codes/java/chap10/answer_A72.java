@@ -15,10 +15,10 @@ class Main {
 			}
 		}
 
-		// ビット全探索
+		// 비트 전탐색
 		int answer = 0;
 		for (int t = 0; t < (1 << H); t++) {
-			// まずはマス目を初期盤面に設定
+			// 우선은 칸을 초기매트릭스에 설정
 			char[][] d = new char[H][W];
 			for (int i = 0; i < H; i++) {
 				for (int j = 0; j < W; j++) {
@@ -26,7 +26,7 @@ class Main {
 				}
 			}
 
-			// 行に対して操作を行う
+			// 행에 대해 조작을 수행한다
 			// 変数 remainingSteps は残り操作回数
 			int remainingSteps = K;
 			for (int i = 0; i < H; i++) {
@@ -39,7 +39,7 @@ class Main {
 				}
 			}
 
-			// 列に対して操作を行う
+			// 열에 대한 조작을 수행한다
 			if (remainingSteps >= 0) {
 				int subAnswer = paintRow(H, W, d, remainingSteps);
 				answer = Math.max(answer, subAnswer);
@@ -52,7 +52,7 @@ class Main {
 
 	// 残り remainingSteps 回の「列に対する操作」で、最大何個のマスを黒くできるかを返す関数
 	static int paintRow(int H, int W, char[][] d, int remainingSteps) {
-		// 各列に対する「白マスの個数」を計算し、大きい順にソートする
+		// 각 열에 대한 '흰색 칸의 개수'를 계산하고, 내림차순으로 정렬한다
 		PairInt[] column = new PairInt[W];
 		for (int j = 0; j < W; j++) {
 			int cnt = 0;
@@ -65,7 +65,7 @@ class Main {
 		}
 		Arrays.sort(column, Collections.reverseOrder());
 
-		// 列に対して操作を行う
+		// 열에 대한 조작을 수행한다
 		for (int j = 0; j < remainingSteps; j++) {
 			int idx = column[j].second;
 			for (int i = 0; i < H; i++) {
@@ -73,7 +73,7 @@ class Main {
 			}
 		}
 
-		// 黒マスの個数を数える
+		// 검은색 칸의 개수를 센다
 		int ret = 0;
 		for (int i = 0; i < H; i++) {
 			for (int j = 0; j < W; j++) {

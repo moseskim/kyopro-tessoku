@@ -15,7 +15,7 @@ int main() {
 		}
 	}
 
-	// X の転倒数・Y の転倒数を求める
+	// X의 전도 수, Y의 전도 수를 구한다
 	for (int i = 1; i <= N; i++) {
 		for (int j = i + 1; j <= N; j++) {
 			if (X[i] > X[j]) InversionX += 1;

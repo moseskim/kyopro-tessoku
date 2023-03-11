@@ -11,22 +11,22 @@ int main() {
 	cin >> N >> W >> L >> R;
 	for (int i = 1; i <= N; i++) cin >> X[i];
 
-	// 西岸を足場 0、東岸を足場 N+1 とみなす
+	// 서쪽 가장자리를 발판 0, 동쪽 가장자리를 발판 N+1로 간주한다
 	X[0] = 0; X[N + 1] = W;
 
-	// 動的計画法・出力
+	// 동적 계획 알고리즘/출력
 	dp[0] = 1; sum[0] = 1;
 	for (int i = 1; i <= N + 1; i++) {
 		int posL = lower_bound(X, X + N + 2, X[i] - R) - X;
 		int posR = lower_bound(X, X + N + 2, X[i] - L + 1) - X; posR--;
 
-		// dp[i] の値を累積和で計算（引き算の余りに注意！）
+		// dp[i]의 값을 누적합으로 계산(뺄셈의 나머지에 주의!)
 		if (posR == -1) dp[i] = 0;
 		else dp[i] = sum[posR];
 		if (posL >= 1) dp[i] -= sum[posL - 1];
 		dp[i] = (dp[i] + mod) % mod;
 
-		// 累積和 sum[i] を更新
+		// 누적합 sum[i]를 업데이트
 		sum[i] = sum[i - 1] + dp[i];
 		sum[i] %= mod;
 	}

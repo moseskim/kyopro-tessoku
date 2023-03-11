@@ -1,6 +1,6 @@
-// スコアの最大値が 12 以上かどうかを判定したい場合、check(12) を呼び出せばよい
+// 점수의 최댓값이 12 이상인가를 판정하고자 하는 경우, check(12)를 호출하면 된다
 bool check(int x) {
-	int Count = 0, Last_Kireme = 0; // Count は現時点で何回切ったかを表す
+	int Count = 0, Last_Kireme = 0; // Count는 현 시점에서 몇 번 잘랐는가를 나타낸다
 	for (int i = 1; i <= N; i++) {
 		if (A[i] - Last_Kireme >= x && L - A[i] >= x) {
 			Count += 1;

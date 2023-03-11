@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력(빠른 입출력을 위해 Scanner 대신 BufferedReader를 사용한다)
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -17,7 +17,7 @@ class Main {
 			B[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		// 隣接リストの作成
+		// 인접 리스트 작성
 		ArrayList<Integer>[] G = new ArrayList[N + 1];
 		for (int i = 1; i <= N; i++) {
 			G[i] = new ArrayList<Integer>();
@@ -27,18 +27,18 @@ class Main {
 			G[B[i]].add(A[i]);
 		}
 		
-		// 幅優先探索の初期化（dist[i]=? ではなく dist[i]=-1 で初期化していることに注意）
+		// 너비 우선 탐색 초기화(dist[i]=?가 아니라 dist[i]=-1로 초기화한 것에 주의)
 		int[] dist = new int[N + 1];
 		for (int i = 1; i <= N; i++) {
 			dist[i] = -1;
 		}
 		dist[1] = 0;
-		Queue<Integer> Q = new LinkedList<>(); // キュー Q を定義する
+		Queue<Integer> Q = new LinkedList<>(); // 큐 Q를 정의한다
 		Q.add(1);
 
-		// 幅優先探索
+		// 너비 우선 탐색
 		while (Q.size() >= 1) {
-			int pos = Q.remove(); // キュー Q の先頭要素を取り除き、その値を pos に代入する
+			int pos = Q.remove(); // 큐 Q의 가장 앞 요소를 제거하고, 그 값을 pos에 대입한다
 			for (int i = 0; i < G[pos].size(); i++) {
 				int nex = G[pos].get(i);
 				if (dist[nex] == -1) {
@@ -48,7 +48,7 @@ class Main {
 			}
 		}
 		
-		// 頂点 1 から各頂点までの最短距離を出力（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
+		// 노드 1에서 각 노드까지의 최단 거리를 출력(System.out.println가 아니라 PrintWriter를 사용한다)
 		PrintWriter output = new PrintWriter(System.out);
 		for (int i = 1; i <= N; i++) {
 			output.println(dist[i]);

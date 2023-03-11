@@ -1,13 +1,13 @@
 from collections import deque
 
-# 入力（ここでは書籍とは異なり、ランプの番号が 0-indexed になるように実装しています）
+# 입력(여기에서는 책과 달리 램프의 번호가 0-indexed가 되도록 구현하고 있다)
 N, M = map(int, input().split())
 A = list(map(int, input().split()))
 actions = [ list(map(lambda x: int(x) - 1, input().split())) for i in range(M) ] # ここでは X[i], Y[i], Z[i] を 0-indexed に変換して受け取る
 
-# 頂点 pos の状態から「ランプ x, y, z の状態」を反転させたときの頂点番号を返す関数
+# 노드 pos의 상태에서 '램프 x, y, z의 상태'를 반전시켰을 때의 노드 번호를 반환하는 함수
 def get_next(pos, x, y, z):
-	# pos の 2 進法表記を使って、頂点 pos が表すランプの状態 state を計算
+	# pos의 2진법 표기를 사용해, 노드 pos가 나타내는 램프의 상태 state를 계산
 	# （pos の 2^i の位は (pos // (2 ** i)) % 2 で計算できる → 1.4 節を参照）
 	state = [ (pos // (2 ** i)) % 2 for i in range(N) ]
 	# ランプ x, y, z を反転
@@ -29,28 +29,28 @@ for i in range(2 ** N):
 		nextstate = get_next(i, x, y, z)
 		G[i].append(nextstate)
 
-# スタート地点・ゴール地点の頂点番号を決める
+# 시작 지점/골 지점의 노드 번호를 결정한다
 start = 0
 for i in range(N):
 	if A[i] == 1:
 		start += 2 ** i
 goal = 2 ** N - 1
 
-# 幅優先探索の初期化
+# 너비 우선 탐색 초기화
 dist = [ -1 ] * (2 ** N)
 dist[start] = 0
 Q = deque()
 Q.append(start)
 
-# 幅優先探索
+# 너비 우선 탐색
 while len(Q) >= 1:
-	pos = Q.popleft() # キュー Q の先頭要素を取り除き、その値を pos に代入する
+	pos = Q.popleft() # 큐 Q의 맨 앞 요소를 제거하고, 그 값을 pos에 대입한다
 	for nex in G[pos]:
 		if dist[nex] == -1:
 			dist[nex] = dist[pos] + 1
 			Q.append(nex)
 
-# 答えを出力
+# 답을 출력
 print(dist[goal])
 
 # 注意 1：この問題に対してはより簡潔な実装もありますので、

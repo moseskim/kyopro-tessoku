@@ -4,7 +4,7 @@
 using namespace std;
 
 int N; char c[159][159];
-MaximumFlow Z; // MaximumFlow クラスは 9.8 節参照
+MaximumFlow Z; // MaximumFlow 클래스는 9.8절 참조
 
 int main() {
 	// 입력
@@ -13,7 +13,7 @@ int main() {
 		for (int j = 1; j <= N; j++) cin >> c[i][j];
 	}
 
-	// グラフを構成する
+	// 클래스를 구성한다
 	Z.init(2 * N + 2);
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= N; j++) {
@@ -21,8 +21,8 @@ int main() {
 		}
 	}
 	for (int i = 1; i <= N; i++) {
-		Z.add_edge(2 * N + 1, i, 1); // 「s → 青色」の辺
-		Z.add_edge(N + i, 2 * N + 2, 1); // 「赤色 → t」の辺
+		Z.add_edge(2 * N + 1, i, 1); // 's → 파란색'의 에지
+		Z.add_edge(N + i, 2 * N + 2, 1); // '빨간색 → t'의 에지
 	}
 	// 답 출력
 	cout << Z.max_flow(2 * N + 1, 2 * N + 2) << endl;

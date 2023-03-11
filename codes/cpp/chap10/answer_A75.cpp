@@ -11,7 +11,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> T[i] >> D[i];
 
-	// D[i] の小さい順に並べ替える
+	// D[i]의 오름차순으로 정렬한다
 	vector<pair<int, int>> Problems;
 	for (int i = 1; i <= N; i++) Problems.push_back(make_pair(D[i], T[i]));
 	sort(Problems.begin(), Problems.end());
@@ -25,7 +25,7 @@ int main() {
 		for (int j = 0; j <= 1440; j++) dp[i][j] = -1;
 	}
 
-	// 動的計画法
+	// 동적 계획 알고리즘
 	dp[0][0] = 0;
 	for (int i = 1; i <= N; i++) {
 		for (int j = 0; j <= 1440; j++) {

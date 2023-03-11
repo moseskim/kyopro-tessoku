@@ -4,11 +4,11 @@
 #include <algorithm>
 using namespace std;
 
-// 입력/그래프を表す変数
+// 입력/그래프를 나타내는 변수
 int N, M, A[100009], B[100009], C[100009], D[100009];
 vector<pair<int, int>> G[8009];
 
-// 다이크스트라 알고리즘で使う変数
+// 다이크스트라 알고리즘에서 사용하는 변수
 long long cur[8009]; bool kakutei[8009];
 priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> Q;
 
@@ -41,7 +41,7 @@ int main() {
 		int pos = Q.top().second; Q.pop();
 		if (kakutei[pos] == true) continue;
 
-		// cur[nex] の値を更新する
+		// cur[nex]의 값을 업데이트 한다
 		kakutei[pos] = true;
 		for (int i = 0; i < G[pos].size(); i++) {
 			int nex = G[pos][i].first;
@@ -54,8 +54,8 @@ int main() {
 	}
 
 	// 답을 출력
-	// マラソンコースの距離：cur[N]/10000 を小数点以下切り上げた値
-	// コース上の木の数：cur[N] と Distance*10000 の差分
+	// 마라톤 코스의 거리: cur[N]/10000을 소수점 이하를 자른 값
+	// 코드 상의 나무의 수: cur[N]과 Distance*10000의 차이
 	long long Distance = (cur[N] + 9999) / 10000;
 	long long NumTrees = Distance * 10000 - cur[N];
 	cout << Distance << " " << NumTrees << endl;

@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력(빠른 입출력을 위해 Scanner 대신 BufferedReader를 사용한다)
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -20,7 +20,7 @@ class Main {
 		}
 		
 		// 쿼리 처리
-		// （高速な出力のため、System.out.println ではなく PrintWriter を使っています）
+		// (빠른 출력을 위해 System.out.println가 아니라 PrintWriter를 사용한다)
 		PrintWriter output = new PrintWriter(System.out);
 		UnionFind uf = new UnionFind(N);
 		for (int i = 1; i <= Q; i++) {
@@ -39,7 +39,7 @@ class Main {
 		output.flush();
 	}
 	
-	// Union-Find 木を実装したクラス UnionFind
+	// Union-Find 트리를 구현한 클래스 UnionFind
 	static class UnionFind {
 		int n;
 		int[] par;

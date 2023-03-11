@@ -17,18 +17,18 @@ class Main {
 			B[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		// 隣接リストの作成
+		// 인접 리스트 작성
 		ArrayList<Integer>[] G = new ArrayList[N + 1];
 		for (int i = 1; i <= N; i++) {
-			G[i] = new ArrayList<Integer>(); // G[i] は頂点 i に隣接する頂点のリスト
+			G[i] = new ArrayList<Integer>(); // G[i]는 노드 i에 인접하는 노드의 리스트
 		}
 		for (int i = 1; i <= M; i++) {
-			G[A[i]].add(B[i]); // 頂点 A[i] に隣接する頂点として B[i] を追加
-			G[B[i]].add(A[i]); // 頂点 B[i] に隣接する頂点として A[i] を追加
+			G[A[i]].add(B[i]); // 노드 A[i]에 인접하는 노드로서 B[i]를 추가
+			G[B[i]].add(A[i]); // 노드 B[i]에 인접하는 노드로서 A[i]를 추가
 		}
 		
-		// 출력（G[i].size() は頂点 i に隣接する頂点のリストの大きさ ＝ 次数）
-		//（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
+		// 출력(G[i].size()는 노드 i에 인접하는 노드의 리스트의 크기 = 차수)
+		//(빠른 출력을 위해 System.out.println가 아니라 PrintWriter를 사용한다)
 		PrintWriter output = new PrintWriter(System.out);
 		for (int i = 1; i <= N; i++) {
 			output.print(i + ": {");
@@ -36,7 +36,7 @@ class Main {
 				if (j >= 1) {
 					output.print(", ");
 				}
-				output.print(G[i].get(j)); // G[i].get(j) は頂点 i に隣接する頂点のうち j+1 番目のもの
+				output.print(G[i].get(j)); // G[i].get(j)는 노드 i에 인접하는 노드 중 j+1번째의 것
 			}
 			output.println("}");
 		}

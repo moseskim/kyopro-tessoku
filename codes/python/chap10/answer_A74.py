@@ -1,8 +1,8 @@
-# 入力
+# 입력
 N = int(input())
 P = [ list(map(int, input().split())) for i in range(N) ]
 
-# 「転倒数を求める問題」2 つに分解する
+# '전도 수를 구하는 문제' 2개로 분해한다
 X = [ None ] * N
 Y = [ None ] * N
 for i in range(N):
@@ -11,7 +11,7 @@ for i in range(N):
 			X[i] = P[i][j]
 			Y[j] = P[i][j]
 
-# 転倒数を求める関数
+# 전도 수를 구하는 함수
 def inversion(A):
 	answer = 0
 	for i in range(len(A)):
@@ -20,5 +20,5 @@ def inversion(A):
 				answer += 1
 	return answer
 
-# 答えを出力
+# 답을 출력
 print(inversion(X) + inversion(Y))

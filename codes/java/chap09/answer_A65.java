@@ -3,7 +3,7 @@ import java.io.*;
 
 class Main {
 	public static void main(String[] args) throws IOException {
-		// 입력（高速な入出力のため、Scanner の代わりに BufferedReader を使っています）
+		// 입력(빠른 입출력을 위해 Scanner 대신 BufferedReader를 사용한다)
 		BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(buff.readLine());
@@ -14,7 +14,7 @@ class Main {
 			A[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		// 隣接リストの作成
+		// 인접 리스트 작성
 		ArrayList<Integer>[] G = new ArrayList[N + 1];
 		for (int i = 1; i <= N; i++) {
 			G[i] = new ArrayList<Integer>();
@@ -31,7 +31,7 @@ class Main {
 			}
 		}
 		
-		// 答えを空白区切りで出力（高速な出力のため、System.out.println ではなく PrintWriter を使っています）
+		// 답을 공백으로 구분해서 출력(빠른 출력을 위해 System.out.println가 아니라 PrintWriter를 사용한다)
 		PrintWriter output = new PrintWriter(System.out);
 		for (int i = 1; i <= N; i++) {
 			if (i >= 2) {

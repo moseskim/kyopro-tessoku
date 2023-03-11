@@ -18,10 +18,10 @@ class Main {
 			int mid = (left + right + 1) / 2;
 			boolean answer = check(N, L, K, A, mid);
 			if (answer == false) {
-				right = mid - 1; // 答えが前半部分に絞られる
+				right = mid - 1; // 답이 전반 부분으로 좁혀진다
 			}
 			else {
-				left = mid;      // 答えが後半部分に絞られる
+				left = mid;      // 답이 후반 부분으로 좁혀진다
 			}
 		}
 
@@ -32,7 +32,7 @@ class Main {
 	// スコアの最大値が x 以上かを判定する関数
 	static boolean check(int N, int L, int K, int[] A, int x) {
 		int count = 0;      // 現時点で何回切ったかを表す
-		int lastKireme = 0; // 最後どこで切ったかを表す
+		int lastKireme = 0; // 가장 마지막에 어디에서 잘랐는가를 나타낸다
 		for (int i = 1; i <= N; i++) {
 			if (A[i] - lastKireme >= x && L - A[i] >= x) {
 				count += 1;

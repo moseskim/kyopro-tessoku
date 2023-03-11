@@ -8,20 +8,20 @@ int M, X[109], Y[109], Z[109];
 int dist[1033];
 vector<int> G[1033];
 
-// 頂点 pos の状態から「idx 種類目の操作」を行ったときの頂点番号を返す
+// 노드 pos의 상태에서 'dix 번째 종류의 조작'을 수행했을 때의 노드 번호를 반환한다
 int GetNext(int pos, int idx) {
-	int State[19]; // State[i] はランプ i の状態
+	int State[19]; // State[i]는 램프 i의 상태
 
-	// 2 進法に直す方法は 1.4 節を参照
+	// 2진법으로 고치는 방법은 1.4절을 참조
 	for (int i = 1; i <= N; i++) {
 		int wari = (1 << (i - 1));
 		State[i] = (pos / wari) % 2;
 	}
-	State[X[idx]] = 1 - State[X[idx]]; // ランプ X[idx] を反転
-	State[Y[idx]] = 1 - State[Y[idx]]; // ランプ Y[idx] を反転
-	State[Z[idx]] = 1 - State[Z[idx]]; // ランプ Z[idx] を反転
+	State[X[idx]] = 1 - State[X[idx]]; // 램프 X[idx]를 반전
+	State[Y[idx]] = 1 - State[Y[idx]]; // 램프 Y[idx]를 반전
+	State[Z[idx]] = 1 - State[Z[idx]]; // 램프 Z[idx]를 반전
 
-	// 10 進法に変換する方法も 1.4 節を参照
+	// 10진법으로 변환하는 방법도 1.4절을 참조
 	int ret = 0;
 	for (int i = 1; i <= N; i++) {
 		if (State[i] == 1) ret += (1 << (i - 1));
@@ -35,7 +35,7 @@ int main() {
 	for (int i = 1; i <= N; i++) cin >> A[i];
 	for (int j = 1; j <= M; j++) cin >> X[j] >> Y[j] >> Z[j];
 
-	// グラフに辺を追加
+	// 그래프에 에지를 추가
 	for (int i = 0; i < (1 << N); i++) {
 		for (int j = 1; j <= M; j++) {
 			int NextState = GetNext(i, j);
@@ -43,20 +43,20 @@ int main() {
 		}
 	}
 
-	// スタート地点・ゴール地点の頂点番号を求める
-	int Goal = (1 << N) - 1;  // (1<<N) は「2 の N 乗」
+	// 시작 지점, 골 지점의 노드 번호를 구한다
+	int Goal = (1 << N) - 1;  // (1<<N)은 '2의 N 제곱'
 	int Start = 0;
 	for (int i = 1; i <= N; i++) {
 		if (A[i] == 1) Start += (1 << (i - 1));
 	}
 
-	// 배열 초기화／スタート地点をキューに入れる
+	// 배열 초기화／시작 시점을 큐에 넣는다
 	queue<int> Q;
 	for (int i = 0; i < (1 << N); i++) dist[i] = -1;
 	dist[Start] = 0;
 	Q.push(Start);
 
-	// 幅優先探索
+	// 너비 우선 탐색
 	while (!Q.empty()) {
 		int pos = Q.front(); Q.pop();
 		for (int i = 0; i < G[pos].size(); i++) {

@@ -11,11 +11,11 @@ int main() {
 	for (int i = 1; i <= N; i++) cin >> A[i];
 	for (int i = 1; i <= N; i++) cin >> B[i];
 
-	// 配列のソート（reverse 関数は配列を逆順にする関数）
+	// 배열 정렬(reverse 함수는 배열을 역순으로 하는 함수)
 	sort(A + 1, A + N + 1);
 	sort(B + 1, B + N + 1); reverse(B + 1, B + N + 1);
 
-	// 答えを求める
+	// 답을 구한다
 	for (int i = 1; i <= N; i++) Answer += A[i] * B[i];
 	cout << Answer << endl;
 	return 0;

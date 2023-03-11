@@ -1,34 +1,34 @@
 from collections import deque
 
-# 入力（ここでは書籍とは異なり、ランプの番号が 0-indexed になるように実装しています）
+# 입력(여기에서는 책과 달리 램프의 번호가 0-indexed가 되도록 구현하고 있다)
 N, M = map(int, input().split())
 A = list(map(int, input().split()))
 actions = [ list(map(lambda x: int(x) - 1, input().split())) for i in range(M) ] # ここでは X[i], Y[i], Z[i] を 0-indexed に変換して受け取る
 
-# スタート地点・ゴール地点の頂点番号を決める
+# 시작 지점/골 지점의 노드 번호를 결정한다
 start = sum(A[i] * (2 ** i) for i in range(N))
 goal = 2 ** N - 1
 
-# 幅優先探索の初期化
+# 너비 우선 탐색 초기화
 dist = [ -1 ] * (2 ** N)
 dist[start] = 0
 Q = deque()
 Q.append(start)
 
-# 幅優先探索
-# （ここではグラフを実際に持たずに、pos から出る辺をそのまま計算して幅優先探索を行います）
+# 너비 우선 탐색
+# (여기에서는 그래프를 실제로 갖지 않고, pos에서 나오는 에지를 그대로 계산해서 너비 우선 탐색을 수행한다)
 while len(Q) >= 1:
-	pos = Q.popleft() # キュー Q の先頭要素を取り除き、その値を pos に代入する
+	pos = Q.popleft() # 큐 Q의 맨 앞 요소를 제거하고, 그 값을 pos에 대입한다
 	for x, y, z in actions:
-		# ビット演算の XOR を使います（XOR についてはコラム 1 を参照）。
-		# ランプ k を反転することは、頂点番号の 2^k の位を反転すること、すなわち 2^k を XOR することと同じになります。
+		# 비트 연산 XOR를 사용한다(XOR에 관해서는 칼럼 1 참조)
+		# 램프 k를 반전시키는 것은, 노드 번호의 2^k의 자리를 반전시키는 것, 즉, 2^k를 XOR 시키는 것과 같다.
 		nex = pos ^ (1 << x) ^ (1 << y) ^ (1 << z)
 		if dist[nex] == -1:
 			dist[nex] = dist[pos] + 1
 			Q.append(nex)
 
-# 答えを出力
+# 답을 출력
 print(dist[goal])
 
-# 注意 1：ビット演算は、掛け算 (*)、割り算 (//)、累乗 (**) などの演算と比べて高速であるため、
-#         このプログラムは answer_A70.py と比較して約 1/5 の実行時間で答えが出せます。
+# 주의 1: 비트 연산은 곱셈 (*), 나눗셈(//), 제곱(**) 등의 연산에 비해 속도가 빠르므로,
+#        이 프로그램은 answer_A70.py에 비해 약 1/5의 실행 시간에 답을 구할 수 있습니다.
