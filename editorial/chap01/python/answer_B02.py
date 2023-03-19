@@ -1,7 +1,7 @@
 # 입력
 A, B = map(int, input().split())
 
-# 答えを求める
+# 답을 구한다
 Answer = False
 for i in range(A, B + 1):
 	if 100 % i == 0:

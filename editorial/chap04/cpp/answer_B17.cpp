@@ -20,13 +20,13 @@ int main() {
 		dp[i] = min(dp[i - 1] + abs(H[i - 1] - H[i]), dp[i - 2] + abs(H[i - 2] - H[i]));
 	}
  
-	// 동적 계획 알고리즘の復元
+	// 동적 계획 알고리즘 복원
 	int Place = N;
 	while (true) {
 		Answer.push_back(Place);
 		if (Place == 1) break;
  
-		// どちらに移動するかを求める
+		// 어느 쪽으로 이동할지 구한다
 		if (dp[Place - 1] + abs(H[Place - 1] - H[Place]) == dp[Place]) Place = Place - 1;
 		else Place = Place - 2;
 	}

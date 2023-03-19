@@ -3,10 +3,10 @@ using namespace std;
  
 long long N, K;
 long long A[100009];
-long long S[100009]; // 累積和
-long long R[100009]; // 左端が決まったとき、右端はどこまで行けるか
+long long S[100009]; // 누적 합
+long long R[100009]; // 왼쪽 끝이 결정되었을 때, 오른쪽 끝은 어디까지 갈 수 있는가
  
-// A[l] から A[r] までの合計値
+// A[l]부터 A[r]까지의 합곗값
 long long sum(int l, int r) {
 	return S[r] - S[l - 1];
 }
@@ -16,11 +16,11 @@ int main() {
 	cin >> N >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
-	// 累積和をとる
+	// 누적합을 구한다
 	S[0] = 0;
 	for (int i = 1; i <= N; i++) S[i] = S[i - 1] + A[i];
  
-	// しゃくとり法
+	// 자벌레 알고리즘
 	for (int i = 1; i <= N; i++) {
 		if (i == 1) R[i] = 0;
 		else R[i] = R[i - 1];

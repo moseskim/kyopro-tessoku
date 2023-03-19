@@ -6,8 +6,8 @@ using namespace std;
 int N, X[100009], Y[100009];
 int LEN, L[100009];
  
-// 配列 A の最長増加部分列（LIS）の長さを計算する
-// 配列 dp を使わない実装方法を利用している
+// 배열 A의 최장 증가 부분열(LIS)의 길이를 계산한다
+// 배열 dp를 사용하지 않는 구현 방법을 이용한다
 int Get_LISvalue(vector<int> A) {
 	LEN = 0;
 	for (int i = 1; i <= A.size(); i++) L[i] = 0;
@@ -26,12 +26,12 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> X[i] >> Y[i];
  
-	// ソート
+	// 정렬
 	vector<pair<int, int>> tmp;
 	for (int i = 1; i <= N; i++) tmp.push_back(make_pair(X[i], -Y[i]));
 	sort(tmp.begin(), tmp.end());
 	
-	// LIS を求めるべき配列は？
+	// LIS를 구해야할 배열은?
 	vector<int> A;
 	for (int i = 0; i < tmp.size(); i++) {
 		A.push_back(-tmp[i].second);

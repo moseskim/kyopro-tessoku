@@ -1,7 +1,7 @@
 # 입력
 N = input()
 
-# 答えを求める
+# 답을 구한다
 Answer = 0
 for i in range(len(N)):
 	keta = 0

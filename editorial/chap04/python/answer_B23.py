@@ -5,16 +5,16 @@ Y = [ None ] * N
 for i in range(N):
 	X[i], Y[i] = map(int, input().split())
 
-# 配列 dp の初期化
+# 배열 dp 초기화
 dp = [ [ 1000000000.0 ] * N for i in range(2 ** N) ]
 
-# 동적 계획 알고리즘（dp[通った都市][今いる都市] となっている）
+# 동적 계획 알고리즘(dp[지나간 도시][현재 있는 도시]로 되어 있다)
 dp[0][0] = 0
 for i in range(2 ** N):
 	for j in range(N):
 		if dp[i][j] < 1000000000.0:
 
-			# 都市 j から k に移動したい！
+			# 도시 j에서 k로 이동하고 싶다!
 			for k in range(N):
 				if (i // (2 ** k)) % 2 == 0:
 					DIST = ((1.0*(X[j]-X[k])* (X[j]-X[k]) + 1.0*(Y[j]-Y[k])*(Y[j]-Y[k])) ** 0.5)

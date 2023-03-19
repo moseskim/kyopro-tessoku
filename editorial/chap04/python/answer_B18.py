@@ -25,19 +25,19 @@ for i in range(1, N+1):
 			else:
 				dp[i][j] = False
 
-# 選び方が存在しない場合
+# 선택 방법이 존재하지 않는 경우
 if dp[N][S] == False:
 	print("-1")
 	sys.exit(0)
 
-# 答えの復元
+# 답 복원
 Answer = []
 Place = S
 for i in reversed(range(1,N+1)):
 	if dp[i-1][Place] == True:
-		Place = Place - 0 # カード i を選ばない
+		Place = Place - 0 # 카드 i를 선택하지 않는다
 	else:
-		Place = Place - A[i-1] # カード i を選ぶ
+		Place = Place - A[i-1] # 카드 i을 선택한다
 		Answer.append(i)
 Answer.reverse()
 

@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
  
-// 입력で与えられる変数
+// 입력으로 주어진 변수
 int N;
 int A[100009], B[100009], C[100009], D[100009];
  
-// 座標 (i+0.5, j+0.5) に置かれている紙の数 T[i][j]
+// 좌표 (i+0.5, j+0.5)에 놓여있는 종이의 수 T[i][j]
 int T[1509][1509];
  
 int main() {
@@ -13,7 +13,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i] >> B[i] >> C[i] >> D[i];
  
-	// 各紙について +1/-1 を加算
+	// 각 종이에 대해 +1/-1을 더한다
 	for (int i = 0; i <= 1500; i++) {
 		for (int j = 0; j <= 1500; j++) T[i][j] = 0;
 	}
@@ -24,7 +24,7 @@ int main() {
 		T[C[i]][D[i]] += 1;
 	}
  
-	// 二次元累積和をとる
+	// 2차원 누적합을 구한다
 	for (int i = 0; i <= 1500; i++) {
 		for (int j = 1; j <= 1500; j++) T[i][j] = T[i][j - 1] + T[i][j];
 	}
@@ -32,7 +32,7 @@ int main() {
 		for (int j = 0; j <= 1500; j++) T[i][j] = T[i - 1][j] + T[i][j];
 	}
  
-	// 面積を数える
+	// 넓이를 구한다
 	int Answer = 0;
 	for (int i = 0; i <= 1500; i++) {
 		for (int j = 0; j <= 1500; j++) {

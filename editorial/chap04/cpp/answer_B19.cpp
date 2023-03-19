@@ -6,7 +6,7 @@ long long N, W, w[109], v[109];
 long long dp[109][100009];
 
 int main() {
-	// 입력・配列の初期化
+	// 입력/배열 초기화
 	cin >> N >> W;
 	for (int i = 1; i <= N; i++) cin >> w[i] >> v[i];
 	for (int i = 0; i <= N; i++) {

@@ -2,7 +2,7 @@
 N = int(input())
 S = input()
 
-# 동적 계획 알고리즘（初期状態）
+# 동적 계획 알고리즘(초기 상태)
 dp = [ [ None ] * N for i in range(N) ]
 for i in range(N):
 	dp[i][i] = 1
@@ -12,7 +12,7 @@ for i in range(N-1):
 	else:
 		dp[i][i+1] = 1
 
-# 동적 계획 알고리즘（状態遷移）
+# 동적 계획 알고리즘(상태 전이)
 for LEN in range(2,N):
 	for l in range(N-LEN):
 		r = l + LEN

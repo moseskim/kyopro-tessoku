@@ -8,10 +8,10 @@ X = [ None ] * Q
 for i in range(Q):
 	X[i] = int(input())
 
-# 配列 X をソート
+# 배열 X를 정렬
 A.sort()
 
-# 質問に答える（配列 A は 0 番目から始まっていることに注意！）
+# 질문에 답한다(배열 A는 0번째부터 시작하는 것에 주의!)
 for i in range(Q):
 	pos1 = bisect.bisect_left(A, X[i])
 	print(pos1)

@@ -7,7 +7,7 @@ D = [ None ] * N
 for i in range(N):
 	A[i], B[i], C[i], D[i] = map(int, input().split())
 
-# 各紙について +1/-1 を加算
+# 각 종이에 대해 +1/-1을 더한다
 T = [ [ 0 ] * 1501 for i in range(1501) ]
 for i in range(N):
 	T[A[i]][B[i]] += 1
@@ -15,7 +15,7 @@ for i in range(N):
 	T[C[i]][B[i]] -= 1
 	T[C[i]][D[i]] += 1
 
-# 累積和をとる
+# 누적합을 구한다
 for i in range(0, 1501):
 	for j in range(1, 1501):
 		T[i][j] = T[i][j-1] + T[i][j]
@@ -23,7 +23,7 @@ for i in range(1, 1501):
 	for j in range(0, 1501):
 		T[i][j] = T[i-1][j] + T[i][j]
 
-# 面積を数える
+# 넓이를 구한다
 Answer = 0
 for i in range(1501):
 	for j in range(1501):

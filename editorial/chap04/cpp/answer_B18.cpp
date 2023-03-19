@@ -30,20 +30,20 @@ int main() {
 		}
 	}
  
-	// 選び方が存在しない場合
+	// 선택 방법이 존재하지 않는 경우
 	if (dp[N][S] == false) {
 		cout << "-1" << endl;
 		return 0;
 	}
  
-	// 答えの復元（Place は "現在の総和"）
+	// 답 복원(Place는 "현재의 총합")
 	int Place = S;
 	for (int i = N; i >= 1; i--) {
 		if (dp[i - 1][Place] == true) {
-			Place = Place - 0; // カード i を選ばない
+			Place = Place - 0; // 카드 i를 선택하지 않는다
 		}
 		else {
-			Place = Place - A[i]; // カード i を選ぶ
+			Place = Place - A[i]; // 카드 i을 선택한다
 			Answer.push_back(i);
 		}
 	}
