@@ -12,10 +12,10 @@ int main() {
 	cin >> Q;
 	for (int i = 1; i <= Q; i++) cin >> X[i];
  
-	// 配列 X をソート
+	// 배열 X를 정렬
 	sort(A + 1, A + N + 1);
  
-	// 質問に答える
+	// 질문에 답한다
 	for (int i = 1; i <= Q; i++) {
 		int pos1 = lower_bound(A + 1, A + N + 1, X[i]) - A;
 		cout << pos1 - 1 << endl;

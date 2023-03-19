@@ -12,7 +12,7 @@ int main() {
 	cin >> Q;
 	for (int i = 1; i <= Q; i++) cin >> L[i] >> R[i];
  
-	// アタリの個数・ハズレの個数の累積和を求める
+	// 당첨의 수, 꽝의 수의 누적합을 구한다
 	Atari[0] = 0;
 	Hazre[0] = 0;
 	for (int i = 1; i <= N; i++) {
@@ -20,7 +20,7 @@ int main() {
 		Hazre[i] = Hazre[i - 1]; if (A[i] == 0) Hazre[i] += 1;
 	}
  
-	// 質問に答える
+	// 질문에 답한다
 	for (int i = 1; i <= Q; i++) {
 		int NumAtari = Atari[R[i]] - Atari[L[i] - 1];
 		int NumHazre = Hazre[R[i]] - Hazre[L[i] - 1];

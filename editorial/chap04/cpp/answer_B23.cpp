@@ -11,23 +11,23 @@ int main() {
 	cin >> N;
 	for (int i = 0; i < N; i++) cin >> X[i] >> Y[i];
  
-	// 配列 dp の初期化
+	// 배열 dp 초기화
 	for (int i = 0; i < (1 << N); i++) {
 		for (int j = 0; j < N; j++) dp[i][j] = 1e9;
 	}
  
-	// 동적 계획 알고리즘（dp[通った都市][今いる都市] となっている）
+	// 동적 계획 알고리즘(dp[지나간 도시][현재 있는 도시]로 되어 있다)
 	dp[0][0] = 0;
 	for (int i = 0; i < (1 << N); i++) {
 		for (int j = 0; j < N; j++) {
 			if (dp[i][j] >= 1e9) continue;
  
-			// 都市 j から都市 k に移動したい！
+			// 도시 j에서도 도시 k로 이동하고 싶다!
 			for (int k = 0; k < N; k++) {
-				// 既に都市 k を通っていた場合
+				// 이미 도시 k를 지난 경우
 				if ((i / (1 << k)) % 2 == 1) continue;
  
-				// 状態遷移
+				// 상태 전이
 				double DIST = sqrt(1.0 * (X[j] - X[k]) * (X[j] - X[k]) + 1.0 * (Y[j] - Y[k]) * (Y[j] - Y[k]));
 				dp[i + (1 << k)][k] = min(dp[i + (1 << k)][k], dp[i][j] + DIST);
 			}

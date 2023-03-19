@@ -1,7 +1,7 @@
 import bisect
 
-# 配列 A の最長増加部分列（LIS）の長さを計算する
-# 配列 dp を使わない実装方法を利用している
+# 배열 A의 최장 증가 부분열(LIS)의 길이를 계산한다
+# 배열 dp를 사용하지 않는 구현 방법을 이용한다
 def Get_LISvalue(A):
 	LEN = 0
 	L = []
@@ -21,13 +21,13 @@ Y = [ None ] * N
 for i in range(N):
 	X[i], Y[i] = map(int, input().split())
 
-# ソート
+# 정렬
 tmp = []
 for i in range(N):
 	tmp.append([X[i], -Y[i]])
 tmp.sort()
 
-# LIS を求めるべき配列は？
+# LIS를 구해야할 배열은?
 A = []
 for i in range(N):
 	A.append(-tmp[i][1])

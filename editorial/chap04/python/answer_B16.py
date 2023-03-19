@@ -2,7 +2,7 @@
 N = int(input())
 H = list(map(int, input().split()))
 
-# 配列の準備
+# 배열 준비
 dp = [ None ] * N
 
 # 동적 계획 알고리즘

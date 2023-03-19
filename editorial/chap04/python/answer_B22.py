@@ -1,9 +1,9 @@
-# 입력（A, B が 0 番目から始まっていることに注意）
+# 입력(A, B가 0번째에서 시작하는 것에 주의)
 N = int(input())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 
-# 配列 dp の初期化
+# 배열 dp 초기화
 dp = [ 2000000000 ] * N
 dp[0] = 0
 

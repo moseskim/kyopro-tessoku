@@ -11,14 +11,14 @@ int main() {
 	cin >> N;
 	cin >> S;
  
-	// 동적 계획 알고리즘（初期状態）
+	// 동적 계획 알고리즘(초기 상태)
 	for (int i = 0; i < N; i++) dp[i][i] = 1;
 	for (int i = 0; i < N - 1; i++) {
 		if (S[i] == S[i + 1]) dp[i][i + 1] = 2;
 		else dp[i][i + 1] = 1;
 	}
  
-	// 동적 계획 알고리즘（状態遷移）
+	// 동적 계획 알고리즘(상태 전이)
 	for (int LEN = 2; LEN <= N - 1; LEN++) {
 		for (int l = 0; l < N - LEN; l++) {
 			int r = l + LEN;

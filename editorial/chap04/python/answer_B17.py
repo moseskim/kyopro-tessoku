@@ -2,7 +2,7 @@
 N = int(input())
 H = list(map(int, input().split()))
 
-# 配列の準備
+# 배열 준비
 dp = [ None ] * N
 
 # 동적 계획 알고리즘
@@ -11,8 +11,8 @@ dp[1] = abs(H[0] - H[1])
 for i in range(2, N):
 	dp[i] = min(dp[i-1] + abs(H[i-1]-H[i]), dp[i-2] + abs(H[i-2]-H[i]))
 
-# 答えの復元
-# 変数 Place は現在位置（ゴールから進んでいく）
+# 답 복원
+# 변수 Place는 현재 위치(골에서 진행해 나간다)
 Answer = []
 Place = N-1
 while True:
@@ -20,7 +20,7 @@ while True:
 	if Place == 0:
 		break
 
-	# どこから部屋 Place に向かうのが最適かを求める
+	# 어디에서 방 Place로 향하는 것이 최적인가를 구한다
 	if dp[Place-1] + abs(H[Place-1]-H[Place]) == dp[Place]:
 		Place = Place - 1
 	else:

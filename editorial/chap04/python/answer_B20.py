@@ -2,7 +2,7 @@
 S = input()
 T = input()
 
-# 配列の準備
+# 배열 준비
 dp = [ [ None ] * (len(T) + 1) for i in range(len(S) + 1) ]
 
 # 동적 계획 알고리즘

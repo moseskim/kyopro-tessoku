@@ -11,14 +11,14 @@ int main() {
 	for (int i = 2; i <= N; i++) cin >> A[i];
 	for (int i = 3; i <= N; i++) cin >> B[i];
 
-	// 配列 dp の初期化
+	// 배열 dp 초기화
 	dp[1] = 0;
 	for (int i = 2; i <= N; i++) dp[i] = 2000000000;
 
 	// 동적 계획 알고리즘
 	for (int i = 1; i <= N; i++) {
-		if (i <= N - 1) dp[i + 1] = min(dp[i + 1], dp[i] + A[i + 1]); // 部屋 i+1 に行く場合
-		if (i <= N - 2) dp[i + 2] = min(dp[i + 2], dp[i] + B[i + 2]); // 部屋 i+2 に行く場合
+		if (i <= N - 1) dp[i + 1] = min(dp[i + 1], dp[i] + A[i + 1]); // 방 i+1로 이동하는 경우
+		if (i <= N - 2) dp[i + 2] = min(dp[i + 2], dp[i] + B[i + 2]); // 방 i+2로 이동하는 경우
 	}
 
 	// 출력

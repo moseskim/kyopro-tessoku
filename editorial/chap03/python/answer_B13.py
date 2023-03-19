@@ -1,4 +1,4 @@
-# A[l] から A[r] までの合計値
+# A[l]부터 A[r]까지의 합곗값
 def sum(l, r, S):
 	return S[r+1] - S[l]
 
@@ -6,15 +6,15 @@ def sum(l, r, S):
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
 
-# 累積和をとる
+# 누적합을 구한다
 S = [ 0 ] * (N + 1)
 for i in range(1, N+1):
 	S[i] = S[i-1] + A[i-1]
 
-# 配列の準備（R は 0 番目から始まることに注意）
+# 배열 준비(R은 0번째부터 시작하는 것에 주의)
 R = [ None ] * N
 
-# しゃくとり法
+# 자벌레 알고리즘
 for i in range(N):
 	if i == 0:
 		R[i] = -1
@@ -23,7 +23,7 @@ for i in range(N):
 	while R[i] < N-1 and sum(i,R[i]+1,S) <= K:
 		R[i] += 1
 
-# 答えを求める
+# 답을 구한다
 Answer = 0
 for i in range(N):
 	Answer += (R[i] - i + 1)
