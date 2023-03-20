@@ -8,7 +8,7 @@ int main() {
 	cin >> N >> X >> Y;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
-	// Grundy 数を計算
+	// Grundy 수를 계산
 	int XOR_Sum = 0;
 	for (int i = 1; i <= N; i++) {
 		if (A[i] % 5 == 0 || A[i] % 5 == 1) XOR_Sum ^= 0;

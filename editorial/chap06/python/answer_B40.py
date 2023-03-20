@@ -2,12 +2,12 @@
 N = int(input())
 A = list(map(int, input().split()))
  
-# 個数を数える
+# 개수를 센다
 cnt = [ 0 ] * 100
 for i in range(N):
 	cnt[A[i] % 100] += 1
  
-# 答えを求める
+# 답을 구한다
 Answer = 0
 for i in range(1, 50):
 	Answer += cnt[i] * cnt[100-i]

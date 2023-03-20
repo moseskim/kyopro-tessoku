@@ -3,23 +3,23 @@
 using namespace std;
  
 long long N;
-long long R[18][10]; // R[i][j] は「下から i 桁目が j となるような N 以下の整数の個数」
+long long R[18][10]; // R[i][j]는 '아래부터 i번째 자리가 j가 되는 N 이하의 정수의 개수'
 long long Power10[18];
  
 int main() {
 	// 입력
 	cin >> N;
  
-	// 10 の N 乗を求める
+	// 10의 N 제곱을 구한다
 	Power10[0] = 1;
 	for (int i = 1; i <= 16; i++) Power10[i] = 10LL * Power10[i - 1];
  
-	// R[i][j] の値を計算
+	// R[i][j]의 값을 계산
 	for (int i = 0; i <= 15; i++) {
-		// 下から i 桁目の数字を求める
+		// 아래부터 i번째 자리의 숫자를 구한다
 		long long Digit = (N / Power10[i]) % 10LL;
  
-		// R[i][j] の値を求める
+		// R[i][j]의 값을 구한다
 		for (int j = 0; j < 10; j++) {
 			if (j < Digit) {
 				R[i][j] = (N / Power10[i + 1] + 1LL) * Power10[i];

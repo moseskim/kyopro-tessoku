@@ -10,7 +10,7 @@ int main() {
 	cin >> N >> K;
 	cin >> S;
  
-	// ON となっているものの個数を数える
+	// ON으로 되어 있는 것의 개수를 센다
 	int numON = 0;
 	for (int i = 0; i < N; i++) {
 		if (S[i] == '1') numON += 1;

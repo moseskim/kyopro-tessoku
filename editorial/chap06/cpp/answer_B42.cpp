@@ -5,14 +5,14 @@ using namespace std;
 long long N;
 long long A[100009], B[100009];
  
-// omote=1 のとき表の総和が正、ura=1 のとき裏の総和が正
-// omote=2 のとき表の総和が負、ura=2 のとき裏の総和が負
+// omote=1일 때 앞면의 총합이 양수,  ura=1일 때 뒷면의 총합이 양수
+// omote=2일 때 앞면의 총합이 음수,  ura=2일 때 뒷면의 총합이 음수
 long long solve(int omote, int ura) {
 	long long sum = 0;
 	for (int i = 1; i <= N; i++) {
 		long long card1 = A[i]; if (omote == 2) card1 = -A[i];
 		long long card2 = B[i]; if (ura == 2) card2 = -B[i];
-		// カード i は選ぶべきか？
+		// 카드 i는 선택해야 하는가?
 		if (card1 + card2 >= 0) {
 			sum += (card1 + card2);
 		}
@@ -25,7 +25,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i] >> B[i];
  
-	// 表の総和の正負と、裏の総和の正負を全探索
+	// 앞면의 총합의 음양과, 뒷면의 총합의 음양을 전탐색
 	long long Answer1 = solve(1, 1);
 	long long Answer2 = solve(1, 2);
 	long long Answer3 = solve(2, 1);

@@ -3,7 +3,7 @@ using namespace std;
  
 int N, D;
 int X[2009], Y[2009];
-bool used[2009]; // used[i] は仕事 i を選んだかどうか
+bool used[2009]; // used[i]는 업무 i 선택 여부
 int Answer = 0;
  
 int main() {
@@ -13,8 +13,8 @@ int main() {
  
 	// 답을 구한다
 	for (int i = 1; i <= D; i++) {
-		int maxValue = 0; // 給料の最大値
-		int maxID = -1;   // 給料が最大となる仕事の番号
+		int maxValue = 0; // 급여의 최댓값
+		int maxID = -1;   // 급여가 최대가 되는 업무의 번호
 		for (int j = 1; j <= N; j++) {
 			if (used[j] == true) continue;
 			if (maxValue < Y[j] && X[j] <= i) {
@@ -23,7 +23,7 @@ int main() {
 			}
 		}
  
-		// 選べる仕事がある場合
+		// 선택할 수 있는 업무가 있는 경우
 		if (maxID != -1) {
 			Answer += maxValue;
 			used[maxID] = true;

@@ -2,13 +2,13 @@
 using namespace std;
 
 int N;
-bool Deleted[1000009]; // 整数 x が消されている場合に限り Deleted[x]=true
+bool Deleted[1000009]; // 정수 x가 지워진 경우에만 Deleted[x]=true
 
 int main() {
 	// 입력
 	cin >> N;
 
-	// エラトステネスのふるい（i は √N 以下の最大の整数までループする）
+	// 에라토스테네스의 체(i는 √N 이하의 최대 정수까지 루프를 돈다)
 	for (int i = 2; i <= N; i++) Deleted[i] = false;
 	for (int i = 2; i * i <= N; i++) {
 		if (Deleted[i] == true) continue;

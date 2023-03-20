@@ -12,7 +12,7 @@ int main() {
 		for (int j = 1; j <= N; j++) cin >> A[i][j];
 	}
  
-	// 配列 T を初期化
+	// 배열 T를 초기화
 	for (int i = 1; i <= N; i++) T[i] = i;
  
 	// 쿼리 처리

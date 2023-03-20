@@ -10,7 +10,7 @@ int main() {
 	cin >> N >> M;
 	for (int i = 1; i <= M; i++) cin >> A[i];
  
-	// 不正解数を求める
+	// 오답 수를 센다
 	for (int i = 1; i <= N; i++) Incorrect[i] = 0;
 	for (int i = 1; i <= M; i++) Incorrect[A[i]] += 1;
  

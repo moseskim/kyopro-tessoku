@@ -5,7 +5,7 @@ B = [ None ] * N
 for i in range(N):
 	A[i], B[i] = map(int, input().split())
 
-# 全部 XOR した値（ニム和）を求める
+# 전부 XOR한 값(Nim 합)을 구한다
 XOR_Sum = 0
 for i in range(N):
 	XOR_Sum = (XOR_Sum ^ (A[i]-1))

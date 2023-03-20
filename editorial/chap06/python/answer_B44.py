@@ -4,8 +4,8 @@ A = [ None ] * N
 for i in range(N):
 	A[i] = list(map(int, input().split()))
 
-# 配列 T を初期化
-# 配列 A が 0 始まりなので、配列 T も 0 始まり
+# 배열 T를 초기화
+# 배열 A는 0에서 시작하므로, 배열 T도 0에서 시작한다
 T = [ None ] * N
 for i in range(N):
 	T[i] = i

@@ -1,7 +1,7 @@
 # 입력
 X, Y = map(int, input().split())
 
-# 逆から考えていく
+# 거꾸로 생각해 간다
 Answer = []
 while X>=2 or Y>=2:
 	Answer.append([X, Y])
