@@ -2,10 +2,10 @@
 N, X, Y = map(int, input().split())
 A = list(map(int, input().split()))
 
-# Grundy 数を計算
+# Grundy 수를 계산
 XOR_Sum = 0
 for i in range(N):
-	Grundy = [0, 0, 1, 1, 2] # 5 で割った余りに対応する Grundy 数
+	Grundy = [0, 0, 1, 1, 2] # 5로 나눈 나머지에 대한 Grundy 수
 	XOR_Sum ^= Grundy[A[i] % 5]
 
 # 출력

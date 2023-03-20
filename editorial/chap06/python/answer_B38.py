@@ -2,12 +2,12 @@
 N = int(input())
 S = input()
 
-# 配列の準備
+# 배열 준비
 ret1 = [ None ] * N
 ret2 = [ None ] * N
 
-# 答えを求める（前半）
-streak1 = 1 # streak1 は「何個 A が連続したか」+ 1
+# 답을 구한다(전반)
+streak1 = 1 # streak1은 '몇 개의 A가 연속되어 있는가' + `
 ret1[0] = 1
 for i in range(N-1):
 	if S[i] == 'A':
@@ -16,7 +16,7 @@ for i in range(N-1):
 		streak1 = 1
 	ret1[i+1] = streak1
 
-# 答えを求める（後半）
+# 답을 구한다(후반)
 streak2 = 1
 ret2[N-1] = 1
 for i in reversed(range(N-1)):

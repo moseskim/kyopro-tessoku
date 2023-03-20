@@ -9,7 +9,7 @@ int main() {
 	// 입력
 	cin >> X >> Y;
  
-	// 逆から考えていく
+	// 거꾸로 생각해 간다
 	vector<pair<int, int>> Answer;
 	while (X >= 2 || Y >= 2) {
 		Answer.push_back(make_pair(X, Y));

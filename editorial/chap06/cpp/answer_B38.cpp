@@ -11,13 +11,13 @@ int main() {
 	cin >> N >> S;
  
 	// 답을 구한다
-	int streak1 = 1; ret1[0] = 1; // streak1 は「何個 A が連続したか」+ 1
+	int streak1 = 1; ret1[0] = 1; // streak1은 '몇 개의 A가 연속되어 있는가' + `
 	for (int i = 0; i < N - 1; i++) {
 		if (S[i] == 'A') streak1 += 1;
 		if (S[i] == 'B') streak1 = 1;
 		ret1[i + 1] = streak1;
 	}
-	int streak2 = 1; ret2[N - 1] = 1; // streak2 は「何個 B が連続したか」+ 1
+	int streak2 = 1; ret2[N - 1] = 1; // streak2은 '몇 개의 B가 연속되어 있는가' + `
 	for (int i = N - 2; i >= 0; i--) {
 		if (S[i] == 'B') streak2 += 1;
 		if (S[i] == 'A') streak2 = 1;

@@ -10,7 +10,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
-	// 個数を数える
+	// 개수를 센다
 	for (int i = 0; i < 100; i++) cnt[i] = 0;
 	for (int i = 1; i <= N; i++) cnt[A[i] % 100] += 1;
  

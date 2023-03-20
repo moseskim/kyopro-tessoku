@@ -4,10 +4,10 @@ using namespace std;
 int GCD(int A, int B) {
 	while (A >= 1 && B >= 1) {
 		if (A >= B) {
-			A = (A % B); // A の値を変更する場合
+			A = (A % B); // A의 값을 변경하는 경우
 		}
 		else {
-			B = (B % A); // B の値を変更する場合
+			B = (B % A); // B의 값을 변경하는 경우
 		}
 	}
 	if (A != 0) return A;

@@ -9,7 +9,7 @@ int main() {
 	cin >> N >> H >> W;
 	for (int i = 1; i <= N; i++) cin >> A[i] >> B[i];
 
-	// 全部 XOR した値（ニム和）を求める
+	// 전부 XOR한 값(Nim 합)을 구한다
 	int XOR_Sum = 0;
 	for (int i = 1; i <= N; i++) XOR_Sum = (XOR_Sum ^ (A[i] - 1));
 	for (int i = 1; i <= N; i++) XOR_Sum = (XOR_Sum ^ (B[i] - 1));

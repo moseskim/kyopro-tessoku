@@ -1,18 +1,18 @@
 # 입력
 N = int(input())
 
-# 10 の N 乗を求める
+# 10의 N 제곱을 구한다
 Power10 = [ None ] * 17
 for i in range(17):
 	Power10[i] = 10 ** i
 
-# R[i][j] の値を計算
+# R[i][j]의 값을 계산
 R = [ [ None ] * 10 for i in range(17) ]
 for i in range(16):
-	# 下から i 桁目の数字を求める
+	# 아래부터 i번째 자리의 숫자를 구한다
 	Digit = (N // Power10[i]) % 10;
 
-	# R[i][j] の値を求める
+	# R[i][j]의 값을 구한다
 	for j in range(10):
 		if j < Digit:
 			R[i][j] = (N // Power10[i + 1] + 1) * Power10[i]
@@ -21,7 +21,7 @@ for i in range(16):
 		if j > Digit:
 			R[i][j] = (N // Power10[i + 1]) * Power10[i]
 
-# 答えを求める
+# 답을 구한다
 Answer = 0
 for i in range(16):
 	for j in range(10):

@@ -2,10 +2,10 @@
 N, M = map(int, input().split())
 A = list(map(int, input().split()))
 
-# 配列の準備
+# 배열 준비
 Incorrect = [ 0 ] * (N + 1)
 
-# 不正解数を求める
+# 오답 수를 센다
 for i in range(M):
 	Incorrect[A[i]] += 1
 
