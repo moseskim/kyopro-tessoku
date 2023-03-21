@@ -11,7 +11,7 @@ int main() {
 	cin >> N >> X;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
-	// シミュレーション
+	// 시뮬레이션
 	Q.push(X); A[X] = '@';
 	while (!Q.empty()) {
 		int pos = Q.front(); Q.pop();

@@ -42,7 +42,7 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
-	// セグメント木の準備
+	// 세그멘트 트리 준비
 	Z.init(N);
  
 	// 답을 구한다

@@ -5,7 +5,7 @@ using namespace std;
 
 long long N, D;
 long long X[200009], Y[200009];
-vector<long long> G[375]; // G[i] は i 日目から始まる仕事の給料のリスト
+vector<long long> G[375]; // G[i]는 i번째 날부터 시작하는 업무의 급여 리스트
 long long Answer = 0;
 
 int main() {
@@ -19,10 +19,10 @@ int main() {
 	// 답을 구한다
 	priority_queue<long long> Q;
 	for (int i = 1; i <= D; i++) {
-		// i 日目から始まる仕事をキューに追加
+		// i번째 날부터 시작하는 업무를 큐에 추가
 		for (int j : G[i]) Q.push(j);
 
-		// やる仕事を選択し、その仕事をキューから削除する
+		// 할 업무를 선택하고, 그 업무를 큐에서 삭제한다
 		if (!Q.empty()) {
 			Answer += Q.top();
 			Q.pop();

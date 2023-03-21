@@ -1,5 +1,5 @@
-# Python には C++ の std::set に相当する標準ライブラリが存在しません。
-# std::set に相当する外部のライブラリを使用するのが良いでしょう。
+# Python에는 C++의 std::set에 해당하는 표준 라이브러리가 존재하지 않습니다.
+# std::set에 해당하는 외부 라이브러리를 사용하는 것이 좋습니다.
 
 # https://github.com/tatyam-prime/SortedSet/blob/main/SortedSet.py
 import math
@@ -132,7 +132,7 @@ class SortedSet(Generic[T]):
             ans += len(a)
         return ans
 
-# SortedSet ここまで
+# SortedSet 여기까지
  
 # 입력
 Q = int(input())
@@ -140,7 +140,7 @@ Query = [tuple(map(int, input().split())) for _ in range(Q)]
 
 # 쿼리 처리
 INF = 1 << 61
-Set = SortedSet([-INF, INF]) # x より小さい / 大きい数が存在しなかったときのための番兵
+Set = SortedSet([-INF, INF]) # x 보다 작은/큰 수가 존재하지 않았을 때를 위한 가드
 
 for type, x in Query:
 	if type == 1:
