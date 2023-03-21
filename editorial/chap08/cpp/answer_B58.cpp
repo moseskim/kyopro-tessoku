@@ -26,8 +26,8 @@ public:
 	// 쿼리 2에 대한 처리
 	// u는 현재의 셀 번호, [a, b)는 셀에 대응하는 반개구간, [l, r)은 구할 반개구간
 	int query(int l, int r, int a, int b, int u) {
-		if (r <= a || b <= l) return 1000000000; // 一切含まれない場合
-		if (l <= a && b <= r) return dat[u]; // 完全に含まれる場合
+		if (r <= a || b <= l) return 1000000000; // 전혀 포함하지 않는 경우
+		if (l <= a && b <= r) return dat[u]; // 완전히 포함되는 경우
 		int m = (a + b) / 2;
 		int AnswerL = query(l, r, a, m, u * 2);
 		int AnswerR = query(l, r, m, b, u * 2 + 1);
@@ -44,7 +44,7 @@ int main() {
 	cin >> N >> L >> R;
 	for (int i = 1; i <= N; i++) cin >> X[i];
  
-	// セグメント木の準備
+	// 세그멘트 트리 준비
 	Z.init(N);
 	dp[1] = 0;
 	Z.update(1, 0);

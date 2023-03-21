@@ -6,7 +6,7 @@ N, X = map(int, input().split())
 X -= 1
 A = list(input())
 
-# シミュレーション
+# 시뮬레이션
 Q = deque([X])
 Q.append(X)
 A[X] = '@'

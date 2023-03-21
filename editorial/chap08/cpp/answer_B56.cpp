@@ -3,29 +3,29 @@
 #include <algorithm>
 using namespace std;
 
-// 입력で与えられる変数など
+// 입력으로 주어진 변수 등
 int N, Q, L[100009], R[100009];
 string S;
 string SRev; // S の逆順
 
-// 文字列を数値に変換した値（それぞれ S, SRev に対応）
+// 문자열을 정수로 변환한 값(각각 S, SRev에 대응)
 int T[100009];
 int TRev[100009];
 
-// ハッシュ値など
+// 해시 값 등
 long long mod = 2147483647;
 long long Power100[100009];
-long long H[100009];    // S のハッシュ
-long long HRev[100009]; // SRev のハッシュ
+long long H[100009];    // S의 해시
+long long HRev[100009]; // SRev의 해시
 
-// 文字列の l～r 番目を前から読んだ時のハッシュ値を返す関数
+// 문자열의 l~r번째를 앞에서부터 읽었을 때의 해시 값을 반환하는 함수
 long long GetHashLeft(int l, int r) {
 	long long val = H[r] - (Power100[r - l + 1] * H[l - 1] % mod);
 	if (val < 0) val += mod;
 	return val;
 }
 
-// 文字列の l～r 番目を後ろから読んだ時のハッシュ値を返す関数
+// 문자열의 l~r번째를 뒤에서부터 읽었을 때의 해시 값을 반환하는 함수
 long long GetHashRight(int l, int r) {
 	int true_l = N + 1 - r;
 	int true_r = N + 1 - l;
@@ -42,19 +42,19 @@ int main() {
 	SRev = S;
 	reverse(SRev.begin(), SRev.end());
 
-	// S, SRev の文字を数値に変換
+	// S, SRev의 문자를 수치로 변환
 	for (int i = 1; i <= N; i++) T[i] = (int)(S[i - 1] - 'a') + 1;
 	for (int i = 1; i <= N; i++) TRev[i] = (int)(SRev[i - 1] - 'a') + 1;
 
-	// 100 の n 乗を前計算
+	// 100의 n 제곱을 사전에 계산
 	Power100[0] = 1;
 	for (int i = 1; i <= N; i++) Power100[i] = (100LL * Power100[i - 1]) % mod;
 
-	// S のハッシュ値を前計算
+	// S의 해시 값을 사전에 계산
 	H[0] = 1;
 	for (int i = 1; i <= N; i++) H[i] = (100LL * H[i - 1] + T[i]) % mod;
 
-	// SRev のハッシュ値を前計算
+	// SRev의 해시값을 사전에 계산
 	HRev[0] = 1;
 	for (int i = 1; i <= N; i++) HRev[i] = (100LL * HRev[i - 1] + TRev[i]) % mod;
 
@@ -62,7 +62,7 @@ int main() {
 	for (int i = 1; i <= Q; i++) {
 		long long v1 = GetHashLeft(L[i], R[i]);
 		long long v2 = GetHashRight(L[i], R[i]);
-		// 左から読んだ時・右から読んだ時のハッシュ値が一致していれば回文
+		// 왼쪽부터 읽었을 때/오른쪽부터 읽었을 때의 해시 값이 일치하면 회문
 		if (v1 == v2) cout << "Yes" << endl;
 		else cout << "No" << endl;
 	}

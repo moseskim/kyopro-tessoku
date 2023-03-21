@@ -5,7 +5,7 @@ INF = 1 << 61
 siz = 1 << 17
 dat = [INF] * (siz * 2)
 
-# 代入 seg[i] = v
+# 대입 seg[i] = v
 def update(i: int, v: int) -> None:
 	i += siz
 	dat[i] = v
@@ -13,7 +13,7 @@ def update(i: int, v: int) -> None:
 		i >>= 1
 		dat[i] = min(dat[i * 2], dat[i * 2 + 1])
 
-# min(seg[l], seg[l + 1], ..., seg[r - 1]) を求める
+# min(seg[l], seg[l + 1], ..., seg[r - 1]) 를 구한다
 def query(l: int, r: int) -> int:
 	l += siz
 	r += siz

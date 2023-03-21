@@ -9,7 +9,7 @@ int main() {
 	// 입력
 	cin >> N >> K;
  
-	// 1 回操作した後の値を求める
+	// 1번 조작한 뒤의 값을 구한다
 	for (int i = 1; i <= N; i++) {
 		string str = to_string(i);
 		dp[0][i] = i;
@@ -18,14 +18,14 @@ int main() {
 		}
 	}
  
-	// 前計算
+	// 사전 계산
 	for (int d = 1; d <= 29; d++) {
 		for (int i = 1; i <= N; i++) dp[d][i] = dp[d - 1][dp[d - 1][i]];
 	}
  
 	// 답을 구한다
 	for (int i = 1; i <= N; i++) {
-		int CurrentNum = i; // 現在の整数
+		int CurrentNum = i; // 현재의 정수
 		for (int d = 29; d >= 0; d--) {
 			if ((K / (1 << d)) % 2 != 0) CurrentNum = dp[d][CurrentNum];
 		}

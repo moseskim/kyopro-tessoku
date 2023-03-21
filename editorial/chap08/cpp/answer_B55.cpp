@@ -6,25 +6,25 @@ using namespace std;
 long long Q, QueryType[100009], x[100009];
 set<long long> Set1, Set2;
  
-// r 以下の最大値を返す
+// r 이하의 최댓값을 반환한다
 long long GetDown(long long r) {
 	auto itr = Set2.lower_bound(-r);
  
-	// r 以下のものが存在しない場合、非常に小さい値を返す
+	// r 이하가 존재하지 않는 경우, 매우 작은 값을 반환한다
 	if (itr == Set2.end()) return -100000000000000LL;
  
-	// 存在する場合
+	// 존재하는 경우
 	return -(*itr);
 }
  
-// r 以上の最小値を返す
+// r 이상의 최솟값을 반환한다
 long long GetUp(long long r) {
 	auto itr = Set1.lower_bound(r);
  
-	// r 以上のものが存在しない場合、非常に大きい値を返す
+	// r 이상이 존재하지 않는 경우, 매우 큰 값을 반환한다
 	if (itr == Set1.end()) return 100000000000000LL;
  
-	// 存在する場合
+	// 존재하는 경우
 	return (*itr);
 }
  

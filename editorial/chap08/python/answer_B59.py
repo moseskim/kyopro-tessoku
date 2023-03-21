@@ -1,7 +1,7 @@
 siz = 1 << 18
 dat = [0] * (siz * 2)
 
-# 代入 seg[i] = v
+# 대입 seg[i] = v
 def update(i: int, v: int) -> None:
 	i += siz
 	dat[i] = v
@@ -9,7 +9,7 @@ def update(i: int, v: int) -> None:
 		i >>= 1
 		dat[i] = dat[i * 2] + dat[i * 2 + 1]
 
-# sum(seg[l], seg[l + 1], ..., seg[r - 1]) を求める
+# sum(seg[l], seg[l + 1], ..., seg[r - 1])를 구한다
 def query(l: int, r: int) -> int:
 	l += siz
 	r += siz
@@ -29,7 +29,7 @@ def query(l: int, r: int) -> int:
 N = int(input())
 A = list(map(int, input().split()))
 
-# 答えを求める
+# 답을 구한다
 Answer = 0
 for a in A:
 	Answer += query(a + 1, siz)
