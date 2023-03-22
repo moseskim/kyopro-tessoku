@@ -10,24 +10,24 @@ int N, M, A[100009], B[100009];
 vector<int> G[100009];
 bool visited[100009];
  
-// 깊이 우선 탐색の跡
+// 깊이 우선 탐색의 궤적
 vector<int> Path, Answer;
  
 void dfs(int pos) {
-	// ゴール地点にたどり着いた！
+	// 골 지점에 도착했다!
 	if (pos == N) {
 		Answer = Path;
 		return;
 	}
  
-	// その他の場合
+	// 그 외의 경우
 	visited[pos] = true;
 	for (int i = 0; i < G[pos].size(); i++) {
 		int nex = G[pos][i];
 		if (visited[nex] == false) {
-			Path.push_back(nex); // 頂点 nex を経路に追加
+			Path.push_back(nex); // 노드 nex를 경로에 추가
 			dfs(nex);
-			Path.pop_back(); // 頂点 nex を経路から削除
+			Path.pop_back(); // 노드 nex를 경로에서 삭제
 		}
 	}
 	return;
@@ -44,7 +44,7 @@ int main() {
  
 	// 깊이 우선 탐색
 	for (int i = 1; i <= N; i++) visited[i] = false;
-	Path.push_back(1); // 頂点 1（スタート地点）を経路に追加
+	Path.push_back(1); // 노드 1(시작 지점)을 경로에 추가
 	dfs(1);
  
 	// 답 출력

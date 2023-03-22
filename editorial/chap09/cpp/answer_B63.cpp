@@ -5,11 +5,11 @@ using namespace std;
 
 // 입력
 int H, W;
-int sx, sy, start; // スタートの座標 (sx, sy) と頂点番号 sx*H+sy
-int gx, gy, goal;  // ゴールの座標 (gx, gy) と頂点番号 gx*W+gy
+int sx, sy, start; // 시작 좌표(sx, xy)와 노드 번호 sx * H + sy
+int gx, gy, goal;  // 골 좌표 (gx, gy)와 노드 번호 gx * W + gy
 char c[59][59];
 
-// グラフ・最短経路
+// 그래프/최단 경로
 int dist[2509];
 vector<int> G[2509];
 
@@ -22,11 +22,11 @@ int main() {
 		for (int j = 1; j <= W; j++) cin >> c[i][j];
 	}
 
-	// 横方向の辺 [(i, j) - (i, j+1)] をグラフに追加
+	// 가로 방향 에지 [(i, j) - (i, j+1)]를 그래프에 추가
 	for (int i = 1; i <= H; i++) {
 		for (int j = 1; j <= W - 1; j++) {
-			int idx1 = i * W + j; // 頂点 (i, j) の頂点番号
-			int idx2 = i * W + (j + 1); // 頂点 (i, j+1) の頂点番号
+			int idx1 = i * W + j; // 노드 (i, j)의 노드 번호
+			int idx2 = i * W + (j + 1); // 노드 (i, j+1)의 노드 번호
 			if (c[i][j] == '.' && c[i][j + 1] == '.') {
 				G[idx1].push_back(idx2);
 				G[idx2].push_back(idx1);
@@ -34,11 +34,11 @@ int main() {
 		}
 	}
 
-	// 縦方向の辺 [(i, j) - (i+1, j)] をグラフに追加
+	// 세로 방향 에지 [(i, j) - (i+1, j)]를 그래프에 추가
 	for (int i = 1; i <= H - 1; i++) {
 		for (int j = 1; j <= W; j++) {
-			int idx1 = i * W + j; // 頂点 (i, j) の頂点番号
-			int idx2 = (i + 1) * W + j; // 頂点 (i+1, j) の頂点番号
+			int idx1 = i * W + j; // 노드 (i, j)의 노드 번호
+			int idx2 = (i + 1) * W + j; // 노드 (i+j, j)의 노드 번호
 			if (c[i][j] == '.' && c[i + 1][j] == '.') {
 				G[idx1].push_back(idx2);
 				G[idx2].push_back(idx1);
@@ -46,7 +46,7 @@ int main() {
 		}
 	}
 
-	// 너비 우선 탐색の初期化
+	// 너비 우선 탐색 초기화
 	for (int i = 1; i <= H * W; i++) dist[i] = -1;
 	queue<int> Q;
 	Q.push(start); dist[start] = 0;

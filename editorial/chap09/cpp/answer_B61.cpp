@@ -10,13 +10,13 @@ int main() {
 	cin >> N >> M;
 	for (int i = 1; i <= M; i++) {
 		cin >> A[i] >> B[i];
-		G[A[i]].push_back(B[i]); // 「頂点 A[i] に隣接する頂点」として B[i] を追加
-		G[B[i]].push_back(A[i]); // 「頂点 B[i] に隣接する頂点」として A[i] を追加
+		G[A[i]].push_back(B[i]); // '노드 A[i]에 인접한 노드'로 B[i]를 추가
+		G[B[i]].push_back(A[i]); // '노드 B[i]에 인접한 노드'로 A[i]를 추가
 	}
  
-	// 次数（= 友達の数）が最大となる生徒の番号を求める
-	int MaxFriends = 0; // 友達の数の最大値
-	int MaxID = 0;      // 番号
+	// 차수(=친구의 수)가 가장 최대인 학생의 번호를 구한다
+	int MaxFriends = 0; // 친구의 수의 최댓값
+	int MaxID = 0;      // 번호
 	for (int i = 1; i <= N; i++) {
 		if (MaxFriends < (int)G[i].size()) {
 			MaxFriends = (int)G[i].size();

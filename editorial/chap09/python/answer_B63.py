@@ -9,11 +9,11 @@ gy -= 1
 S = [input() for _ in range(H)]
 
 INF = 1 << 61
-# Python では多次元配列は 1 次元に flatten した方が速い (ここでは使わない)
+# Python에는 다차원 배열은 1차원으로 flatten한 것이 빠르다(여기에서는 사용하지 않는다)
 cost = [[INF] * W for _ in range(H)]
 
-q = [] # queue は list で再現できる
-# マスに訪れる部分を関数に切り出すと良い
+q = [] # queue는 list로 재현할 수 있다
+# 칸에 방문한 부분을 함수로 잘라내면 좋다
 def push(x: int, y: int, c: int):
     if S[x][y] == '#':
         return

@@ -55,13 +55,13 @@ int main() {
 	cin >> N >> M;
 	for (int i = 1; i <= M; i++) cin >> A[i] >> B[i] >> C[i];
  
-	// 辺を長さの大きい順にソートする
+	// 에지의 길이의 내림차순으로 정렬한다
 	vector<pair<int, int>> EdgeList;
 	for (int i = 1; i <= M; i++) EdgeList.push_back(make_pair(C[i], i));
 	sort(EdgeList.begin(), EdgeList.end());
-	reverse(EdgeList.begin(), EdgeList.end()); // 問題 A67 と異なる唯一の部分
+	reverse(EdgeList.begin(), EdgeList.end()); // 문제 A67과 다른 유일한 부분
  
-	// 最大全域木を求める
+	// 최대 전역 트리를 구한다
 	int Answer = 0; UF.init(N);
 	for (int i = 0; i < EdgeList.size(); i++) {
 		int idx = EdgeList[i].second;

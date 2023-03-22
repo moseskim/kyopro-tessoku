@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(1 << 20)  # 再帰上限がデフォルトで 1000 なので変更する
+sys.setrecursionlimit(1 << 20)  # 재귀 상한이 기본 1000이므로 변경한다
 
 # 입력
 N, M = map(int, input().split())
@@ -17,14 +17,14 @@ path = []
 
 def dfs(i: int):
     path.append(i)
-    # ゴール地点にたどり着いた！
+    # 골 지점에 도착했다!
     if i == N - 1:
-        # 답을 출력して終了
+        # 답을 출력하고 종료
         for x in path:
-            print(x + 1) # 1-indexed に変更
+            print(x + 1) # 1-indexed로 변경
         exit(0)
 
-    # その他の場合
+    # 그 외의 경우
     visited[i] = True
     for j in g[i]:
         if not visited[j]:

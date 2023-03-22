@@ -14,7 +14,7 @@ cost = [INF] * N
 back = [-1] * N
 q = []
 
-# 頂点に訪れる部分を関数に切り出す
+# 노드에 방문한 부분을 함수로 잘라낸다
 def push(prev: int, i: int, c: int):
     if cost[i] <= c:
         return
@@ -22,16 +22,16 @@ def push(prev: int, i: int, c: int):
     back[i] = prev
     heappush(q, (c, i))
 
-# 復元の都合上後ろから Dijkstra 法
+# 복원 사정상 뒤에서부터 Dijkstra 알고리즘
 push(-1, N - 1, 0)
 while q:
     c, x = heappop(q)
     if cost[x] != c:
-        continue # 同じ頂点から複数回探索しない (worst Θ(N^2) 時間になります)
+        continue # 같은 노드에서 여러번 탐색하지 않는다(최악의 경우 Θ(N^2) 시간이 됩니다)
     for j, d in g[x]:
         push(x, j, c + d)
 
-# 最短経路を復元
+# 최단 경로를 복원
 ans = [0]
 while ans[-1] != N - 1:
     ans.append(back[ans[-1]])
