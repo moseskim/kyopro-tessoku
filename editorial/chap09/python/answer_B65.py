@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(1 << 30)  # 再帰上限をなくす
+sys.setrecursionlimit(1 << 30)  # 재귀 상한을 없앤다
 
 N, T = map(int, input().split())
 T -= 1

@@ -19,27 +19,27 @@ class FordFulkerson:
         g[b].append(rev)
 
     def dfs(self, i, goal, F):
-        # ゴールに到着
+        # 골에 도착
         if i == goal:
             return F
 
         self.visited[i] = True
 
         for e in self.g[i]:
-            # 容量 0 の辺は使えない
+            # 용량 0인 에지는 사용할 수 없다
             if e.cap == 0:
                 continue
-            # 既に訪問した頂点に行かない
+            # 이미 방문한 노드에는 가지 않는다
             if self.visited[e.to]:
                 continue
-            # 目的地までのパスを探す
+            # 목적지까지의 패스를 찾는다
             flow = self.dfs(e.to, goal, min(F, e.cap))
             # 플로를 흘려 보내는 경우, 잔여 그래프의 용량을 flow 만큼 증감시킨다
             if flow:
                 e.cap -= flow
                 e.rev.cap += flow
                 return flow
-        # すべての辺を探索しても見つからなかった
+        # 모든 에지를 탐색해도 찾아내지 못했다
         return 0
 
     def max_flow(self, s, t):
@@ -48,7 +48,7 @@ class FordFulkerson:
             self.visited = [False] * self.size
             F = self.dfs(s, t, INF)
 
-            # フローを流せなくなったら操作終了
+            # 플로를 흘려 보낼 수 없다면 조작 종료
             if F == 0:
                 break
             ans += F
@@ -57,18 +57,18 @@ class FordFulkerson:
 N, M = map(int, input().split())
 P = list(map(int, input().split()))
 
-# グラフを構築
+# 그래프를 구현
 S = N
 T = N + 1
 g = FordFulkerson(T + 1)
 offset = 0
 for i in range(N):
     if P[i] >= 0:
-        # 特急駅にしない場合のコスト
+        # 특급역으로 하지 않는 경우의 비용
         offset += P[i]
         g.add_edge(S, i, P[i])
     else:
-        # 特急駅にする場合のコスト
+        # 특급역으로 하는 경우의 비용
         g.add_edge(i, T, -P[i])
 
 for _ in range(M):

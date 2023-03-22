@@ -1,7 +1,7 @@
 # 입력
 N, M = map(int, input().split())
 
-# 友達の数を数える
+# 친구의 수를 구한다
 friend = [0] * N
 for _ in range(M):
     A, B = map(int, input().split())

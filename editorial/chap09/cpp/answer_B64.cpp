@@ -49,14 +49,14 @@ int main() {
 		}
 	}
  
-	// 答えの復元（Place は現在の位置：ゴールから出発）
+	// 답 복원(Place는 현재의 위치: 골에서 출발)
 	vector<int> Answer;
 	int Place = N;
 	while (true) {
 		Answer.push_back(Place);
 		if (Place == 1) break;
  
-		// Place の前の頂点としては、一体どこが良いのか？
+		// Place의 앞의 노드는 어떤 것이 좋은가?
 		for (int i = 0; i < G[Place].size(); i++) {
 			int nex = G[Place][i].first;
 			int cost = G[Place][i].second;

@@ -44,12 +44,12 @@ public:
 	}
 };
  
-// 입력で与えられる変数・答え
+// 입력으로 주어진 변수, 답
 int N, M, A[100009], B[100009];
 int Q, QueryType[100009], x[100009], u[100009], v[100009];
 string Answer[100009];
  
-// その他の変数
+// 그 외의 변수
 UnionFind UF;
 bool cancelled[100009];
  
@@ -64,13 +64,13 @@ int main() {
 		if (QueryType[i] == 2) cin >> u[i] >> v[i];
 	}
  
-	// 最初に運休になっている路線を求める
+	// 최초에 운행 휴무로 되어 있는 노선을 구한다
 	for (int i = 1; i <= M; i++) cancelled[i] = false;
 	for (int i = 1; i <= Q; i++) {
 		if (QueryType[i] == 1) cancelled[x[i]] = true;
 	}
  
-	// Union-Find の初期化（その日の最後の状態にする）
+	// Union-Find 초기화(해당 날의 가장 마지막 상태로 한다)
 	UF.init(N);
 	for (int i = 1; i <= M; i++) {
 		if (cancelled[i] == false && UF.same(A[i], B[i]) == false) {
@@ -78,10 +78,10 @@ int main() {
 		}
 	}
  
-	// クエリを逆から処理
+	// 쿼리를 거꾸로 처리
 	for (int i = Q; i >= 1; i--) {
 		if (QueryType[i] == 1) {
-			// 駅 A[x[i]] と駅 B[x[i]] を結ぶ路線が開通
+			//역 A[x[i]]와 역 B[x[i]]를 연결하는 노선이 개통
 			if (UF.same(A[x[i]], B[x[i]]) == false) UF.unite(A[x[i]], B[x[i]]);
 		}
 		if (QueryType[i] == 2) {

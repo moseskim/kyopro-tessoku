@@ -7,7 +7,7 @@ for _ in range(M):
     B -= 1
     edge.append((A, B, C))
 
-# 長さの逆順でソート
+# 길이 내림차순으로 정렬
 edge.sort(key=lambda e: -e[2])
 
 # union-find
@@ -26,14 +26,14 @@ def unite(i: int, j: int) -> bool:
     j = root(j)
     if i == j:
         return False
-    # マージテク (union by size)
+    # 병합 기법 (union by size)
     if uf[i] > uf[j]:
         i, j = j, i
     uf[i] += uf[j]
     uf[j] = i
     return True
 
-# クラスカル法
+# 크루스칼 알고리즘
 ans = 0
 for A, B, C in edge:
     if unite(A, B):

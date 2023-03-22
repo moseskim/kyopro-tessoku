@@ -83,16 +83,16 @@ int main() {
 		for (int j = 0; j <= 23; j++) cin >> C[i][j];
 	}
  
-	// グラフを作る（前半パート）
+	// 그래프를 만든다(전반 부분)
 	Z.init(N + 26);
 	for (int i = 1; i <= N; i++) {
-		Z.add_edge(N + 25, i, 10); // 従業員は 10 時間までしか働けない
+		Z.add_edge(N + 25, i, 10); // 종업원은 10시간까지만 일할 수 있다
 	}
 	for (int i = 0; i <= 23; i++) {
-		Z.add_edge(N + i, N + 26, M); // シフトは M 人以上欲しい
+		Z.add_edge(N + i, N + 26, M); // 교대 근무는 M명 이상으로 하고 싶다
 	}
  
-	// グラフを作る（後半パート）
+	// 그래프를 만든다(후반 부분)
 	for (int i = 1; i <= N; i++) {
 		for (int j = 0; j <= 23; j++) {
 			if (C[i][j] == '1') Z.add_edge(i, N + j, 1);
