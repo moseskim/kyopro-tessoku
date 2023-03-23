@@ -12,7 +12,7 @@ for i in range(N):
 	B[L[i]] += 1
 	B[R[i]] -= 1
 
-# 누적합을 구한다
+# 누적 합을 구한다
 Answer = [ None ] * (T + 1)
 Answer[0] = B[0]
 for d in range(1, T+1):

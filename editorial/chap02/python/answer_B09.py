@@ -15,7 +15,7 @@ for i in range(N):
 	T[C[i]][B[i]] -= 1
 	T[C[i]][D[i]] += 1
 
-# 누적합을 구한다
+# 누적 합을 구한다
 for i in range(0, 1501):
 	for j in range(1, 1501):
 		T[i][j] = T[i][j-1] + T[i][j]

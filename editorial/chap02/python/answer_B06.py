@@ -7,7 +7,7 @@ R = [ None ] * Q
 for i in range(Q):
 	L[i], R[i] = map(int, input().split())
 
-# 당첨의 수, 꽝의 수의 누적합을 구한다
+# 당첨의 수, 꽝의 수의 누적 합을 구한다
 # 配列 A が 0 番目から始まっていることに注意！
 Atari = [ 0 ] * (N + 1)
 Hazre = [ 0 ] * (N + 1)

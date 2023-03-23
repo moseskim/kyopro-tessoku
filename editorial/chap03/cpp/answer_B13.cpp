@@ -16,7 +16,7 @@ int main() {
 	cin >> N >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i];
  
-	// 누적합을 구한다
+	// 누적 합을 구한다
 	S[0] = 0;
 	for (int i = 1; i <= N; i++) S[i] = S[i - 1] + A[i];
  

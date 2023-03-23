@@ -8,15 +8,15 @@ using namespace std;
 int N, M, A[100009], B[100009], C[100009];
 vector<pair<int, int>> G[100009];
 
-// 다이크스트라 알고리즘
+// 데이크스트라 알고리즘
 int cur[100009]; bool kakutei[100009];
 priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> Q;
 
-// 頂点 1 からの距離、頂点 N からの距離
+// 노드 1부터의 거리, 노드 N부터의 거리
 int dist1[100009];
 int distN[100009];
 
-// 始点 start でダイクストラ法を行う関数
+// 시작점 start에서 데이크스트라 알고리즘을 수행하는 함수
 void dijkstra(int start) {
 	// 배열 초기화
 	for (int i = 1; i <= N; i++) kakutei[i] = false;
@@ -26,7 +26,7 @@ void dijkstra(int start) {
 	cur[start] = 0;
 	Q.push(make_pair(cur[start], start));
 
-	// 다이크스트라 알고리즘
+	// 데이크스트라 알고리즘
 	while (!Q.empty()) {
 		// 다음에 확정시킬 노드를 구한다
 		int pos = Q.top().second; Q.pop();
@@ -54,7 +54,7 @@ int main() {
 		G[B[i]].push_back(make_pair(A[i], C[i]));
 	}
 
-	// 다이크스트라 알고리즘を行う
+	// 데이크스트라 알고리즘을 수행한다
 	dijkstra(1); for (int i = 1; i <= N; i++) dist1[i] = cur[i];
 	dijkstra(N); for (int i = 1; i <= N; i++) distN[i] = cur[i];
 

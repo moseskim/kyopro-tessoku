@@ -6,7 +6,7 @@ int N, K;
 int M, A[59], B[59];
 int dp[19][309];
 
-// l ページ目から r ページ目までの間に、何個のつながりがあるか？
+// l번째 페이지부터 r번째 페이지까지 사이에, 몇 개의 연결이 있는가?
 int tsunagari(int l, int r) {
 	int cnt = 0;
 	for (int i = 1; i <= M; i++) {
@@ -20,7 +20,7 @@ int main() {
 	cin >> N >> M >> K;
 	for (int i = 1; i <= M; i++) cin >> A[i] >> B[i];
 
-	// 配列 dp の初期化
+	// 배열 dp 초기화
 	for (int i = 0; i <= K; i++) {
 		for (int j = 0; j <= N; j++) dp[i][j] = -1000000;
 	}
@@ -29,7 +29,7 @@ int main() {
 	dp[0][0] = 0;
 	for (int i = 1; i <= K; i++) {
 		for (int j = 1; j <= N; j++) {
-			// k は「前の章がどのページで終わったか」
+			// k는 '앞 장이 어떤 페이지로 끝났는가?'
 			for (int k = 0; k <= j - 1; k++) {
 				dp[i][j] = max(dp[i][j], dp[i - 1][k] + tsunagari(k + 1, j));
 			}

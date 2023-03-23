@@ -8,7 +8,7 @@ using namespace std;
 int N, M, A[100009], B[100009], C[100009];
 vector<pair<int, int>> G[100009];
  
-// 다이크스트라 알고리즘
+// 데이크스트라 알고리즘
 int cur[100009]; bool kakutei[100009];
 priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> Q;
  
@@ -29,7 +29,7 @@ int main() {
 	cur[1] = 0;
 	Q.push(make_pair(cur[1], 1));
  
-	// 다이크스트라 알고리즘
+	// 데이크스트라 알고리즘
 	while (!Q.empty()) {
 		// 다음에 확정시킬 노드를 구한다
 		int pos = Q.top().second; Q.pop();

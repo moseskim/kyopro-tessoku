@@ -5,7 +5,7 @@ using namespace std;
 long long N, K;
 double A[100009];
 
-// 割り算の値が x であるときの議席数は？
+// 나눗셈의 값이 x일 때의 의석 수는?
 long long check(double x) {
 	long long sum = 0;
 	for (int i = 1; i <= N; i++) sum += (long long)(A[i] / x);
@@ -17,13 +17,13 @@ int main() {
 	cin >> N >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i];
 
-	// 二分探索
+	// 바이너리 서치
 	double Left = 1, Right = 1000000000, Mid;
-	double Border = 0; // 現在のボーダー（合計議席数が K 以上となった最大の値）
+	double Border = 0; // 현재의 보더(합계 의석 수가 K 이상인 가장 큰 값)
 	for (int i = 1; i <= 60; i++) {
 		Mid = (Left + Right) / 2.0;
 
-		// 割り算の値は Mid より大きいか？
+		// 나눗셈의 값은 Mid 보다 큰가?
 		long long val = check(Mid);
 		if (val >= K) {
 			Left = Mid;

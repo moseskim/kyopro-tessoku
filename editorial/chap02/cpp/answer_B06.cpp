@@ -12,7 +12,7 @@ int main() {
 	cin >> Q;
 	for (int i = 1; i <= Q; i++) cin >> L[i] >> R[i];
  
-	// 당첨의 수, 꽝의 수의 누적합을 구한다
+	// 당첨의 수, 꽝의 수의 누적 합을 구한다
 	Atari[0] = 0;
 	Hazre[0] = 0;
 	for (int i = 1; i <= N; i++) {
