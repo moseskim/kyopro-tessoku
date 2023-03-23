@@ -1,5 +1,5 @@
-// この C++ プログラムは、問題 C20 の解説の 12 ページ目「さらなる高みへ」までを実装したものとなっております。
-// これを提出すると、89,056,925 点が得られます（提出によって得点は少し変動します）。
+// 이 C++ 프로그램은 문제 C20의 해설 12번째 페이지 '한층 더 높이'까지를 구현한 것입니다.
+// 이 프로그램을 제출하면 89,056,925점을 얻을 수 있습니다(제출에 따라 득점은 다소 달라집니다).
 
 #include <cmath>
 #include <vector>
@@ -7,7 +7,7 @@
 #include <algorithm>
 using namespace std;
 
-// Union-Find 木
+// Union-Find 트리
 class UnionFind {
 public:
 	int par[401];
@@ -53,7 +53,7 @@ public:
 int N, K, L, A[401], B[401], C[51][51]; vector<int> G[401];
 int answer[401];
 
-// 깊이 우선 탐색（9.2 節を参照）
+// 깊이 우선 탐색(9.2절 참조)
 bool visited[401];
 void dfs(int pos) {
 	visited[pos] = true;
@@ -64,23 +64,23 @@ void dfs(int pos) {
 }
 
 double get_score() {
-	// 答えが正しいかを深さ優先探索 (DFS) を使って確認
+	// 답이 올바른지 깊이 우선 탐색(DFS)를 사용해서 확인
 	for (int i = 1; i <= K; i++) visited[i] = false;
 	for (int i = 1; i <= L; i++) {
-		// 特別区 i に属する頂点 pos を探す
+		// 특별구 i에 속하는 노드 pos를 찾는다
 		int pos = -1;
 		for (int j = 1; j <= K; j++) {
 			if (answer[j] == i) {
 				pos = j;
 			}
 		}
-		if (pos == -1) return 0.0; // 存在しない特別区がある！
+		if (pos == -1) return 0.0; // 존재하지 않는 특별구가 있다!
 		dfs(pos);
 	}
 	for (int i = 1; i <= K; i++) {
-		if (visited[i] == false) return 0.0; // 連結ではない特別区がある！
+		if (visited[i] == false) return 0.0; // 연결되지 않은 특별구가 있다!
 	}
-	// スコアの計算
+	// 점수 계산
 	int p[21], q[21];
 	for (int i = 1; i <= L; i++) {
 		p[i] = 0;
@@ -109,7 +109,7 @@ int main() {
 		}
 	}
 	
-	// グラフの作成
+	// 그래프 작성
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= N; j++) {
 			if (i != N && C[i][j] != 0 && C[i + 1][j] != 0 && C[i][j] != C[i + 1][j]) {
@@ -122,13 +122,13 @@ int main() {
 			}
 		}
 	}
-	// G[i] の重複を取り除く（erase/unique については p.103 のコードを参照）
+	// G[i]의 중복을 제거한다(erase/unique에 관해서는 p.103의 코드 참조)
 	for (int i = 1; i <= K; i++) {
 		sort(G[i].begin(), G[i].end());
 		G[i].erase(unique(G[i].begin(), G[i].end()), G[i].end());
 	}
 	
-	// 貪欲法（併合を K - L = 380 回繰り返す）
+	// 탐욕 알고리즘(합병을 K - L = 380번 반복한다)
 	UnionFind uf;
 	uf.init(K);
 	for (int i = 1; i <= K - L; i++) {
@@ -139,7 +139,7 @@ int main() {
 			for (int k = 0; k < G[j].size(); k++) {
 				int v = G[j][k];
 				if (uf.same(j, v) == false) {
-					// 頂点 j の地区と頂点 v の地区を併合すると…？
+					// 노드 j의 지구와 노드 v의 지구를 합병하면...?
 					int size1 = uf.siz[uf.root(j)];
 					int size2 = uf.siz[uf.root(v)];
 					if (min_size > size1 + size2) {
@@ -153,7 +153,7 @@ int main() {
 		uf.unite(vertex1, vertex2);
 	}
 	
-	// Union-Find 木の状態から答えを出す
+	// Union-Find 트리의 상태에서 답을 낸다
 	vector<int> roots;
 	for (int i = 1; i <= K; i++) {
 		roots.push_back(uf.root(i));
@@ -168,22 +168,22 @@ int main() {
 		}
 	}
 	
-	// 山登り法（0.95 秒ループを回す）
+	// 등산 알고리즘(0.95초 루프를 돌린다)
 	double TIME_LIMIT = 0.95;
 	int ti = clock();
 	double current_score = get_score();
 	while (double(clock() - ti) / CLOCKS_PER_SEC < TIME_LIMIT) {
 		int v, x;
 		do {
-			v = rand() % K + 1; // 1 以上 K 以下のランダムな整数
-			x = answer[G[v][rand() % G[v].size()]]; // 頂点 v に隣接する色をランダムに選ぶ
+			v = rand() % K + 1; // 1 이상 K 이하인 무작위 정수
+			x = answer[G[v][rand() % G[v].size()]]; // 노드 v에 인접한 색을 무작위로 선택한다
 		} while (answer[v] == answer[x]);
 		int old_x = answer[v];
-		// とりあえず変更し、スコアを評価する
+		// 우선 변경하고, 점수를 평가한다
 		answer[v] = x;
 		double new_score = get_score();
-		// スコアの変化に応じて、変更を採用する確率を決める
-		double rand_value = double(rand() + 0.5) / (RAND_MAX + 1.0); // 0～1 のランダムな実数
+		// 점수 변화에 따라, 변경을 채용할 확률을 결정한다
+		double rand_value = double(rand() + 0.5) / (RAND_MAX + 1.0); // 0~1의 무작위 실수
 		double temp = 0.0040 - 0.0039 * (double(clock() - ti) / CLOCKS_PER_SEC / TIME_LIMIT);
 		if (new_score != 0.0 && rand_value < exp((new_score - current_score) / temp)) {
 			current_score = new_score;

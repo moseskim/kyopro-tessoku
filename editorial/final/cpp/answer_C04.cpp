@@ -8,7 +8,7 @@ int main() {
 	long long N;
 	cin >> N;
 
-	// 約数を列挙
+	// 약수를 나열
 	vector<long long> Yakusuu;
 	for (long long i = 1; i * i <= N; i++) {
 		if (N % i == 0) {
@@ -17,7 +17,7 @@ int main() {
 		}
 	}
 
-	// 小さい順にソート
+	// 오름차순으로 정렬
 	sort(Yakusuu.begin(), Yakusuu.end());
 
 	// 출력

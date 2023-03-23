@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// a の b 乗を m で割った余りを返す関数
+// a의 b 제곱을 m으로 나눈 나머지를 반환하는 함수
 long long Power(long long a, long long b, long long m) {
 	long long p = a, Answer = 1;
 	for (int i = 0; i < 60; i++) {

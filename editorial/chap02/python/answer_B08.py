@@ -19,7 +19,7 @@ S = [ [ 0 ] * 1501 for i in range(1501) ]
 for i in range(N):
 	S[X[i]][Y[i]] += 1
 
-# 누적합을 구한다
+# 누적 합을 구한다
 T = [ [ 0 ] * 1501 for i in range(1501) ]
 for i in range(1, 1501):
 	for j in range(1, 1501):

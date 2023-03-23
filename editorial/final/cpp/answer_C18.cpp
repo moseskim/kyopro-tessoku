@@ -11,12 +11,12 @@ int main() {
 	cin >> N;
 	for (int i = 1; i <= 2 * N; i++) cin >> A[i];
 
-	// 配列 dp の初期化
+	// 배열 dp 초기화
 	for (int i = 1; i <= 2 * N; i++) {
 		for (int j = 1; j <= 2 * N; j++) dp[i][j] = 1000000000;
 	}
 	
-	// 동적 계획 알고리즘（初期状態）
+	// 동적 계획 알고리즘(초기 상태)
 	for (int i = 1; i <= 2 * N - 1; i++) {
 		dp[i][i + 1] = abs(A[i] - A[i + 1]);
 	}
@@ -26,10 +26,10 @@ int main() {
 		for (int l = 1; l <= 2 * N - LEN; l++) {
 			int r = l + LEN;
 
-			// l 番目と r 番目を消す場合
+			// l번째와 r번째를 삭제하는 경우
 			dp[l][r] = min(dp[l][r], dp[l + 1][r - 1] + abs(A[l] - A[r]));
 
-			// 2 つの区間を合成させる場合
+			// 2개의 구간을 합성시키는 경우
 			for (int m = l; m < r; m++) {
 				dp[l][r] = min(dp[l][r], dp[l][m] + dp[m + 1][r]);
 			}

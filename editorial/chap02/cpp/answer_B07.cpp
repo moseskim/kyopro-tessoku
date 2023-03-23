@@ -17,7 +17,7 @@ int main() {
 		B[R[i]] -= 1;
 	}
 
-	// 누적합을 구한다
+	// 누적 합을 구한다
 	Answer[0] = B[0];
 	for (int d = 1; d <= T; d++) Answer[d] = Answer[d - 1] + B[d];
 

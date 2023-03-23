@@ -2,7 +2,7 @@
 #include <map>
 using namespace std;
 
-// a の b 乗を m で割った余りを返す関数
+// a의 b 제곱을 m으로 나눈 나머지를 반환하는 함수
 long long Power(long long a, long long b, long long m) {
 	long long p = a, Answer = 1;
 	for (int i = 0; i < 30; i++) {
@@ -15,7 +15,7 @@ long long Power(long long a, long long b, long long m) {
 	return Answer;
 }
 
-// a ÷ b を m で割った余りを返す関数
+// a ÷ b를 m으로 나눈 나머지를 반환하는 함수
 long long Division(long long a, long long b, long long m) {
 	return (a * Power(b, m - 2, m)) % m;
 }
@@ -31,8 +31,8 @@ int main() {
 	for (int i = 1; i <= N; i++) cin >> A[i];
 	for (int i = 1; i <= N; i++) A[i] %= mod;
 
-	// カード j と i を選ぶとする (j < i)
-	// 各 i に対して、何個の j で条件を満たすかを数える
+	// 카드 j와 i를 선택한다(j < i)
+	// 각 i에 대해, 몇 개의 j가 조건을 만족할 수 있는지 센다
 	long long Answer = 0;
 	for (int i = 1; i <= N; i++) {
 		if (A[i] == 0) {
@@ -40,7 +40,7 @@ int main() {
 			else Answer += 0;
 		}
 		else {
-			// A[i]*Goal mod 1000000007 = P を満たす整数が Goal
+			// A[i]*Goal mod 1000000007 = P를 만족하는 정수가 Goal
 			long long Goal = Division(P, A[i], mod);
 			Answer += Count[Goal];
 		}

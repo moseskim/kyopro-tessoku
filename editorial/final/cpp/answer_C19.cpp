@@ -26,8 +26,8 @@ public:
 	// 쿼리 2에 대한 처리
 	// u는 현재의 셀 번호, [a, b)는 셀에 대응하는 반개구간, [l, r)은 구할 반개구간
 	long long query(int l, int r, int a, int b, int u) {
-		if (r <= a || b <= l) return (1LL << 60); // 一切含まれない場合
-		if (l <= a && b <= r) return dat[u]; // 完全に含まれる場合
+		if (r <= a || b <= l) return (1LL << 60); // 전혀 포함하지 않는 경우
+		if (l <= a && b <= r) return dat[u]; // 완전히 포함되는 경우
 		int m = (a + b) / 2;
 		long long AnswerL = query(l, r, a, m, u * 2);
 		long long AnswerR = query(l, r, m, b, u * 2 + 1);
@@ -45,11 +45,11 @@ int main() {
 	cin >> N >> L >> K;
 	for (int i = 1; i <= N; i++) cin >> A[i] >> C[i];
 
-	// 各地点での「値段の最小値」を求める
+	// 각 지점에서의 '가격의 최솟값'을 구한다
 	for (int i = 1; i <= L - 1; i++) Min_Value[i] = (1LL << 60);
 	for (int i = 1; i <= N; i++) Min_Value[A[i]] = min(Min_Value[A[i]], C[i]);
 
-	// セグメント木に載せる
+	// 세그멘트 트리에 얹는다
 	Z.init(L);
 	for (int i = 1; i <= L - 1; i++) Z.update(i, Min_Value[i]);
 
