@@ -1,17 +1,13 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <stack>
+#include <algorithm>
 using namespace std;
  
-// 입력
 int N, M, A[100009], B[100009];
- 
-// 깊이 우선 탐색
-vector<int> G[100009];
-bool visited[100009];
- 
-// 깊이 우선 탐색의 궤적
-vector<int> Path, Answer;
+vector<int> G[100009];     // 그래프
+bool visited[100009];      // 노드 1이 파란색인가, 흰색인가
+vector<int> Path, Answer;  // 이동 경로의 궤적
  
 void dfs(int pos) {
 	// 골 지점에 도착했다!
