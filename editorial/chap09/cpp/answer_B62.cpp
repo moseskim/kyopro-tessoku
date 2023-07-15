@@ -21,9 +21,9 @@ void dfs(int pos) {
 	for (int i = 0; i < G[pos].size(); i++) {
 		int nex = G[pos][i];
 		if (visited[nex] == false) {
-			Path.push_back(nex); // 노드 nex를 경로에 추가
+			Path.push(nex); // 노드 nex를 경로에 추가
 			dfs(nex);
-			Path.pop_back(); // 노드 nex를 경로에서 삭제
+			Path.pop(); // 노드 nex를 경로에서 삭제
 		}
 	}
 	return;
@@ -40,9 +40,17 @@ int main() {
  
 	// 깊이 우선 탐색
 	for (int i = 1; i <= N; i++) visited[i] = false;
-	Path.push_back(1); // 노드 1(시작 지점)을 경로에 추가
+	Path.push(1); // 노드 1(시작 지점)을 경로에 추가
 	dfs(1);
  
+    	// 스택의 요소를 '아래부터 순서대로' 기록
+    	vector<int> Output;
+    	while (!Answer.empty()) {
+        	Output.push_back(Answer.top());
+        	Answer.pop();
+    	}
+    	reverse(Output.begin(),Output.end());
+
 	// 답 출력
 	for (int i = 0; i < Answer.size(); i++) {
 		if (i >= 1) cout << " ";
