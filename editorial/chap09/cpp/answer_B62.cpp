@@ -52,9 +52,9 @@ int main() {
     	reverse(Output.begin(),Output.end());
 
 	// 답 출력
-	for (int i = 0; i < Answer.size(); i++) {
+	for (int i = 0; i < Output.size(); i++) {
 		if (i >= 1) cout << " ";
-		cout << Answer[i];
+		cout << Output[i];
 	}
 	cout << endl;
 	return 0;
