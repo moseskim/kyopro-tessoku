@@ -173,24 +173,15 @@ int main() {
 	int ti = clock();
 	double current_score = get_score();
 	while (double(clock() - ti) / CLOCKS_PER_SEC < TIME_LIMIT) {
-		int v, x;
-		do {
-			v = rand() % K + 1; // 1 이상 K 이하인 무작위 정수
-			x = answer[G[v][rand() % G[v].size()]]; // 노드 v에 인접한 색을 무작위로 선택한다
-		} while (answer[v] == answer[x]);
+		int v = rand() % K + 1; // 1 이상 K 이하인 무작위 정수
+		int x = rand() % L + 1; // 1 이상 L 이하인 무작위 정수
 		int old_x = answer[v];
 		// 우선 변경하고, 점수를 평가한다
 		answer[v] = x;
 		double new_score = get_score();
 		// 점수 변화에 따라, 변경을 채용할 확률을 결정한다
-		double rand_value = double(rand() + 0.5) / (RAND_MAX + 1.0); // 0~1의 무작위 실수
-		double temp = 0.0040 - 0.0039 * (double(clock() - ti) / CLOCKS_PER_SEC / TIME_LIMIT);
-		if (new_score != 0.0 && rand_value < exp((new_score - current_score) / temp)) {
-			current_score = new_score;
-		}
-		else {
-			answer[v] = old_x;
-		}
+		if (new_score != 0.0 && current_score <= new_score) current_score = new_score;
+		else  answer[v] = old_x;
 	}
 	
 	// 출력
